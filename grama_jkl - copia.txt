@@ -1,0 +1,59 @@
+prog
+programa ID P_COMA PUNTO aldagaia hasi nahiko ASIGN irakurri erakutzi idatzi lerro-berria CAD gertatu-ezkero egin gertatzen-den-bitartian hemendik-hasita heldu-arte OP_OR OP_AND OP_REL OP_ADIT OP_MULT OP_NOT NUM PAR_ABR PAR_CER BOOL COMA COR_ABR COR_CER OP_C OP_EXP 
+prog decl sentc lsent sent expr exprp eand eandp erel erelp arit aritp term termp fact rando m0 m1 m2 m3 mq m4 m5 m6 var lista m7 lista_dim
+1 prog -> programa ID P_COMA decl sentc PUNTO
+2 decl -> 
+3 decl -> aldagaia lista_dim COR_CER P_COMA decl
+4 sentc -> hasi mq lsent nahiko
+5 lsent -> sent lsent 
+6 lsent ->  
+7 sent -> P_COMA 
+8 sent -> var m5 ASIGN expr P_COMA 
+9 sent -> sentc 
+10 sent -> irakurri ID P_COMA 
+11 sent -> erakutzi expr P_COMA 
+12 sent -> idatzi CAD m0 P_COMA 
+13 sent -> lerro-berria P_COMA 
+14 sent -> gertatu-ezkero expr egin mq sent 
+15 sent -> gertatzen-den-bitartian mq expr egin mq sent 
+16 sent -> egin sent gertatzen-den-bitartian expr P_COMA 
+17 sent -> hemendik-hasita ID m5 ASIGN expr m6 heldu-arte expr m7 egin sent 
+18 expr -> eand exprp 
+19 exprp ->  
+20 exprp -> OP_OR mq eand m4 exprp 
+21 eand -> erel eandp 
+22 eandp ->  
+23 eandp -> OP_AND mq erel m3 eandp 
+24 erel -> arit erelp 
+25 erelp ->  
+26 erelp -> OP_REL m0 arit m2 erelp 
+27 arit -> term aritp 
+28 aritp ->  
+29 aritp -> OP_ADIT m0 term m1 aritp 
+30 term -> fact termp 
+31 termp ->  
+32 termp -> OP_MULT m0 fact m1 termp 
+33 expr -> OP_NOT expr 
+34 fact -> OP_ADIT fact 
+35 fact -> rando 
+36 rando -> NUM 
+37 rando -> var 
+38 rando -> PAR_ABR expr PAR_CER 
+39 m0 ->
+40 m1 ->
+41 m2 ->
+42 m3 ->
+43 mq ->
+44 m4 ->
+45 rando -> BOOL
+46 m5 -> 
+47 var -> ID
+48 var -> lista COR_CER
+49 lista -> lista COMA arit
+50 lista -> ID m0 COR_ABR arit
+51 termp -> OP_C m0 fact m1 termp 
+52 termp -> OP_EXP m0 fact m1 termp 
+53 m6 ->
+54 m7 ->
+55 lista_dim -> lista_dim COMA NUM
+56 lista_dim -> ID m0 COR_ABR NUM

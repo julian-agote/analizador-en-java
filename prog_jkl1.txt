@@ -1,0 +1,20 @@
+programa num_primos;
+hasi
+idatzi "Zenbaki primoak 11-tik aurrera eta 1000-raino:";
+i:=11;
+gertatzen-den-bitartian i<1000 egin
+hasi 
+   j:= 2;
+   divisible := 0;
+   gertatzen-den-bitartian j <= i/2 eta divisible = 0 egin
+   hasi
+      k := i/j;
+      gertatu-ezkero k*j=i egin
+         divisible := 1;
+	  j := j + 1;	 
+   nahiko
+   gertatu-ezkero divisible = 0 egin
+      erakutzi i;
+   i := i + 1;
+nahiko
+nahiko.
