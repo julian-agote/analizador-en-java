@@ -1,0 +1,78 @@
+p,make,modify,remove,bind,call,write,halt,rjust,tabto,crlf,literalize,vector_attribute,nil,compute,acceptline,startup
+id,num,vector_attribute,^,{,},->,p,make,modify,remove,bind,call,write,halt,(,),igual,+,-,*,/,comentario,op_rel,cadena,rjust,tabto,crlf,literalize,variable,nil,menosu,doble_angulo_ab,doble_angulo_ce,compute,acceptline,startup
+OPS5,comandos,orden,atributo_escalar,posible_comentario,pares_atrib_valor,vector_name,elem_write,cond,negar_cond,pares_atrib_cond,elemento_condicion,acc,Racc,texto,Q4,conjuncion,disyuncion,lelementos,E,T,F,M,N,Q1,Q2,Q3,Q4,Q5,Q6,Q8,Q9,Q10,OPS5Prima
+OPS5-> ( orden ) comandos
+OPS5-> comentario comandos
+comandos-> ( orden ) comandos
+comandos-> comentario comandos
+comandos-> 
+orden-> literalize id atributo_escalar          
+orden-> vector_attribute id vector_name     
+orden-> startup comandos                
+orden-> make id Q1 pares_atrib_valor','BEGIN APUNTAR_LISTA_ATRIB; END;                
+orden-> p id Q4 cond Q8 -> ( acc ) Racc','BEGIN APUNTAR_LISTA_ACC; END;                          
+atributo_escalar-> id posible_comentario atributo_escalar                   
+atributo_escalar->                                       
+posible_comentario->comentario
+posible_comentario-> 
+vector_name->id vector_name
+vector_name-> 
+pares_atrib_valor-> ^ id M E Q3 pares_atrib_valor       
+pares_atrib_valor->                                     
+cond-> { variable M ( id M pares_atrib_cond ) } Q5 cond 
+cond-> negar_cond ( id M pares_atrib_cond ) Q6 cond              
+cond->     
+pares_atrib_cond-> ^ id M elemento_condicion Q2 pares_atrib_cond
+pares_atrib_cond-> 
+negar_cond-> -','BEGIN APILAR_NOMBRE(:1); END;
+negar_cond-> ','BEGIN APILAR_VACIO; END;
+elemento_condicion-> Q9 E                                             
+elemento_condicion-> op_rel M E                                
+elemento_condicion-> conjuncion 
+elemento_condicion-> disyuncion                          
+conjuncion-> { lelementos }   
+disyuncion-> doble_angulo_ab lelementos doble_angulo_ce
+lelementos-> elemento_condicion lelementos
+lelementos-> 
+acc-> make id M pares_atrib_valor','BEGIN ALTA_ACCION(''MAKE'') END;                   
+acc-> modify F M pares_atrib_valor','BEGIN ALTA_ACCION(''MODIFY'') END;             
+acc-> remove F','BEGIN ALTA_ACCION(''REMOVE'') END;                                
+acc-> bind variable E                                  
+acc-> call id                             
+acc-> write N texto','BEGIN ALTA_WRITE; END;
+acc-> halt  
+Racc-> ( acc ) Racc
+Racc->                                           
+texto-> elem_write texto                                         
+texto-> 
+elem_write-> ( crlf )                                         
+elem_write-> ( rjust num )
+elem_write-> ( tabto num )                                     
+elem_write-> E                                         
+E-> ( compute E )
+E-> ( acceptline F )
+E -> E + T','BEGIN SUMAR; END;
+E -> E - T','BEGIN RESTAR; END;
+E -> T
+T -> T * F','BEGIN MULTIPLICAR; END;
+T -> T / F','BEGIN DIVIDIR; END;
+T -> F
+F -> ( E )
+F-> menosu F','BEGIN CAMBIAR_SIGNO; END;
+F-> variable','BEGIN LEER_VAR(:1); END;
+F-> num','BEGIN LEER_NUM(:1); END;
+F-> id','BEGIN LEER_ID(:1); END;
+F-> cadena','BEGIN LEER_MENSAJE(:1); END;
+F-> nil
+M -> ','BEGIN APILAR_NOMBRE(:1); END;
+N -> ','BEGIN MARCAR_FIN_PARAMS; END;
+Q1 -> ','BEGIN CREAR_NUEVA_EMT(:1); END;
+Q2 -> ','BEGIN CREAR_NUEVO_ATRIB_COND; END;
+Q3 -> ','BEGIN CREAR_NUEVO_ATRIB; END;
+Q4 -> ','BEGIN CREAR_NUEVA_REGLA(:1); END;
+Q5 -> ','BEGIN CREAR_NUEVA_CVAR; END;
+Q6 -> ','BEGIN CREAR_NUEVA_COND; END;
+Q8 -> ','BEGIN APUNTAR_LISTA_COND; END;
+Q10 -> ','BEGIN APUNTAR_LISTA_ACC; END;
+Q9 ->','BEGIN APILAR_ASIGNACION; END;
+OPS5Prima -> OPS5
