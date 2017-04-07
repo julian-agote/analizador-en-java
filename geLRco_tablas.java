@@ -355,20 +355,51 @@ class Gramatica {
     /********************************************
 	* muestra por pantalla todas las reglas de produccion de la gramatica
 	*********************************************/
-    void verreglas() {
+    void verreglas(PrintWriter outputStream,boolean pant) {
         StringBuffer cad = new StringBuffer();
         String sim;
         TRegla regla;
+        for (Enumeration e = T.elements(); e.hasMoreElements(); ) {
+			sim = (String)e.nextElement();
+			if(e.hasMoreElements()){
+				cad.append(sim);
+				cad.append(" ");
+			}	
+		}
+		if(pant)
+			System.out.println(String.valueOf(cad));
+		else{
+			outputStream.println(axioma.substring(0,axioma.length()-1));
+			outputStream.println(String.valueOf(cad));
+		}	
+		cad = new StringBuffer();
+        for (Enumeration e = V.elements(); e.hasMoreElements(); ) {
+			sim = (String)e.nextElement();
+			if(e.hasMoreElements()){
+				cad.append(sim);
+				cad.append(" ");
+			}	
+		}
+		if(pant)
+			System.out.println(String.valueOf(cad));
+		else
+			outputStream.println(String.valueOf(cad));
         for (Enumeration e = P.elements(); e.hasMoreElements(); ) {
             regla = (TRegla)e.nextElement();
-            cad = new StringBuffer(String.valueOf(regla.num));
-            cad.append(":" + regla.lhs + "->");
-            for (Enumeration enum2 = regla.rhs.elements();
-                 enum2.hasMoreElements(); ) {
-                sim = (String)enum2.nextElement();
-                cad.append(sim);
-            }
-            System.out.println(String.valueOf(cad));
+			if(regla.num>0){
+				cad = new StringBuffer(String.valueOf(regla.num));
+				cad.append(" " + regla.lhs + " -> ");
+				for (Enumeration enum2 = regla.rhs.elements();enum2.hasMoreElements(); ) {
+					sim = (String)enum2.nextElement();
+					cad.append(sim);
+					if(enum2.hasMoreElements())
+						cad.append(" ");
+				}
+				if(pant)
+					System.out.println(String.valueOf(cad));
+				else
+					outputStream.println(String.valueOf(cad));
+			}
         }
     }
     void escribereglas(PrintWriter outputStream) {
@@ -851,7 +882,7 @@ class Gramatica {
 		StringBuffer sb2;
 		boolean sig;
 		int n=0;
-		PrintWriter outputStream3 = new PrintWriter(new FileWriter("tabla_acc.txt"));
+		PrintWriter outputStream3 = new PrintWriter(new FileWriter("tabla_acc"+this.sufijo+".txt"));
 		for(Enumeration e = tablaaccion.elements(); e.hasMoreElements();){
 			n++;
 			acc = (TVectorAccion)e.nextElement();
@@ -886,7 +917,7 @@ class Gramatica {
 		outputStream.println("\t\tString l;");
 		outputStream.println("\t\tint fila = 0,ncol;");
 		outputStream.println("\t\ttry{");
-		outputStream.println("\t\t	inputStream = new BufferedReader(new FileReader(\"tabla_acc.txt\"));");
+		outputStream.println("\t\t	inputStream = new BufferedReader(new FileReader(\"tabla_acc"+this.sufijo+".txt\"));");
 		outputStream.println("\t\t	while((l=inputStream.readLine())!=null){		");
 		outputStream.println("\t\t	  String[] vars= l.split(\",\");");
 		outputStream.println("\t\t	  if(vars.length%6==0)");
@@ -1447,6 +1478,9 @@ public class geLRco_tablas {
 			outputStream.println("import java.io.IOException;");
 			outputStream.println("import java.io.FileReader;");
 			outputStream.println("import java.io.BufferedReader;");
+			outputStream.println("/* ---------------- Gramatica: grama"+g.sufijo+".txt ------------------");
+			g.verreglas(outputStream,false);
+			outputStream.println("---------------------------------------------------------------- */");
 			outputStream.println("class TRegla {");
 			outputStream.println("    int num;");
 			outputStream.println("    String lhs;");
