@@ -1,9 +1,8 @@
 # analizador-en-java
-Son programas en java para a partir de una definicion de gramatica generar un programa que sirva de analizador sintactico de una expresion escrita en la gramatica especificada.
+Son programas en java para funcionar a modo de analizadores sintacticos de gramaticas definidas por nosotros en ficheros txt. Para ello se tiene un programa geLRco.java que a partir de una definicion de gramatica va a generar el programa que sirva de analizador sintactico (de expresiones escritas en la gramatica especificada).
 Para obtener el analizador sintactico a partir de un fichero con la gramatica p.ej. grama_jkl.txt se introduce el siguiente comando:
 java geLRco_tablas grama_jkl.txt
-Como salida se generará un fichero parser.java (dentro de un directorio parser_jkl, que nosotros habremos creado previamente) que contendra el analizador propiamente dicho.
-A este directorio (parser_jkl) moveremos los ficheros TElement.java, TEntrada.java (que contendra el analizador lexico personalizado para la gramatica), TTablaSimbolos.java y TGestorSemantico.java (que contendra las acciones semanticas para la gramatica). Todos estos tienen que tener la linea "package parser_jkl;" como cabecera.
-Si la gramatica fuera otra p.ej. grama_ops5.txt, se crearia un directorio parser_ops5 y se moverian los mismos ficheros pero ahora tendrian en la cabecera "package parser_ops5;".
-Faltaria compilar el proyecto completo. Para ello basta ejecutar desde la linea de comandos un fichero (.bat) como el que aparace compilar_jkl.bat.
-Como se ve en la 
+Como salida se generará un fichero parser.java (dentro de un directorio parser_jkl, que nosotros habremos creado previamente) que contendra las tablas necesarias para el analizador sintactico ascendente LR0, propiamente dicho.
+A este directorio (parser_jkl) moveremos los ficheros TElement.java, TEntrada.java (que contendra el analizador lexico personalizado para la gramatica), TTablaSimbolos.java y TGestorSemantico.java (que contendra las acciones semanticas para las reglas de la gramatica). Todos estos tienen que tener la linea "package parser_jkl;" como cabecera. Luego en el directorio padre de este deberá existir un programa parser_JKL.java que tendrá el procedimiento main y se encargará de la llamada al analizador sintactico propiamente dicho.
+Si la gramatica fuera otra p.ej. grama_ops5.txt, se crearia un directorio parser_ops5 y se moverian los mismos ficheros a dicho directorio, pero ahora tendrian en la cabecera "package parser_ops5;". Y el programa que llamaria al parser (que tendría el main) sería parser_OPS5.java.
+Faltaria compilar el proyecto completo (desde el directorio padre, aquel en el que se encuentran geLRco.java y parser_JKL.java). Para ello basta ejecutar desde la linea de comandos un fichero (.bat) como el que aparace: compilar_jkl.bat.
