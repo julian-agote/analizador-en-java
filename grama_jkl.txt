@@ -1,9 +1,9 @@
 prog
 programa ID P_COMA PUNTO aldagaia hasi nahiko ASIGN irakurri erakutzi idatzi lerro-berria CAD gertatu-ezkero egin gertatzen-den-bitartian hemendik-hasita heldu-arte OP_OR OP_AND OP_REL OP_ADIT OP_MULT OP_NOT NUM PAR_ABR PAR_CER BOOL COMA COR_ABR COR_CER OP_C OP_EXP 
-prog decl sentc lsent sent expr exprp eand eandp erel erelp arit aritp term termp fact rando m0 m1 m2 m3 mq m4 m5 m6 var lista m7 
+prog decl sentc lsent sent expr exprp eand eandp erel erelp arit aritp term termp fact rando m0 m1 m2 m3 mq m4 m5 m6 var lista m7 m8
 1 prog -> programa ID P_COMA decl sentc PUNTO
 2 decl -> 
-3 decl -> aldagaia ID m0 COR_ABR NUM m0 COR_CER P_COMA decl
+3 decl -> aldagaia ID m0 COR_ABR NUM m0 COR_CER P_COMA m8 decl
 4 sentc -> hasi mq lsent nahiko
 5 lsent -> sent lsent 
 6 lsent ->  
@@ -55,3 +55,4 @@ prog decl sentc lsent sent expr exprp eand eandp erel erelp arit aritp term term
 52 termp -> OP_EXP m0 fact m1 termp 
 53 m6 ->
 54 m7 ->
+55 m8 -> 

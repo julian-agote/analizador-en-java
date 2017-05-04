@@ -3,6 +3,66 @@ import java.util.*;
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.BufferedReader;
+/* ---------------- Gramatica: grama_jkl.txt ------------------
+prog
+programa ID P_COMA PUNTO aldagaia hasi nahiko ASIGN irakurri erakutzi idatzi lerro-berria CAD gertatu-ezkero egin gertatzen-den-bitartian hemendik-hasita heldu-arte OP_OR OP_AND OP_REL OP_ADIT OP_MULT OP_NOT NUM PAR_ABR PAR_CER BOOL COMA COR_ABR COR_CER OP_C OP_EXP 
+prog decl sentc lsent sent expr exprp eand eandp erel erelp arit aritp term termp fact rando m0 m1 m2 m3 mq m4 m5 m6 var lista m7 m8 
+1 prog -> programa ID P_COMA decl sentc PUNTO
+2 decl -> 
+3 decl -> aldagaia ID m0 COR_ABR NUM m0 COR_CER P_COMA m8 decl
+4 sentc -> hasi mq lsent nahiko
+5 lsent -> sent lsent
+6 lsent -> 
+7 sent -> P_COMA
+8 sent -> var m5 ASIGN expr P_COMA
+9 sent -> sentc
+10 sent -> irakurri ID P_COMA
+11 sent -> erakutzi expr P_COMA
+12 sent -> idatzi CAD m0 P_COMA
+13 sent -> lerro-berria P_COMA
+14 sent -> gertatu-ezkero expr egin mq sent
+15 sent -> gertatzen-den-bitartian mq expr egin mq sent
+16 sent -> egin sent gertatzen-den-bitartian expr P_COMA
+17 sent -> hemendik-hasita ID m5 ASIGN expr m6 heldu-arte expr m7 egin sent
+18 expr -> eand exprp
+19 exprp -> 
+20 exprp -> OP_OR mq eand m4 exprp
+21 eand -> erel eandp
+22 eandp -> 
+23 eandp -> OP_AND mq erel m3 eandp
+24 erel -> arit erelp
+25 erelp -> 
+26 erelp -> OP_REL m0 arit m2 erelp
+27 arit -> term aritp
+28 aritp -> 
+29 aritp -> OP_ADIT m0 term m1 aritp
+30 term -> fact termp
+31 termp -> 
+32 termp -> OP_MULT m0 fact m1 termp
+33 expr -> OP_NOT expr
+34 fact -> OP_ADIT fact
+35 fact -> rando
+36 rando -> NUM
+37 rando -> var
+38 rando -> PAR_ABR expr PAR_CER
+39 m0 -> 
+40 m1 -> 
+41 m2 -> 
+42 m3 -> 
+43 mq -> 
+44 m4 -> 
+45 rando -> BOOL
+46 m5 -> 
+47 var -> ID
+48 var -> lista COR_CER
+49 lista -> lista COMA arit
+50 lista -> ID m0 COR_ABR arit
+51 termp -> OP_C m0 fact m1 termp
+52 termp -> OP_EXP m0 fact m1 termp
+53 m6 -> 
+54 m7 -> 
+55 m8 -> 
+---------------------------------------------------------------- */
 class TRegla {
     int num;
     String lhs;
@@ -99,7 +159,7 @@ public class parser{
 		P.addElement(regla);
 		regla = new TRegla("decl","",2);
 		P.addElement(regla);
-		regla = new TRegla("decl","aldagaia ID m0 COR_ABR NUM m0 COR_CER P_COMA decl",3);
+		regla = new TRegla("decl","aldagaia ID m0 COR_ABR NUM m0 COR_CER P_COMA m8 decl",3);
 		P.addElement(regla);
 		regla = new TRegla("sentc","hasi mq lsent nahiko",4);
 		P.addElement(regla);
@@ -202,6 +262,8 @@ public class parser{
 		regla = new TRegla("m6","",53);
 		P.addElement(regla);
 		regla = new TRegla("m7","",54);
+		P.addElement(regla);
+		regla = new TRegla("m8","",55);
 		P.addElement(regla);
 		initablaira();
 		initablaaccion();
@@ -410,7 +472,7 @@ public class parser{
 			{getElemIra("m0",239)},
 			{},
 			{},
-			{getElemIra("aldagaia",6),getElemIra("decl",240)},
+			{getElemIra("m8",240)},
 			{},
 			{getElemIra("ID",81),getElemIra("OP_ADIT",82),getElemIra("NUM",84),getElemIra("PAR_ABR",85),getElemIra("BOOL",86),getElemIra("eand",241),getElemIra("erel",89),getElemIra("arit",90),getElemIra("term",91),getElemIra("fact",92),getElemIra("rando",93),getElemIra("var",94),getElemIra("lista",95)},
 			{getElemIra("ID",81),getElemIra("OP_ADIT",82),getElemIra("NUM",84),getElemIra("PAR_ABR",85),getElemIra("BOOL",86),getElemIra("erel",242),getElemIra("arit",90),getElemIra("term",91),getElemIra("fact",92),getElemIra("rando",93),getElemIra("var",94),getElemIra("lista",95)},
@@ -457,57 +519,58 @@ public class parser{
 			{getElemIra("ID",132),getElemIra("OP_ADIT",133),getElemIra("NUM",134),getElemIra("PAR_ABR",135),getElemIra("BOOL",136),getElemIra("fact",281),getElemIra("rando",140),getElemIra("var",141),getElemIra("lista",142)},
 			{getElemIra("ID",132),getElemIra("OP_ADIT",133),getElemIra("NUM",134),getElemIra("PAR_ABR",135),getElemIra("BOOL",136),getElemIra("fact",282),getElemIra("rando",140),getElemIra("var",141),getElemIra("lista",142)},
 			{getElemIra("ID",132),getElemIra("OP_ADIT",133),getElemIra("NUM",134),getElemIra("PAR_ABR",135),getElemIra("BOOL",136),getElemIra("fact",283),getElemIra("rando",140),getElemIra("var",141),getElemIra("lista",142)},
-			{},
-			{getElemIra("m4",284)},
-			{getElemIra("m3",285)},
-			{getElemIra("m2",286)},
-			{getElemIra("m1",287)},
+			{getElemIra("aldagaia",6),getElemIra("decl",284)},
+			{getElemIra("m4",285)},
+			{getElemIra("m3",286)},
+			{getElemIra("m2",287)},
 			{getElemIra("m1",288)},
 			{getElemIra("m1",289)},
 			{getElemIra("m1",290)},
-			{getElemIra("OP_OR",97),getElemIra("exprp",291)},
-			{getElemIra("OP_AND",99),getElemIra("eandp",292)},
-			{getElemIra("OP_REL",101),getElemIra("erelp",293)},
-			{getElemIra("OP_ADIT",103),getElemIra("aritp",294)},
-			{getElemIra("OP_MULT",105),getElemIra("OP_C",106),getElemIra("OP_EXP",107),getElemIra("termp",295)},
+			{getElemIra("m1",291)},
+			{getElemIra("OP_OR",97),getElemIra("exprp",292)},
+			{getElemIra("OP_AND",99),getElemIra("eandp",293)},
+			{getElemIra("OP_REL",101),getElemIra("erelp",294)},
+			{getElemIra("OP_ADIT",103),getElemIra("aritp",295)},
 			{getElemIra("OP_MULT",105),getElemIra("OP_C",106),getElemIra("OP_EXP",107),getElemIra("termp",296)},
 			{getElemIra("OP_MULT",105),getElemIra("OP_C",106),getElemIra("OP_EXP",107),getElemIra("termp",297)},
-			{getElemIra("OP_OR",115),getElemIra("exprp",298)},
-			{getElemIra("OP_AND",117),getElemIra("eandp",299)},
-			{getElemIra("OP_REL",119),getElemIra("erelp",300)},
-			{getElemIra("OP_ADIT",121),getElemIra("aritp",301)},
-			{getElemIra("OP_MULT",123),getElemIra("OP_C",124),getElemIra("OP_EXP",125),getElemIra("termp",302)},
+			{getElemIra("OP_MULT",105),getElemIra("OP_C",106),getElemIra("OP_EXP",107),getElemIra("termp",298)},
+			{getElemIra("OP_OR",115),getElemIra("exprp",299)},
+			{getElemIra("OP_AND",117),getElemIra("eandp",300)},
+			{getElemIra("OP_REL",119),getElemIra("erelp",301)},
+			{getElemIra("OP_ADIT",121),getElemIra("aritp",302)},
 			{getElemIra("OP_MULT",123),getElemIra("OP_C",124),getElemIra("OP_EXP",125),getElemIra("termp",303)},
 			{getElemIra("OP_MULT",123),getElemIra("OP_C",124),getElemIra("OP_EXP",125),getElemIra("termp",304)},
+			{getElemIra("OP_MULT",123),getElemIra("OP_C",124),getElemIra("OP_EXP",125),getElemIra("termp",305)},
 			{},
 			{},
 			{},
-			{getElemIra("PAR_CER",305)},
-			{getElemIra("heldu-arte",306)},
-			{getElemIra("mq",307)},
-			{},
+			{getElemIra("PAR_CER",306)},
+			{getElemIra("heldu-arte",307)},
 			{getElemIra("mq",308)},
 			{},
-			{getElemIra("m0",309)},
+			{getElemIra("mq",309)},
 			{},
 			{getElemIra("m0",310)},
 			{},
 			{getElemIra("m0",311)},
+			{},
 			{getElemIra("m0",312)},
 			{getElemIra("m0",313)},
+			{getElemIra("m0",314)},
 			{},
 			{},
-			{getElemIra("m1",314)},
 			{getElemIra("m1",315)},
 			{getElemIra("m1",316)},
 			{getElemIra("m1",317)},
-			{getElemIra("OP_OR",150),getElemIra("exprp",318)},
-			{getElemIra("OP_AND",152),getElemIra("eandp",319)},
-			{getElemIra("OP_REL",154),getElemIra("erelp",320)},
-			{getElemIra("OP_ADIT",156),getElemIra("aritp",321)},
-			{getElemIra("OP_MULT",158),getElemIra("OP_C",159),getElemIra("OP_EXP",160),getElemIra("termp",322)},
+			{getElemIra("m1",318)},
+			{},
+			{getElemIra("OP_OR",150),getElemIra("exprp",319)},
+			{getElemIra("OP_AND",152),getElemIra("eandp",320)},
+			{getElemIra("OP_REL",154),getElemIra("erelp",321)},
+			{getElemIra("OP_ADIT",156),getElemIra("aritp",322)},
 			{getElemIra("OP_MULT",158),getElemIra("OP_C",159),getElemIra("OP_EXP",160),getElemIra("termp",323)},
 			{getElemIra("OP_MULT",158),getElemIra("OP_C",159),getElemIra("OP_EXP",160),getElemIra("termp",324)},
+			{getElemIra("OP_MULT",158),getElemIra("OP_C",159),getElemIra("OP_EXP",160),getElemIra("termp",325)},
 			{},
 			{},
 			{},
@@ -523,18 +586,18 @@ public class parser{
 			{},
 			{},
 			{},
-			{getElemIra("ID",52),getElemIra("OP_ADIT",53),getElemIra("OP_NOT",54),getElemIra("NUM",55),getElemIra("PAR_ABR",56),getElemIra("BOOL",57),getElemIra("expr",325),getElemIra("eand",59),getElemIra("erel",60),getElemIra("arit",61),getElemIra("term",62),getElemIra("fact",63),getElemIra("rando",64),getElemIra("var",65),getElemIra("lista",66)},
-			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("eand",326),getElemIra("erel",227),getElemIra("arit",228),getElemIra("term",229),getElemIra("fact",230),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
-			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("erel",327),getElemIra("arit",228),getElemIra("term",229),getElemIra("fact",230),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
-			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("arit",328),getElemIra("term",229),getElemIra("fact",230),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
-			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("term",329),getElemIra("fact",230),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
-			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("fact",330),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
+			{getElemIra("ID",52),getElemIra("OP_ADIT",53),getElemIra("OP_NOT",54),getElemIra("NUM",55),getElemIra("PAR_ABR",56),getElemIra("BOOL",57),getElemIra("expr",326),getElemIra("eand",59),getElemIra("erel",60),getElemIra("arit",61),getElemIra("term",62),getElemIra("fact",63),getElemIra("rando",64),getElemIra("var",65),getElemIra("lista",66)},
+			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("eand",327),getElemIra("erel",227),getElemIra("arit",228),getElemIra("term",229),getElemIra("fact",230),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
+			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("erel",328),getElemIra("arit",228),getElemIra("term",229),getElemIra("fact",230),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
+			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("arit",329),getElemIra("term",229),getElemIra("fact",230),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
+			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("term",330),getElemIra("fact",230),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
 			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("fact",331),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
 			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("fact",332),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
-			{getElemIra("OP_ADIT",186),getElemIra("aritp",333)},
-			{getElemIra("OP_MULT",188),getElemIra("OP_C",189),getElemIra("OP_EXP",190),getElemIra("termp",334)},
+			{getElemIra("ID",219),getElemIra("OP_ADIT",220),getElemIra("NUM",222),getElemIra("PAR_ABR",223),getElemIra("BOOL",224),getElemIra("fact",333),getElemIra("rando",231),getElemIra("var",232),getElemIra("lista",233)},
+			{getElemIra("OP_ADIT",186),getElemIra("aritp",334)},
 			{getElemIra("OP_MULT",188),getElemIra("OP_C",189),getElemIra("OP_EXP",190),getElemIra("termp",335)},
 			{getElemIra("OP_MULT",188),getElemIra("OP_C",189),getElemIra("OP_EXP",190),getElemIra("termp",336)},
+			{getElemIra("OP_MULT",188),getElemIra("OP_C",189),getElemIra("OP_EXP",190),getElemIra("termp",337)},
 			{},
 			{},
 			{},
@@ -542,27 +605,27 @@ public class parser{
 			{},
 			{},
 			{},
-			{getElemIra("m7",337)},
-			{getElemIra("m4",338)},
-			{getElemIra("m3",339)},
-			{getElemIra("m2",340)},
-			{getElemIra("m1",341)},
+			{getElemIra("m7",338)},
+			{getElemIra("m4",339)},
+			{getElemIra("m3",340)},
+			{getElemIra("m2",341)},
 			{getElemIra("m1",342)},
 			{getElemIra("m1",343)},
 			{getElemIra("m1",344)},
+			{getElemIra("m1",345)},
 			{},
 			{},
 			{},
 			{},
-			{getElemIra("egin",345)},
-			{getElemIra("OP_OR",267),getElemIra("exprp",346)},
-			{getElemIra("OP_AND",269),getElemIra("eandp",347)},
-			{getElemIra("OP_REL",271),getElemIra("erelp",348)},
-			{getElemIra("OP_ADIT",273),getElemIra("aritp",349)},
-			{getElemIra("OP_MULT",275),getElemIra("OP_C",276),getElemIra("OP_EXP",277),getElemIra("termp",350)},
+			{getElemIra("egin",346)},
+			{getElemIra("OP_OR",267),getElemIra("exprp",347)},
+			{getElemIra("OP_AND",269),getElemIra("eandp",348)},
+			{getElemIra("OP_REL",271),getElemIra("erelp",349)},
+			{getElemIra("OP_ADIT",273),getElemIra("aritp",350)},
 			{getElemIra("OP_MULT",275),getElemIra("OP_C",276),getElemIra("OP_EXP",277),getElemIra("termp",351)},
 			{getElemIra("OP_MULT",275),getElemIra("OP_C",276),getElemIra("OP_EXP",277),getElemIra("termp",352)},
-			{getElemIra("ID",15),getElemIra("P_COMA",16),getElemIra("hasi",17),getElemIra("irakurri",18),getElemIra("erakutzi",19),getElemIra("idatzi",20),getElemIra("lerro-berria",21),getElemIra("gertatu-ezkero",22),getElemIra("egin",23),getElemIra("gertatzen-den-bitartian",24),getElemIra("hemendik-hasita",25),getElemIra("sentc",26),getElemIra("sent",353),getElemIra("var",29),getElemIra("lista",30)},
+			{getElemIra("OP_MULT",275),getElemIra("OP_C",276),getElemIra("OP_EXP",277),getElemIra("termp",353)},
+			{getElemIra("ID",15),getElemIra("P_COMA",16),getElemIra("hasi",17),getElemIra("irakurri",18),getElemIra("erakutzi",19),getElemIra("idatzi",20),getElemIra("lerro-berria",21),getElemIra("gertatu-ezkero",22),getElemIra("egin",23),getElemIra("gertatzen-den-bitartian",24),getElemIra("hemendik-hasita",25),getElemIra("sentc",26),getElemIra("sent",354),getElemIra("var",29),getElemIra("lista",30)},
 			{},
 			{},
 			{},
@@ -586,12 +649,12 @@ public class parser{
 		return new TEltoAccion(ptipo,psimbolo,psig_estado);
 	}
 	void initablaaccion() throws IOException {
-		TEltoAccion[][] bindVars = new TEltoAccion[354][];
+		TEltoAccion[][] bindVars = new TEltoAccion[355][];
 		BufferedReader inputStream = null;
 		String l;
 		int fila = 0,ncol;
 		try{
-			inputStream = new BufferedReader(new FileReader("tabla_acc.txt"));
+			inputStream = new BufferedReader(new FileReader("tabla_acc_jkl.txt"));
 			while((l=inputStream.readLine())!=null){		
 			  String[] vars= l.split(",");
 			  if(vars.length%6==0)

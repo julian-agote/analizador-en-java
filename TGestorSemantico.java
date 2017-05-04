@@ -139,7 +139,7 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
 			return ts.get(pos).get_valor(ind).toString();
 		return nombre;	
 	}
-	String sgte_uso(String nombre, int ind){
+	void sgte_uso(String nombre, int ind){
 	    int pos = -1;
 		for(int i=0;i<ts.size();i++)
 			if(ts.get(i).nombre().equals(nombre)){
@@ -148,9 +148,7 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
 			}	
         if (pos != -1){
 			ts.get(pos).set_activo(ind);
-			return nombre;
 		}
-		return null;
 	}	
 	void desactivar(String nombre){
 	    int pos = -1;
@@ -170,7 +168,7 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
 				break;
 			}	
         if (pos != -1)
-			return (ts.get(i).activo()>=0?true:false);
+			return (ts.get(pos).activo()>=0?true:false);
 		return false;
 	}	
 	void guardar_valor(String nombre, String valor){
@@ -346,7 +344,7 @@ public class TGestorSemantico{
 		StringBuffer sb;
 		String t,cierto,falso,cod;
 	    Cuad q;
-		String ind_cuad[],ultimo_quad;
+		String ind_cuad[],aux_cuad[],ultimo_quad;
 		ArrayList<Bloque_basico> tbloques;
 		int[] lideres; int n=0,i;
 		Bloque_basico bloque, bbloque;
@@ -355,7 +353,10 @@ public class TGestorSemantico{
 			switch (numRegla) {
 			    case 1: arg1 = pila_sem.pop();
 						cod = gen("RET",null,null,null);
-						ind_cuad = arg1.codigo().split(",");
+						aux_cuad = arg1.codigo().split(",");
+						ind_cuad = new String[aux_cuad.length+1];
+						System.arraycopy(aux_cuad,0,ind_cuad,0,aux_cuad.length);
+						ind_cuad[aux_cuad.length] = cod;
 						for (int j = 0; j < ind_cuad.length; j++)
 							if(!Util.stringEmpty(ind_cuad[j])){
 								q = (Cuad)tcuad.get(Integer.valueOf(ind_cuad[j]).intValue());
@@ -380,13 +381,15 @@ public class TGestorSemantico{
 									outputStream.println(ind_cuad[j]+": WRITE "+q.arg1());
 								else if(q.op().equals("WRITEC")) 
 									outputStream.println(ind_cuad[j]+": WRITE \""+q.arg1()+"\"");
+								else if(q.op().equals("RET")) 
+									outputStream.println(ind_cuad[j]+": RET");
 								else if(q.op().equals("[]=")) 
 									outputStream.println(ind_cuad[j]+": "+q.arg1()+"["+q.arg2()+"]:="+q.res());
 								else if(q.op().equals("=[]")) 
 									outputStream.println(ind_cuad[j]+": "+q.res()+":="+q.arg1()+"["+q.arg2()+"]");
 								else outputStream.println(ind_cuad[j]+": op desc "+q.op()+" arg1="+Util.getString(q.arg1(),"")+" arg2="+Util.getString(q.arg2(),"")+" res="+Util.getString(q.res(),""));
 							}	
-						outputStream.println(cod+": RET");	
+						//outputStream.println(cod+": RET");	
 						outputStream.close();
 						// ejecutar el programa en lenguaje intermedio
 						int j = 0;
@@ -445,6 +448,7 @@ public class TGestorSemantico{
 									j++;
 								}else if(q.op().equals("=[]")){
 									int b = Integer.valueOf(variables.leer_valor(q.arg2())).intValue();
+									System.out.println("indice="+q.arg2()+" valor="+b);
 									int a = Integer.valueOf(variables.leer_valor(q.arg1(),b)).intValue();
 									variables.guardar_valor(q.res(),new Integer(a).toString());
 									j++;									
@@ -457,7 +461,7 @@ public class TGestorSemantico{
 								}else if(q.op().equals(":=")){
 									variables.guardar_valor(q.res(),variables.leer_valor(q.arg1()));
 									j++;
-								}else if(q.op().substring(0,2).equals("IF"))
+								}else if(q.op().substring(0,2).equals("IF")){
 									if(variables.leer_valor(q.arg1()).indexOf(".")<0){
 										int a = Integer.valueOf(variables.leer_valor(q.arg1())).intValue();
 										int b = Integer.valueOf(variables.leer_valor(q.arg2())).intValue();
@@ -564,15 +568,16 @@ public class TGestorSemantico{
 													}	
 											}else j++;										
 									}		
-								else if(q.op().trim().equalsIgnoreCase("GOTO")){									 
+								}else if(q.op().trim().equalsIgnoreCase("GOTO")){									 
 										for(int k=0;k<ind_cuad.length;k++)
 											if(ind_cuad[k].equals(q.res())){
 												j=k;
 												break;
 											}	
-								}else if(q.op().equals("RET"))
+								}else if(q.op().equals("RET")){
+									j++;
 									break;		
-								else{ 
+								}else{ 
 									System.out.println("Operador sin identificar ="+q.op());	
 									break;
 								}	
@@ -703,6 +708,15 @@ public class TGestorSemantico{
 							String lcuad = String.valueOf(bloque.lider);
 							for(Iterator<String> iter=bloque.cuadruplos.iterator();iter.hasNext();)
 								lcuad+=","+(String)iter.next();
+							for(ListIterator<String> iter=bloque.cuadruplos.listIterator();iter.hasPrevious();){
+								ultimo_quad = (String)iter.previous();
+								q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
+								if(q.op().equals(":=")){
+									variables.desactivar(q.res());
+									variables.sgte_uso(q.arg1(),Integer.valueOf(ultimo_quad).intValue());
+									variables.sgte_uso(q.arg2(),Integer.valueOf(ultimo_quad).intValue());
+								}
+							}
 							String lpred = new String();
 							for(Iterator<String> iter=bloque.pred.iterator();iter.hasNext();)
 								lpred+=","+(String)iter.next();
@@ -830,13 +844,13 @@ public class TGestorSemantico{
 						if(arg2.codigo()!=null && !arg2.codigo().equals("")) cod = arg2.codigo()+","+cod;
 						pila_sem.push(new Reg(t,String.valueOf(variables.insertar(t)),cod,null,null,null));
 						break;
-				case 56:arg2 = pila_sem.pop();
+				case 53:arg2 = pila_sem.pop();
 						arg1 = pila_sem.pop();
 						cod = gen(":=", arg2.nombre(), null, arg1.nombre());
 						if(arg2.codigo()!=null) cod = arg2.codigo()+","+cod;
 						pila_sem.push(new Reg(arg1.nombre(),null,cod,String.valueOf(tcuad.size()),null,null));
 						break;
-                case 57:arg2 = pila_sem.pop();
+                case 54:arg2 = pila_sem.pop();
 						arg1 = pila_sem.pop();	
 						cod = arg1.codigo();
 						if(arg2.codigo()!=null)
@@ -847,7 +861,7 @@ public class TGestorSemantico{
 						cod += ","+gen("GOTO",null,null,null);
 						pila_sem.push(new Reg(arg1.nombre(),null,cod,arg1.quad(),cierto,falso));
 						break;
-                case 59:arg2 = pila_sem.pop();
+                case 55:arg2 = pila_sem.pop();
 						arg1 = pila_sem.pop();
 						variables.insertar(arg1.nombre(),Integer.valueOf(arg2.nombre()).intValue());
 						break;
