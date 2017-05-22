@@ -285,6 +285,11 @@ class Bloque_basico{
 		this.succ = new ArrayList<String>();
 		this.pred = new ArrayList<String>();
 	}
+	Bloque_basico(){
+		this.cuadruplos = new ArrayList<String>();
+		this.succ = new ArrayList<String>();
+		this.pred = new ArrayList<String>();
+	}
 	void aniadir_cuad(String _n){
 		this.cuadruplos.add(_n);
 	}
@@ -339,6 +344,44 @@ public class TGestorSemantico{
 				}	
 		}	
 	}
+	void encontrar_lazos(ArrayList<Bloque_basico> tbloques,int[] lazo, int n, ArrayList<String> listaLazos){
+		Bloque_basico bloque = new Bloque_basico();
+		String sucesor,cad;
+		for(int k=0;k<tbloques.size();k++){
+			bloque = tbloques.get(k);
+			if(bloque.nbloque == lazo[n])
+				break;
+		}
+		for(Iterator<String> iter=bloque.succ.iterator();iter.hasNext();){
+			sucesor = (String)iter.next();
+			if(lazo[0]==Integer.valueOf(sucesor).intValue()){
+				cad = new Integer(lazo[0]).toString();
+				for(int k=1;k<n;k++) cad+="->"+(new Integer(lazo[k]).toString());
+				listaLazos.add(cad+"->"+new Integer(lazo[0]).toString());
+			}else{
+				lazo[n+1]=Integer.valueOf(sucesor).intValue();
+				encontrar_lazos(tbloques,lazo,n+1,listaLazos);
+			}
+		}
+	}
+	boolean no_esta(String c, ArrayList<String> b){
+		String aux[],cad;
+		HashSet<String> asec,bsec;
+		aux=c.split("->");
+		asec = new HashSet<String>();
+		for(int k=0;k<aux.length;k++)
+			asec.add(aux[k]);
+		for(Iterator<String> iter=b.iterator();iter.hasNext();){
+			cad = (String)iter.next();
+			aux = cad.split("->");
+			bsec = new HashSet<String>();
+			for(int k=0;k<aux.length;k++)
+				bsec.add(aux[k]);
+			if(asec.equals(bsec))
+				return false;
+		}
+		return true;
+	}
 	void ejecutarAccionSemantica(int numRegla,String ps)  throws IOException {
 		Reg arg1,arg2,op,ini;
 		StringBuffer sb;
@@ -389,7 +432,6 @@ public class TGestorSemantico{
 									outputStream.println(ind_cuad[j]+": "+q.res()+":="+q.arg1()+"["+q.arg2()+"]");
 								else outputStream.println(ind_cuad[j]+": op desc "+q.op()+" arg1="+Util.getString(q.arg1(),"")+" arg2="+Util.getString(q.arg2(),"")+" res="+Util.getString(q.res(),""));
 							}	
-						//outputStream.println(cod+": RET");	
 						outputStream.close();
 						// ejecutar el programa en lenguaje intermedio
 						int j = 0;
@@ -703,6 +745,7 @@ public class TGestorSemantico{
 							}
 						}
 						// mostrar la inf. de los bloques basicos
+						String grafo = new String("Graph[{");
 						for(j=0;j<tbloques.size();j++){
 							bloque = tbloques.get(j);
 							String lcuad = String.valueOf(bloque.lider);
@@ -721,10 +764,40 @@ public class TGestorSemantico{
 							for(Iterator<String> iter=bloque.pred.iterator();iter.hasNext();)
 								lpred+=","+(String)iter.next();
 							String lsucc = new String();
-							for(Iterator<String> iter=bloque.succ.iterator();iter.hasNext();)
-								lsucc+=","+(String)iter.next();
+							for(Iterator<String> iter=bloque.succ.iterator();iter.hasNext();){
+								String sucesor = (String)iter.next();
+								if(lsucc!=null)
+									lsucc+=","+sucesor;
+								else
+									lsucc=sucesor;
+								if(grafo.length()>7)
+									grafo+=","+bloque.nbloque+"->"+sucesor;
+								else
+									grafo+=bloque.nbloque+"->"+sucesor;
+							}	
 							System.out.println("B"+bloque.nbloque+" cuad="+lcuad+" pred="+lpred+" succ="+lsucc);
 						}
+						grafo+="},VertexLabels->All]";
+						System.out.println(grafo);
+						// ver si hay lazos: empezando en cada bloque ver si siguiendo sus sucesores se llega al mismo bloque
+						ArrayList<String> bucles = new ArrayList<String>();
+						int[] lazo;
+						for(j=0;j<tbloques.size();j++){
+							ArrayList<String> llazos = new ArrayList<String>();
+							lazo = new int[tbloques.size()];
+							bloque = tbloques.get(j);
+							lazo[0]=bloque.nbloque;
+							encontrar_lazos(tbloques,lazo,0,llazos);
+							for(Iterator<String> iter=llazos.iterator();iter.hasNext();){
+								grafo = (String)iter.next();
+								if(no_esta(grafo,bucles))
+									bucles.add(grafo);
+							}
+						}	
+						for(Iterator<String> iter=bucles.iterator();iter.hasNext();){
+							grafo = (String)iter.next();
+							System.out.println("lazo:"+grafo);
+						}	
 						break;
 				case 4:	arg1 = pila_sem.pop();
 						cod = arg1.codigo();
