@@ -1,0 +1,15 @@
+Algoritmoa HANDIA2
+aldagaiak A, B, C (osoa)
+hasiera
+		irakur (A)
+		irakur (B)
+		{A = a, B = b}
+		baldin A < B orduan hasiera
+								C : = A
+								A : = B
+								B : = C
+							amaia
+		{A = a eta b-ren arteko maximoa, B = a eta b-ren arteko minimoa}
+		idatz (A)
+		idatz (B)
+amaia

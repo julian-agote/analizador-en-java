@@ -1,9 +1,9 @@
-import parser_jkl.*;
+import parser_kpa.*;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class parser_JKL{
+public class parser_KPA{
 	public static void main(String[] args) throws IOException{
 		StringBuffer sb = new StringBuffer();
 		BufferedReader inputStream = null;
@@ -17,7 +17,7 @@ public class parser_JKL{
 			if(inputStream!=null)
 				inputStream.close();
 		}	
-		parser_jkl.parser g = new parser_jkl.parser(sb.toString().replace("\n"," "));
+		parser_kpa.parser g = new parser_kpa.parser(sb.toString().replace("\n"," "));
 		g.parserascendente();
 	}
 }

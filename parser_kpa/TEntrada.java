@@ -1,4 +1,4 @@
-package parser_jkl;
+package parser_kpa;
 /*************************************************
 * Representa la cadena de entrada, indice es un apuntador al caracter en curso
 * leersigterm devuelve la siguiente unidad lexica
@@ -22,7 +22,7 @@ public class TEntrada {
 		double valf;
         int i, longcad;
         char car[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-        String[] pal_clave = "programa,aldagaia,hasi,nahiko,irakurri,erakutzi,idatzi,lerro-berria,gertatu-ezkero,egin,gertatzen-den-bitartian,hemendik-hasita,heldu-arte".split(",");
+        String[] pal_clave = "algoritmoa,aldagaiak,hasiera,amaia,irakur,idatz,aukera,amaukera,errepika,egin,hariketa,baldin,orduan,hemendik-hasita,heldu-arte,bitartean,ambitartean,sekuentzia-hasiera,karakterea,osoa,boolearra,taula,osagai".split(",");
         StringBuffer lexema = new StringBuffer();
         TElemEnt UdLex = new TElemEnt();
         if (indice == cad.length()) { // se ha llegado al final, devolver $
@@ -42,10 +42,10 @@ public class TEntrada {
             ch = cad.charAt(indice);
         }
 		//saltar comentarios
-		if(ch=='/' && cad.charAt(indice+1)=='*'){
+		if(ch=='{'){
 			indice+=2;
 			ch = cad.charAt(indice);
-			while(!(ch=='*'&& cad.charAt(indice+1)=='/')){
+			while(!(ch=='}')){
 				indice++;
 				ch = cad.charAt(indice);
 	        }
@@ -85,7 +85,7 @@ public class TEntrada {
 				UdLex.token = new String("OP_OR");
 			}else if (lexema.toString().compareToIgnoreCase("eta") == 0){ 	
 				UdLex.token = new String("OP_AND");
-			}else if (lexema.toString().compareToIgnoreCase("ez-da") == 0){ 	
+			}else if (lexema.toString().compareToIgnoreCase("ez") == 0){ 	
 				UdLex.token = new String("OP_NOT");
             }else{
 				UdLex.token = new String("ID");
@@ -114,7 +114,7 @@ public class TEntrada {
 				indice++;
 				break;
             case ')':
-				UdLex.token = new String("PAR_CER");
+				UdLex.token = new String("ITX_PAR");
 				UdLex.atributo = -1;
 				indice++;
 				break;
@@ -123,10 +123,14 @@ public class TEntrada {
 				UdLex.atributo = -1;
 				indice++;
 				break;
-            case '.':
-				UdLex.token = new String("PUNTO");
+            case ':':
+				UdLex.token = new String("BI_PUNTO");
 				UdLex.atributo = -1;
 				indice++;
+				if(cad.charAt(indice)=='='){
+					UdLex.token = new String("ASIGN");
+					indice++;
+				}	
 				break;
             case ',':
 				UdLex.token = new String("COMA");
@@ -134,22 +138,12 @@ public class TEntrada {
 				indice++;
 				break;
             case '[':
-				UdLex.token = new String("COR_ABR");
+				UdLex.token = new String("IRE_MAKO");
 				UdLex.atributo = -1;
 				indice++;
 				break;
             case ']':
-				UdLex.token = new String("COR_CER");
-				UdLex.atributo = -1;
-				indice++;
-				break;
-            case '{':
-				UdLex.token = new String("LLAVE_ABR");
-				UdLex.atributo = -1;
-				indice++;
-				break;
-            case '}':
-				UdLex.token = new String("LLAVE_CER");
+				UdLex.token = new String("ITX_MAKO");
 				UdLex.atributo = -1;
 				indice++;
 				break;
@@ -162,12 +156,6 @@ public class TEntrada {
 				UdLex.token = new String("OP_EXP");
 				UdLex.atributo = -1;
 				indice++;
-				break;
-            case ':':
-				UdLex.token = new String("ASIGN");
-				UdLex.atributo = -1;
-				indice++;
-				if(cad.charAt(indice)=='=') indice++;
 				break;
             case '<':
 				UdLex.token = new String("OP_REL");
@@ -217,7 +205,7 @@ public class TEntrada {
 					if (indice == cad.length()) break;
 					ch = cad.charAt(indice);
 				}
-				UdLex.token = new String("CAD");
+				UdLex.token = new String("KATEA");
 				UdLex.atributo = ts.insertar(lexema.toString());
 				indice++;
                 break;
@@ -251,7 +239,7 @@ public class TEntrada {
 					}else
 						UdLex.atributo = ts.insertar((new Integer(-1*val)).toString());					
 				}else{
-					UdLex.token = new String("PAR_ABR");
+					UdLex.token = new String("IRE_PAR");
 					UdLex.atributo = -1;
 					indice++;
 				}	

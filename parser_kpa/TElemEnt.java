@@ -1,4 +1,4 @@
-package parser_jkl;
+package parser_kpa;
 /*******************************************************
 * Representa una unidad lexica, atributo puede ser un apuntador a la tabla de simbolos
 ********************************************************/

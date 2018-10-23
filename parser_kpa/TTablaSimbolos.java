@@ -1,4 +1,4 @@
-package parser_jkl;
+package parser_kpa;
 import java.util.*;
 public class TTablaSimbolos {
     private Vector<String> ts;
