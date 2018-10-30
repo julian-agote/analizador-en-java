@@ -1,0 +1,12 @@
+Algoritmoa AKONTA1
+aldagaiak KAR (karakterea)
+		  KONTA (osoa)
+hasiera
+	KONTA := 0;
+	errepika {KONTA-k ageritako 'a' letran kopurua dauka}
+		irakur (KAR)
+		baldin KAR = 'a' orduan KONTA := KONTA + 1
+	harik-eta KAR = '.';
+	{KONTA-k sekuentzia osoan ageritako 'a' letren	kopurua dauka}
+	idatz (KONTA)
+amaia

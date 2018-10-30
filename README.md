@@ -1,2 +1,2 @@
-# analizador-en-java
-Son programas en java para a partir de una definicion de gramatica generar un programa que sirva de analizador sintactico de un programa o expresion escrito en la gramatica especificada 
+Analisian zuhaitzaren lehenengo erregelara laburtzen dugunean, behin jadanik lortu dugula erdibideko programa, hurrengo pausoa izango da makina-lengoaiako programa lortzea. Aurretik erdibideko programa oinarrizko blokeetan banatuko dugu. Hauetan instrukzioak segidan joango dira, saltorik gabe, azkenengora heldu arte. Gainera blokeetako instrukzio-lehena, programa osoaren lehenengo instrukzioa edo salto baten helmuga, izango da. Gordeko dira tbloques datu-egituran.
+Hau dena egiten da ejecutarAccionSemantica metodo barruan, case 1 kasuan (gramatikako lehenengo erregela laburtzerakoan). Aurretik pantailan bistaratzen da erdibideko programa eta egikaritu egiten da, ondo dagoela froga moduan.

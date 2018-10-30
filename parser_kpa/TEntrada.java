@@ -22,7 +22,7 @@ public class TEntrada {
 		double valf;
         int i, longcad;
         char car[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-        String[] pal_clave = "algoritmoa,aldagaiak,hasiera,amaia,irakur,idatz,aukera,amaukera,errepika,egin,hariketa,baldin,orduan,hemendik-hasita,heldu-arte,bitartean,ambitartean,sekuentzia-hasiera,karakterea,osoa,boolearra,taula,osagai".split(",");
+        String[] pal_clave = "algoritmoa,aldagaiak,hasiera,amaia,irakur,idatz,aukera,amaukera,errepika,egin,harik-eta,baldin,orduan,hemendik-hasita,heldu-arte,bitartean,ambitartean,sekuentzia-hasiera,karakterea,osoa,boolearra,taula,osagai".split(",");
         StringBuffer lexema = new StringBuffer();
         TElemEnt UdLex = new TElemEnt();
         if (indice == cad.length()) { // se ha llegado al final, devolver $
@@ -87,6 +87,10 @@ public class TEntrada {
 				UdLex.token = new String("OP_AND");
 			}else if (lexema.toString().compareToIgnoreCase("ez") == 0){ 	
 				UdLex.token = new String("OP_NOT");
+			}else if (lexema.toString().compareToIgnoreCase("div") == 0){ 	
+				UdLex.token = new String("OP_DIV");
+			}else if (lexema.toString().compareToIgnoreCase("mod") == 0){ 	
+				UdLex.token = new String("OP_MOD");
             }else{
 				UdLex.token = new String("ID");
 			}
@@ -147,16 +151,6 @@ public class TEntrada {
 				UdLex.atributo = -1;
 				indice++;
 				break;
-            case '$':
-				UdLex.token = new String("OP_C");
-				UdLex.atributo = -1;
-				indice++;
-				break;
-            case '^':
-				UdLex.token = new String("OP_EXP");
-				UdLex.atributo = -1;
-				indice++;
-				break;
             case '<':
 				UdLex.token = new String("OP_REL");
 				UdLex.atributo = ts.insertar("<");
@@ -206,6 +200,17 @@ public class TEntrada {
 					ch = cad.charAt(indice);
 				}
 				UdLex.token = new String("KATEA");
+				UdLex.atributo = ts.insertar(lexema.toString());
+				indice++;
+                break;
+            case '\'':
+                indice++;
+                ch = cad.charAt(indice);
+				lexema.append(ch);
+				indice++;
+				if (indice == cad.length()) break;
+				ch = cad.charAt(indice);
+				UdLex.token = new String("KAR");
 				UdLex.atributo = ts.insertar(lexema.toString());
 				indice++;
                 break;

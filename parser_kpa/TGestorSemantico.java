@@ -18,23 +18,33 @@ class Var {
     private String nombre;
     private Float valf;
     private Integer vali;
+	private char valc;
     private String tipo;
     ArrayList<Integer> registros;
     int[] anArray;
     private int sig_uso;
     Var(String _nombre){
         this.nombre = _nombre;
-        this.tipo = "OSOA";
+        this.tipo = "osoa";
+    }   
+    Var(String _nombre, String _tipo){
+        this.nombre = _nombre;
+        this.tipo = _tipo;
     }   
     Var(String _nombre,float pval){
         this.nombre = _nombre;
-        this.tipo = "ERREALA";
+        this.tipo = "erreala";
         this.valf = new Float(pval);
     }   
     Var(String _nombre,int pval){
         this.nombre = _nombre;
-        this.tipo = "OSOA";
+        this.tipo = "osoa";
         this.vali = new Integer(pval);
+    }   
+    Var(String _nombre,char pval){
+        this.nombre = _nombre;
+        this.tipo = "karakterea";
+        this.valc = pval;
     }   
     Var(String _nombre,int val_ini,int longitud){
         this.nombre = _nombre;
@@ -44,21 +54,32 @@ class Var {
     public String nombre() {
         return nombre;
     }
+    public String tipo() {
+        return tipo;
+    }
     public Number valor() {
-        if(tipo.equals("ERREALA"))
+        if(tipo.equals("erreala"))
             return valf;
         else
             return vali;
     }
+    public char devuelve_caracter() {
+		return valc;
+    }
     public void set_valor(float pvalor){
         this.valf = new Float(pvalor);
         if(this.tipo==null)
-            this.tipo = "ERREALA";
+            this.tipo = "erreala";
     }   
     public void set_valor(int pvalor){
         this.vali = new Integer(pvalor);
         if(this.tipo==null)
-            this.tipo = "OSOA";
+            this.tipo = "osoa";
+    }   
+    public void set_valor(char pvalor){
+        this.valc = pvalor;
+        if(this.tipo==null)
+            this.tipo = "karakterea";
     }   
     public void set_valor(int pos, int pvalor){
         this.anArray[pos-1] = pvalor;
@@ -112,6 +133,19 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
         }
         return pos;
     }
+    int insertar(String p_lex,String p_tipo) {
+        int pos = -1;
+        for(int i=0;i<ts.size();i++)
+            if(ts.get(i).nombre().equals(p_lex)){
+                pos = i;
+                break;
+            }   
+        if (pos == -1) {
+            pos = ts.size();
+            ts.add(new Var(p_lex,p_tipo));
+        }
+        return pos;
+    }
     int insertar(String p_lex,int longitud) {
         int pos = -1;
         for(int i=0;i<ts.size();i++)
@@ -138,7 +172,23 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
                 break;
             }   
         if (pos != -1)
-            return ts.get(pos).valor().toString();
+			if(ts.get(pos).tipo().equals("karakterea")){
+				char data[]={'a'};
+				data[0]= ts.get(pos).devuelve_caracter();
+				return new String(data);
+			}else
+				return ts.get(pos).valor().toString();
+        return nombre;  
+    }
+    String leer_tipo(String nombre){
+        int pos = -1;
+        for(int i=0;i<ts.size();i++)
+            if(ts.get(i).nombre().equals(nombre)){
+                pos = i;
+                break;
+            }   
+        if (pos != -1)
+            return ts.get(pos).tipo();
         return nombre;  
     }
     String leer_valor(String nombre,int ind){
@@ -200,6 +250,8 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
                     v.set_valor(Float.valueOf(valor).floatValue());
                 else    
                     v.set_valor(Integer.valueOf(valor).intValue());
+			else
+				v.set_valor(valor.charAt(0));	
             ts.set(pos,v);
         }else
             if(valor.charAt(0)>='0' && valor.charAt(0)<='9')
@@ -207,6 +259,8 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
                     ts.add(new Var(nombre, Float.valueOf(valor).floatValue()));
                 else    
                     ts.add(new Var(nombre, Integer.valueOf(valor).intValue()));
+			else
+				ts.add(new Var(nombre, valor.charAt(0)));
     }
     void guardar_valor(String nombre, int ind, String valor){
         int pos = -1;
@@ -384,7 +438,7 @@ public class TGestorSemantico{
     Stack<Reg> pila_sem = null;
     ArrayList<Cuad> tcuad;
     int indice = 0;
-    Tvariables variables;
+    Tvariables variables; // de momento hay un solo algoritmo, en el momento en que sean mas, habra que utilizar una pila
     ArrayList<Descriptor_reg> treg;
 
     TGestorSemantico() throws IOException {
@@ -536,6 +590,8 @@ public class TGestorSemantico{
                                     outputStream.println(ind_cuad[j]+": IF "+q.arg1()+" "+q.op().substring(2)+" "+q.arg2()+" GOTO "+q.res());   
                                 else if(q.op().equals("GOTO")) 
                                     outputStream.println(ind_cuad[j]+": GOTO "+q.res());
+                                else if(q.op().equals("INPUT")) 
+                                    outputStream.println(ind_cuad[j]+": INPUT "+q.arg1());
                                 else if(q.op().equals("WRITE")) 
                                     outputStream.println(ind_cuad[j]+": WRITE "+q.arg1());
                                 else if(q.op().equals("WRITEC")) 
@@ -610,6 +666,15 @@ public class TGestorSemantico{
                                     int a = Integer.valueOf(variables.leer_valor(q.arg1(),b)).intValue();
                                     variables.guardar_valor(q.res(),new Integer(a).toString());
                                     j++;                                    
+                                }else if(q.op().equals("INPUT")){
+									char[] tmp = new char[10];
+									int len=0;
+									do{
+										tmp[len] = (char) System.in.read();
+										len++;
+									}while(tmp[len-1]!='\n');
+                                    variables.guardar_valor(q.arg1(),new String(tmp).trim());
+                                    j++;
                                 }else if(q.op().equals("WRITEC")){
                                     System.out.println(q.arg1());
                                     j++;
@@ -620,60 +685,116 @@ public class TGestorSemantico{
                                     variables.guardar_valor(q.res(),variables.leer_valor(q.arg1()));
                                     j++;
                                 }else if(q.op().substring(0,2).equals("IF")){
-                                    if(variables.leer_valor(q.arg1()).indexOf(".")<0){
-                                        int a = Integer.valueOf(variables.leer_valor(q.arg1())).intValue();
-                                        int b = Integer.valueOf(variables.leer_valor(q.arg2())).intValue();
-                                        //System.out.println("entero a="+String.valueOf(a)+" b="+String.valueOf(b)+" op"+q.op().substring(2)+" goto="+q.res());
-                                        if(q.op().substring(2).trim().equalsIgnoreCase(">")){
-                                            if(a>b){ 
-                                                for(int k=0;k<ind_cuad.length;k++)
-                                                    if(ind_cuad[k].trim().equals(q.res().trim())){
-                                                        j=k;
-                                                        break;
-                                                    }   
-                                            }else j++;
-                                        }else if(q.op().substring(2).trim().equalsIgnoreCase(">=")){
-                                            if(a>=b){ 
-                                                for(int k=0;k<ind_cuad.length;k++)
-                                                    if(ind_cuad[k].trim().equals(q.res().trim())){
-                                                        j=k;
-                                                        break;
-                                                    }   
-                                            }else j++;
-                                        }else if(q.op().substring(2).trim().compareToIgnoreCase("<")==0){
-                                            if(a<b){ 
-                                                for(int k=0;k<ind_cuad.length;k++)
-                                                    if(!Util.stringEmpty(ind_cuad[k]) && ind_cuad[k].trim().equals(q.res().trim())){
-                                                        j=k;
-                                                        break;
-                                                    }   
-                                            }else j++;
-                                        }else if(q.op().substring(2).trim().equalsIgnoreCase("<=")) {
-                                            if(a<=b){ 
-                                                for(int k=0;k<ind_cuad.length;k++)
-                                                    if(ind_cuad[k].equals(q.res())){
-                                                        j=k;
-                                                        break;
-                                                    }   
-                                            }else j++;
-                                        }else if(q.op().substring(2).trim().equalsIgnoreCase("=")) {
-                                            if(a==b) {
-                                                for(int k=0;k<ind_cuad.length;k++)
-                                                    if(ind_cuad[k].equals(q.res())){
-                                                        j=k;
-                                                        break;
-                                                    }   
-                                            }else j++;
-                                        }else if(q.op().substring(2).trim().equalsIgnoreCase("<>")) {
-                                            if(a!=b) {
-                                                for(int k=0;k<ind_cuad.length;k++)
-                                                    if(ind_cuad[k].equals(q.res())){
-                                                        j=k;
-                                                        break;
-                                                    }   
-                                            }else j++;
-                                        }   
-                                    }else{
+                                    if(variables.leer_valor(q.arg1()).indexOf(".")<0){ // en principio contendra un entero o un caracter, se puede preguntar por el tipo de la variable
+									// leer_valor devuelve siempre un String, luego hacemos las conversiones de tipo, para las comparaciones
+										if (variables.leer_tipo(q.arg1()).equals("karakterea")){
+											char a = variables.leer_valor(q.arg1()).charAt(0);
+											char b = variables.leer_valor(q.arg2()).charAt(0);
+											//System.out.println("entero a="+String.valueOf(a)+" b="+String.valueOf(b)+" op"+q.op().substring(2)+" goto="+q.res());
+											if(q.op().substring(2).trim().equalsIgnoreCase(">")){
+												if(a>b){ 
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].trim().equals(q.res().trim())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().equalsIgnoreCase(">=")){
+												if(a>=b){ 
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].trim().equals(q.res().trim())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().compareToIgnoreCase("<")==0){
+												if(a<b){ 
+													for(int k=0;k<ind_cuad.length;k++)
+														if(!Util.stringEmpty(ind_cuad[k]) && ind_cuad[k].trim().equals(q.res().trim())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().equalsIgnoreCase("<=")) {
+												if(a<=b){ 
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].equals(q.res())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().equalsIgnoreCase("=")) {
+												if(a==b) {
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].equals(q.res())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().equalsIgnoreCase("<>")) {
+												if(a!=b) {
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].equals(q.res())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											} 											
+										}else{
+											int a = Integer.valueOf(variables.leer_valor(q.arg1())).intValue();
+											int b = Integer.valueOf(variables.leer_valor(q.arg2())).intValue();
+											//System.out.println("entero a="+String.valueOf(a)+" b="+String.valueOf(b)+" op"+q.op().substring(2)+" goto="+q.res());
+											if(q.op().substring(2).trim().equalsIgnoreCase(">")){
+												if(a>b){ 
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].trim().equals(q.res().trim())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().equalsIgnoreCase(">=")){
+												if(a>=b){ 
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].trim().equals(q.res().trim())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().compareToIgnoreCase("<")==0){
+												if(a<b){ 
+													for(int k=0;k<ind_cuad.length;k++)
+														if(!Util.stringEmpty(ind_cuad[k]) && ind_cuad[k].trim().equals(q.res().trim())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().equalsIgnoreCase("<=")) {
+												if(a<=b){ 
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].equals(q.res())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().equalsIgnoreCase("=")) {
+												if(a==b) {
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].equals(q.res())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											}else if(q.op().substring(2).trim().equalsIgnoreCase("<>")) {
+												if(a!=b) {
+													for(int k=0;k<ind_cuad.length;k++)
+														if(ind_cuad[k].equals(q.res())){
+															j=k;
+															break;
+														}   
+												}else j++;
+											} 
+										}																	
+									}else{
                                         float a = Float.valueOf(variables.leer_valor(q.arg1())).floatValue();
                                         float b = Float.valueOf(variables.leer_valor(q.arg2())).floatValue();
                                         //System.out.println("a="+String.valueOf(a)+" b="+String.valueOf(b)+" op"+q.op().substring(2)+" goto="+q.res());
@@ -949,6 +1070,10 @@ public class TGestorSemantico{
                             System.out.println("lazo:"+grafo);
                         }   */
                         break;
+                case 6: pila_sem.push(new Reg("karakterea"));
+                        break;						
+                case 7: pila_sem.push(new Reg("osoa"));
+                        break;						
                 case 13:arg1 = pila_sem.pop();
                         cod = arg1.codigo();
                         while(!pila_sem.empty() && Util.stringEmpty(pila_sem.peek().quad())){
@@ -968,14 +1093,14 @@ public class TGestorSemantico{
                         if(arg1.codigo()!=null) cod = cod+","+arg1.codigo();
                         pila_sem.push(new Reg(null,null,cod,null,null,null));
                         break;
+                case 18:arg1 = pila_sem.pop();
+                        cod = gen("INPUT", arg1.nombre(), null, null);
+                        pila_sem.push(new Reg(null,null,cod,null,null,null));
+                        break;
                 case 19:arg1 = pila_sem.pop();
                         cod = gen("WRITE", variables.leer(Integer.valueOf(arg1.lugar()).intValue()), null, null);
                         pila_sem.push(new Reg(arg1.nombre(),arg1.lugar(),arg1.codigo()+","+cod,null,null,null));
                         break;      
-                /*case 12:arg1 = pila_sem.pop();
-                        cod = gen("WRITEC", arg1.nombre(), null, null);
-                        pila_sem.push(new Reg(null,null,cod,null,null,null));
-                        break;*/      
                 case 24:arg2 = pila_sem.pop();
                         op = pila_sem.pop();
                         arg1 = pila_sem.pop();  
@@ -984,6 +1109,17 @@ public class TGestorSemantico{
                         cierto = arg2.cierto();
                         falso = arg1.falso()+","+arg2.falso();  
                         pila_sem.push(new Reg(null,null,cod,null,cierto,falso));
+                        break;
+                case 25:arg2 = pila_sem.pop();
+                        op = pila_sem.pop();
+                        arg1 = pila_sem.pop();  
+                        ini = pila_sem.pop();   
+                        asocia(arg1.falso(),op.quad());
+                        asocia(arg1.cierto(),op.quad());
+                        asocia(arg2.falso(),ini.quad());
+                        cod = arg1.codigo()+","+arg2.codigo();
+                        cierto = arg2.cierto();
+                        pila_sem.push(new Reg(null,null,cod,null,cierto,null));
                         break;
                 case 26:arg2 = pila_sem.pop();
                         op = pila_sem.pop();
@@ -1084,11 +1220,41 @@ public class TGestorSemantico{
                         cod += ","+gen("GOTO",null,null,null);
                         pila_sem.push(new Reg(arg1.nombre(),null,cod,arg1.quad(),cierto,falso));
                         break;
-                case 65:arg2 = pila_sem.pop();
-                        arg1 = pila_sem.pop();
-                        variables.insertar(arg1.nombre(),Integer.valueOf(arg2.nombre()).intValue());
+                case 65:arg2 = pila_sem.pop(); // leer el tipo
+						// obtener los ID asociados a ese tipo, para darlos de alta en la TS del registro de activacion
+						arg1 = pila_sem.pop();
+						do {
+							variables.insertar(arg1.nombre(),arg2.nombre());
+							arg1 = pila_sem.pop();
+						}while(!pila_sem.empty());
+						// se vuelve a insertar en la pila, lo que sería el nombre del algoritmo
+						pila_sem.push(arg1);
                         break;
-            }
+                case 66:arg2 = pila_sem.pop(); // cada una de las condiciones de aukera se trata como si fuera una instruccion de baldin expr orduan
+                        op = pila_sem.pop();
+                        arg1 = pila_sem.pop();  
+                        cod = arg1.codigo()+","+arg2.codigo();
+                        asocia(arg1.cierto(),op.quad());
+                        cierto = arg2.cierto();
+                        falso = arg1.falso()+","+arg2.falso();  
+                        pila_sem.push(new Reg(null,null,cod,null,cierto,falso));
+                        break;
+                case 67:pila_sem.push(new Reg(ps));
+                        break; 
+                case 70:arg1 = pila_sem.pop();
+                        cod = arg1.codigo();
+						cierto = arg1.cierto();
+						falso = arg1.falso();
+                        while(!pila_sem.empty() && Util.stringEmpty(pila_sem.peek().quad())){
+                            arg1 = pila_sem.pop();
+                            asocia(arg1.cierto(),primera_pos(cod));
+                            asocia(arg1.falso(),primera_pos(cod));
+                            cod = arg1.codigo()+","+cod;
+                        }   
+                        pila_sem.push(new Reg(null,null,cod,null,cierto,falso));
+                        break;  
+
+			}
         } finally{
         }
     }
