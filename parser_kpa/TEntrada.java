@@ -22,7 +22,7 @@ public class TEntrada {
 		double valf;
         int i, longcad;
         char car[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-        String[] pal_clave = "algoritmoa,aldagaiak,hasiera,amaia,irakur,idatz,aukera,amaukera,errepika,egin,harik-eta,baldin,orduan,hemendik-hasita,heldu-arte,bitartean,ambitartean,sekuentzia-hasiera,karakterea,osoa,boolearra,taula,osagai".split(",");
+        String[] pal_clave = "algoritmoa,aldagaiak,hasiera,amaia,irakur,idatz,aukera,amaukera,errepika,egin,harik-eta,baldin,orduan,hemendik-hasita,heldu-arte,bitartean,ambitartean,sekuentzia-hasiera,karakterea,osoa,boolearra,taula,osagai,bestela".split(",");
         StringBuffer lexema = new StringBuffer();
         TElemEnt UdLex = new TElemEnt();
         if (indice == cad.length()) { // se ha llegado al final, devolver $

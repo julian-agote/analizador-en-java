@@ -844,14 +844,14 @@ class Gramatica {
 		System.out.println("\t\t	tablaaccion.addElement(acc);");
 		System.out.println("\t\t}");
 	}
-	void escribetablaacc2(PrintWriter outputStream) throws IOException{
+	void escribetablaacc2(PrintWriter outputStream,String id_grama) throws IOException{
         TVectorAccion acc;
         TEltoAccion item;
 		String cad;
 		StringBuffer sb2;
 		boolean sig;
 		int n=0;
-		PrintWriter outputStream3 = new PrintWriter(new FileWriter("tabla_acc.txt"));
+		PrintWriter outputStream3 = new PrintWriter(new FileWriter("tabla_acc"+id_grama+".txt"));
 		for(Enumeration e = tablaaccion.elements(); e.hasMoreElements();){
 			n++;
 			acc = (TVectorAccion)e.nextElement();
@@ -886,7 +886,7 @@ class Gramatica {
 		outputStream.println("\t\tString l;");
 		outputStream.println("\t\tint fila = 0,ncol;");
 		outputStream.println("\t\ttry{");
-		outputStream.println("\t\t	inputStream = new BufferedReader(new FileReader(\"tabla_acc.txt\"));");
+		outputStream.println("\t\t	inputStream = new BufferedReader(new FileReader(\"tabla_acc"+id_grama+".txt\"));");
 		outputStream.println("\t\t	while((l=inputStream.readLine())!=null){		");
 		outputStream.println("\t\t	  String[] vars= l.split(\",\");");
 		outputStream.println("\t\t	  if(vars.length%6==0)");
@@ -977,6 +977,62 @@ class Gramatica {
 			sb.append(sb2.toString()+"}");
         }
 		outputStream.println("\t\t"+sb.toString()+"};");
+		outputStream.println("\t\ttablaira = new Vector<Hashtable>();");
+		outputStream.println("\t\tfor(int z = 0;z<bindVars.length;z++){");
+		outputStream.println("\t\t	Hashtable ira = new Hashtable();");
+		outputStream.println("\t\t	for(int k=0;k<bindVars[z].length;k++)");
+		outputStream.println("\t\t		ira.put(bindVars[z][k].simbolo,new Integer(bindVars[z][k].nestado));");
+		outputStream.println("\t\t	tablaira.addElement(ira);");
+		outputStream.println("\t\t}");
+    }
+	/********************************************************
+	* escribe en un fichero tabla_ira.txt la tabla de ira
+	*********************************************************/	
+	void escribetablaira3(PrintWriter outputStream,String id_grama) throws IOException{
+        TVectorIra ira;
+        TElemIra item;
+		StringBuffer sb2;
+		int n=0;
+		PrintWriter outputStream3 = new PrintWriter(new FileWriter("tabla_ira"+id_grama+".txt"));
+        for (Enumeration e = tablaira.elements(); e.hasMoreElements(); ) {
+			n++;
+            ira = (TVectorIra)e.nextElement();
+			sb2 = new StringBuffer(""); 
+            for (Enumeration enum2 = ira.elements(); enum2.hasMoreElements();) {
+                item = (TElemIra)enum2.nextElement();
+                if (item.nestado >= 0) {
+					if(sb2.length()>1) sb2.append(",");
+					sb2.append(item.simbolo+","+item.nestado);
+                }
+            }
+			outputStream3.println(sb2.toString());
+		}
+		outputStream3.close();
+		outputStream.println("\t\tTElemIra[][] bindVars = new TElemIra["+n+"][];");
+		outputStream.println("\t\tBufferedReader inputStream = null;");
+		outputStream.println("\t\tString l;");
+		outputStream.println("\t\tint fila = 0,ncol;");
+		outputStream.println("\t\ttry{");
+		outputStream.println("\t\t	inputStream = new BufferedReader(new FileReader(\"tabla_ira"+id_grama+".txt\"));");
+		outputStream.println("\t\t	while((l=inputStream.readLine())!=null){		");
+		outputStream.println("\t\t	  if((l == null) || l.equals(\"\"))");
+		outputStream.println("\t\t	    bindVars[fila] = new TElemIra[0];");
+		outputStream.println("\t\t	  else{	");
+		outputStream.println("\t\t	    String[] vars= l.split(\",\");");
+		outputStream.println("\t\t	    if(vars.length%2==0)");
+		outputStream.println("\t\t	  	  ncol =vars.length/2;");
+		outputStream.println("\t\t	    else");
+		outputStream.println("\t\t		  ncol =(vars.length+1)/2;  ");
+		outputStream.println("\t\t	    bindVars[fila] = new TElemIra[ncol];");
+		outputStream.println("\t\t	    for(int i=0;i<ncol;i++)");
+		outputStream.println("\t\t	       bindVars[fila][i]=getElemIra(vars[i*2],Integer.parseInt(vars[i*2+1]));");
+		outputStream.println("\t\t	  }	");
+		outputStream.println("\t\t	  fila++;");
+		outputStream.println("\t\t	}	");
+		outputStream.println("\t\t}finally{");
+		outputStream.println("\t\t	if(inputStream!=null)");
+		outputStream.println("\t\t		inputStream.close();");
+		outputStream.println("\t\t}");
 		outputStream.println("\t\ttablaira = new Vector<Hashtable>();");
 		outputStream.println("\t\tfor(int z = 0;z<bindVars.length;z++){");
 		outputStream.println("\t\t	Hashtable ira = new Hashtable();");
@@ -1534,7 +1590,7 @@ public class geLRco_tablas {
 			outputStream.println("\tTTablaSimbolos ts;");
 			outputStream.println("\tTEntrada ent;");
 			outputStream.println("\tTGestorSemantico gs;");
-			outputStream.println("\tpublic parser(String s) throws IOException{");
+			outputStream.println("\tpublic parser(String s,String _opc) throws IOException{");
 			outputStream.println("\t\tTRegla regla;");
 			outputStream.println("\t\tP = new Vector<TRegla>();");
 			g.escribereglas(outputStream);
@@ -1543,7 +1599,7 @@ public class geLRco_tablas {
 			outputStream.println("\t\tent = new TEntrada();");
 			outputStream.println("\t\tent.gordeCad(s);");
 			outputStream.println("\t\ttry{");
-			outputStream.println("\t\t	gs = new TGestorSemantico();");
+			outputStream.println("\t\t	gs = new TGestorSemantico(_opc);");
 			outputStream.println("\t\t} catch (Exception e) {");
             outputStream.println("\t\t	System.out.println(\"Error al inicializar el Gestor Semantico:\"+e.getMessage());");
 			outputStream.println("\t\t}	");
@@ -1551,8 +1607,8 @@ public class geLRco_tablas {
 			outputStream.println("\tTElemIra getElemIra(String simb, int est) {");
 			outputStream.println("\t	return new TElemIra(simb,est);");
 			outputStream.println("\t}");
-			outputStream.println("\tvoid initablaira(){");
-			g.escribetablaira2(outputStream);
+			outputStream.println("\tvoid initablaira() throws IOException {");
+			g.escribetablaira3(outputStream,g.sufijo);
 			outputStream.println("\t}");
 			outputStream.println("\tTEltoAccion getEltoAccion(String ptipo,String psimbolo,TRegla pr){");
 			outputStream.println("\t	return new TEltoAccion(ptipo,psimbolo,pr);");
@@ -1561,7 +1617,7 @@ public class geLRco_tablas {
 			outputStream.println("\t	return new TEltoAccion(ptipo,psimbolo,psig_estado);");
 			outputStream.println("\t}");
 			outputStream.println("\tvoid initablaaccion() throws IOException {");
-			g.escribetablaacc2(outputStream);
+			g.escribetablaacc2(outputStream,g.sufijo);
 			outputStream.println("\t}");
 			outputStream.println("\tpublic boolean parserascendente() throws IOException  {");
 	        outputStream.println("\t\tStack<String> pila = new Stack<String>();");

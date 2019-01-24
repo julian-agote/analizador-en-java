@@ -22,34 +22,46 @@ class Var {
     private String tipo;
     ArrayList<Integer> registros;
     int[] anArray;
-    private int sig_uso;
+    private Hashtable<String, Integer> sig_uso;
+	private Hashtable<String, Integer> nodo;
+	int nodo;
     Var(String _nombre){
         this.nombre = _nombre;
         this.tipo = "osoa";
+		this.sig_uso = new Hashtable<String, Integer>();
+		this.nodo = new Hashtable<String, Integer>();
+		this.registros = new ArrayList<Integer>();
     }   
     Var(String _nombre, String _tipo){
         this.nombre = _nombre;
         this.tipo = _tipo;
+		this.sig_uso = new Hashtable<String, Integer>();
+		this.nodo = new Hashtable<String, Integer>();
+		this.registros = new ArrayList<Integer>();
     }   
     Var(String _nombre,float pval){
         this.nombre = _nombre;
         this.tipo = "erreala";
         this.valf = new Float(pval);
+		this.sig_uso = new Hashtable<String, Integer>();
+		this.nodo = new Hashtable<String, Integer>();
+		this.registros = new ArrayList<Integer>();
     }   
     Var(String _nombre,int pval){
         this.nombre = _nombre;
         this.tipo = "osoa";
         this.vali = new Integer(pval);
+		this.sig_uso = new Hashtable<String, Integer>();
+		this.nodo = new Hashtable<String, Integer>();
+		this.registros = new ArrayList<Integer>();
     }   
     Var(String _nombre,char pval){
         this.nombre = _nombre;
         this.tipo = "karakterea";
         this.valc = pval;
-    }   
-    Var(String _nombre,int val_ini,int longitud){
-        this.nombre = _nombre;
-        this.tipo = "OSOEN-ARRAYA";
-        this.anArray = new int[longitud];
+		this.sig_uso = new Hashtable<String, Integer>();
+		this.nodo = new Hashtable<String, Integer>();
+		this.registros = new ArrayList<Integer>();
     }   
     public String nombre() {
         return nombre;
@@ -87,26 +99,54 @@ class Var {
     public Integer get_valor(int pos){
         return new Integer(this.anArray[pos-1]);
     }
-    public void set_activo(int _i){
-        this.sig_uso = _i;      
+    public void set_activo(int _i,int nbloque){
+        this.sig_uso.put("B"+Integer.toString(nbloque),new Integer(_i));      
     }
-    public void set_inactivo(){
-        this.sig_uso = -1;
+    public void set_inactivo(int nbloque){
+        this.sig_uso.put("B"+Integer.toString(nbloque),new Integer(-1));
     }
-    public int activo(){
-        return sig_uso;
+    public int activo(int nbloque){
+        Integer n = sig_uso.get("B"+Integer.toString(nbloque));
+		if(n==null)
+			return -1;
+		return n.intValue();
     }
-    public int devolver_registro(){
+    public int get_nodo(int nbloque){
+        Integer n = nodo.get("B"+Integer.toString(nbloque));
+		if(n==null)
+			return -1;
+		return n.intValue();
+    }
+    public void set_nodo(int nbloque,int _i){
+        this.nodo.put("B"+Integer.toString(nbloque),new Integer(_i));      
+    }
+    public int devolver_registro(String reg_pref){
         if(registros.size()==0)
             return 0;
-        return registros.get(0).intValue();
+		if(Util.stringEmpty(reg_pref))
+			return registros.get(0).intValue();
+		else{
+			if(registros.indexOf(Integer.valueOf(reg_pref.substring(1)))>=0)
+				return Integer.valueOf(reg_pref.substring(1)).intValue();
+		}
+		return 0;
     }
-    public void borrar_registro(Integer pos){
-        registros.remove(pos);
+    public void borrar_registro(String ldir){ // la vble. ya no esta en Rpos
+        int arrunta = 0;    
+        if (ldir.substring(0,1).equals("r")){
+            try {
+                arrunta = Integer.parseInt(ldir.substring(1));
+                registros.remove(new Integer(arrunta));
+            }   catch(NumberFormatException e) {
+                return;
+                }
+        }
     }
     public void anadir_registro(Integer pos){
-        if(registros.indexOf(pos)==-1)
-            registros.add(pos);
+		if(this.registros.isEmpty())
+			this.registros.add(pos);
+		else if(this.registros.indexOf(pos)==-1)
+            this.registros.add(pos);
     }
 }
 class Tvariables { // tabla de simbolos para la ejecucion del programa
@@ -143,19 +183,6 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
         if (pos == -1) {
             pos = ts.size();
             ts.add(new Var(p_lex,p_tipo));
-        }
-        return pos;
-    }
-    int insertar(String p_lex,int longitud) {
-        int pos = -1;
-        for(int i=0;i<ts.size();i++)
-            if(ts.get(i).nombre().equals(p_lex)){
-                pos = i;
-                break;
-            }   
-        if (pos == -1) {
-            pos = ts.size();
-            ts.add(new Var(p_lex,0,longitud));
         }
         return pos;
     }
@@ -202,18 +229,7 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
             return ts.get(pos).get_valor(ind).toString();
         return nombre;  
     }
-    void sgte_uso(String nombre, int ind){
-        int pos = -1;
-        for(int i=0;i<ts.size();i++)
-            if(ts.get(i).nombre().equals(nombre)){
-                pos = i;
-                break;
-            }   
-        if (pos != -1){
-            ts.get(pos).set_activo(ind);
-        }
-    }   
-    void desactivar(String nombre){
+	void activar(String nombre, int nbloque,int cuad){
         int pos = -1;
         for(int i=0;i<ts.size();i++)
             if(ts.get(i).nombre().equals(nombre)){
@@ -221,9 +237,19 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
                 break;
             }   
         if (pos != -1)
-            ts.get(pos).set_inactivo();
+            ts.get(pos).set_activo(cuad,nbloque);
+	}	
+    void desactivar(String nombre, int nbloque){
+        int pos = -1;
+        for(int i=0;i<ts.size();i++)
+            if(ts.get(i).nombre().equals(nombre)){
+                pos = i;
+                break;
+            }   
+        if (pos != -1)
+            ts.get(pos).set_inactivo(nbloque);
     }
-    boolean esta_activo(String nombre){
+    boolean esta_activo(String nombre,int nbloque){
         int pos = -1;
         for(int i=0;i<ts.size();i++)
             if(ts.get(i).nombre().equals(nombre)){
@@ -231,8 +257,40 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
                 break;
             }   
         if (pos != -1)
-            return (ts.get(pos).activo()>=0?true:false);
+            return (ts.get(pos).activo(nbloque)>=0?true:false);
         return false;
+    }   
+    boolean esta_indefinido(String nombre,int nbloque){
+        int pos = -1;
+        for(int i=0;i<ts.size();i++)
+            if(ts.get(i).nombre().equals(nombre)){
+                pos = i;
+                break;
+            }   
+        if (pos != -1)
+            return (ts.get(pos).get_nodo(nbloque)>=0?true:false);
+        return false;
+    }   
+    void apuntar_nodo(String nombre,int nbloque,int indice){
+        int pos = -1;
+        for(int i=0;i<ts.size();i++)
+            if(ts.get(i).nombre().equals(nombre)){
+                pos = i;
+                break;
+            }   
+        if (pos != -1)
+            ts.get(pos).set_nodo(nbloque,indice);
+    }   
+    int obtener_nodo(String nombre,int nbloque){
+        int pos = -1;
+        for(int i=0;i<ts.size();i++)
+            if(ts.get(i).nombre().equals(nombre)){
+                pos = i;
+                break;
+            }   
+        if (pos != -1)
+            return ts.get(pos).get_nodo(nbloque);
+		return -1;
     }   
     void guardar_valor(String nombre, String valor){
         int pos = -1;
@@ -277,7 +335,7 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
             ts.set(pos,v);
         }
     }
-    String obtener_pos_en_curso(String nombre){
+    String obtener_pos_en_curso(String nombre,String reg_pref){
         int pos = -1;
         for(int i=0;i<ts.size();i++)
             if(ts.get(i).nombre().equals(nombre)){
@@ -285,8 +343,16 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
                 break;
             }   
         if (pos != -1)
-            if(ts.get(pos).devolver_registro()>0)
-                return new String("r"+Integer.toString(ts.get(pos).devolver_registro()));
+            if(ts.get(pos).devolver_registro("")>0)
+				if(Util.stringEmpty(reg_pref))
+					return new String("r"+Integer.toString(ts.get(pos).devolver_registro("")));
+				else{
+					int rbuscado = ts.get(pos).devolver_registro(reg_pref);
+					if(rbuscado>0)
+						return reg_pref;
+					else
+						return new String("r"+Integer.toString(ts.get(pos).devolver_registro("")));
+				}
             else
                 return nombre;
         return nombre;    
@@ -299,7 +365,7 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
                 break;
             }   
         if (pos != -1)
-            if(ts.get(pos).devolver_registro()>0)
+            if(ts.get(pos).devolver_registro("")>0)
                 return true;
         return false;              
     }    
@@ -311,7 +377,7 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
                 break;
             }   
         if (pos != -1)
-            ts.get(pos).borrar_registro(Integer.valueOf(ldir.substring(1)));
+            ts.get(pos).borrar_registro(ldir);
     }
     void actualiza_descrip_direcc(String nombre, String ldir){
         int pos = -1;
@@ -329,7 +395,10 @@ class Tvariables { // tabla de simbolos para la ejecucion del programa
                 return;
                 }
         }
-    }    
+    }
+    Iterator<Var> devuelve_vbles(){
+		return ts.iterator();
+	}    
 }
 class Reg { // para la pila semantica
     private String nombre,lugar,codigo,quad,cierto,falso;
@@ -395,20 +464,34 @@ class Cuad { // para la tabla de cuadruplos
         this.op = _op;
     }
 }
+class NodoGDA{
+	String etiqueta;
+	ArrayList<String> identificadores;
+	int hijo_izdo, hijo_dcho;
+	NodoGDA(String _etiq){
+		this.etiqueta = _etiq;
+		this.identificadores = new ArrayList<String>();
+		this.hijo_izdo = -1;
+		this.hijo_dcho = -1;
+	}
+}
 class Bloque_basico{
     int nbloque,lider;
     ArrayList<String> cuadruplos,succ,pred;
+	ArrayList<NodoGDA> gda;
     Bloque_basico(int _b,int _lider){
         this.nbloque = _b;
         this.lider = _lider;
         this.cuadruplos = new ArrayList<String>();
         this.succ = new ArrayList<String>();
         this.pred = new ArrayList<String>();
+		this.gda = new ArrayList<NodoGDA>();
     }
     Bloque_basico(){
         this.cuadruplos = new ArrayList<String>();
         this.succ = new ArrayList<String>();
         this.pred = new ArrayList<String>();
+		this.gda = new ArrayList<NodoGDA>();
     }
     void aniadir_cuad(String _n){
         this.cuadruplos.add(_n);
@@ -419,18 +502,30 @@ class Bloque_basico{
     void aniadir_succ(int _n){
         this.succ.add(String.valueOf(_n));
     }
+	int aniadir_hoja(String _etiq){
+		this.gda.add(new NodoGDA(_etiq));
+		return (this.gda.size()-1);
+	}
+	boolean esta_indeterminado(String _op,int hi,int hd){
+		return gda.contains(new NodoGDA(_op,hi,hd));
+	}
+	int encontrar_nodo(String _op,int hi,int hd){
+		return gda.indexOf(new NodoGDA(_op,hi,hd));
+	}
+	int aniadir_nodo(String _op,int hi,int hd){
+		gda.add(new NodoGDA(_op,hi,hd));
+		return (gda.size()-1);
+	}	
 }
 class Descriptor_reg{
     int posicion;
     ArrayList<String> contiene;
-    boolean vacio;
     Descriptor_reg(int _pos){
         this.posicion = _pos;
-        this.vacio = true;
         this.contiene = new ArrayList<String>();
     }
     boolean vacio(){
-        return vacio;
+        return this.contiene.isEmpty();
     }
 }
 public class TGestorSemantico{
@@ -440,8 +535,9 @@ public class TGestorSemantico{
     int indice = 0;
     Tvariables variables; // de momento hay un solo algoritmo, en el momento en que sean mas, habra que utilizar una pila
     ArrayList<Descriptor_reg> treg;
-
-    TGestorSemantico() throws IOException {
+    String opcion;
+	Var vble;
+    TGestorSemantico(String _opc) throws IOException {
         pila_sem = new Stack<Reg>();
         outputStream = new PrintWriter(new FileWriter("a.out"));
         tcuad = new ArrayList<Cuad>();
@@ -450,6 +546,7 @@ public class TGestorSemantico{
         for(int i=1;i<32;i++){
             treg.add(new Descriptor_reg(i));
         }
+		opcion = new String(_opc);
     }
     String gen(String op, String arg1, String arg2, String res){
         tcuad.add(new Cuad(op,arg1,arg2,res));
@@ -482,37 +579,37 @@ public class TGestorSemantico{
                 }   
         }   
     }
-    void encontrar_lazos(ArrayList<Bloque_basico> tbloques,int[] lazo, int n, ArrayList<String> listaLazos){
+    void encontrar_lazos(ArrayList<Bloque_basico> tbloques,int[] lazo, int n, ArrayList<String> listaLazos){ // n marca la ultima posicion del camino recorrido
         Bloque_basico bloque = new Bloque_basico();
         String sucesor,cad;
         boolean lazo_interno;
-        for(int k=0;k<tbloques.size();k++){
+        for(int k=0;k<tbloques.size();k++){ // encontrar el bloque en la ultima posicion del camino recorrido
             bloque = tbloques.get(k);
             if(bloque.nbloque == lazo[n])
                 break;
         }
-        for(Iterator<String> iter=bloque.succ.iterator();iter.hasNext();){
+        for(Iterator<String> iter=bloque.succ.iterator();iter.hasNext();){ // para los sucesores de ese bloque
             sucesor = (String)iter.next();
-            if(lazo[0]==Integer.valueOf(sucesor).intValue()){
+            if(lazo[0]==Integer.valueOf(sucesor).intValue()){ // hay un lazo,se añade a listaLazos
                 cad = new Integer(lazo[0]).toString();
-                for(int k=1;k<n;k++) cad+="->"+(new Integer(lazo[k]).toString());
+                for(int k=1;k<=n;k++) cad+="->"+(new Integer(lazo[k]).toString());
                 listaLazos.add(cad+"->"+new Integer(lazo[0]).toString());
             }else if(!Util.stringEmpty(sucesor)){
                 // comprobar si hay un lazo interno en cuyo caso se abandona la busqueda
                 lazo_interno = false;
                 for(int i=0;i<n;i++)
-                if(lazo[i]==Integer.valueOf(sucesor).intValue()){
-                    lazo_interno = true;
-                    break;
-                }
+					if(lazo[i]==Integer.valueOf(sucesor).intValue()){
+						lazo_interno = true;
+						break;
+					}
                 if(!lazo_interno){
-                lazo[n+1]=Integer.valueOf(sucesor).intValue();
-                encontrar_lazos(tbloques,lazo,n+1,listaLazos);
+					lazo[n+1]=Integer.valueOf(sucesor).intValue(); // se van añadiendo nodos segun se recorre el camino entre bloques
+					encontrar_lazos(tbloques,lazo,n+1,listaLazos);
                 }
             }
         }
     }
-    boolean no_esta(String c, ArrayList<String> b){
+    boolean no_esta(String c, ArrayList<String> b){ // identifica si dos caminos representan el mismo lazo
         String aux[],cad;
         HashSet<String> asec,bsec;
         aux=c.split("->");
@@ -530,38 +627,119 @@ public class TGestorSemantico{
         }
         return true;
     }
-    /*String obtenreg(String y){
-        // devolver un registro vacio si hay alguno
+	boolean hay_volcado_registro(){
+		// si no hay ningun registro vacio, hay que elegir uno ocupado y volcar previamente su contenido a memoria
+		boolean hay_uno_vacio = false;
         for(int i=1;i<treg.size();i++)
             if(treg.get(i).vacio())
+				hay_uno_vacio = true;
+		return (!hay_uno_vacio);
+	}	
+    String obtenreg(String nombre, int nbloque, String etiq){
+		String vble; 
+		boolean primera_inst = true;
+		String etiqueta = new String(etiq);
+		char tabulador[]={' ',' ',' ',' ',' ',' ',' '};
+        // devolver un registro vacio si hay alguno
+        for(int i=1;i<treg.size();i++)
+            if(treg.get(i).vacio()){
+				treg.get(i).contiene.add(nombre);
                 return ("r"+String.valueOf(i));
+			}	
         // si no se puede, encuentrese un registro ocupado R, almacenese el valor de R en una posicion de memoria
         // MOV R,M actualicese el descriptor de direcciones de M y devuelvase R
         for(int i=1;i<treg.size();i++){
+			boolean enc = false;
             for(Iterator<String> iter=treg.get(i).contiene.iterator();iter.hasNext();){
                 vble = (String)iter.next();
-                if(variables.esta_activo(vble))
+                if(variables.esta_activo(vble,nbloque))
                     enc = true;
-                outputStream.println("MOV r"+String.valueOf(i)+", "+vble);
-                variables.quitar_desc_direcc(vble,i);
-            }    
-            return ("r"+String.valueOf(i));
-        }    
-    }*/
-
-    //void actualiza_desc_reg(String nombre,Integer pos){
-
-    //}
+			}
+			if(!enc){
+				for(Iterator<String> iter=treg.get(i).contiene.iterator();iter.hasNext();){
+					vble = (String)iter.next();
+					outputStream.println(etiqueta+"st r"+String.valueOf(i)+", "+vble);
+					if(primera_inst){
+						primera_inst = false;
+						etiqueta = new String(tabulador);
+					}											
+					variables.quitar_desc_direcc(vble,"r"+String.valueOf(i)); // la vble. ya no esta en Ri
+				}    
+				treg.get(i).contiene.clear(); // se pone al registro que ya no contiene a ninguna vble, excepto al que se pasa por parametro
+				treg.get(i).contiene.add(nombre);				
+				// quitar a nombre de todos los otros registros	
+				for(int k=1;k<treg.size();k++)
+					if(k!=i){
+						int j = treg.get(k).contiene.indexOf(nombre);
+						if (j>=0)
+							treg.get(k).contiene.remove(j);
+					}	
+				return ("r"+String.valueOf(i));
+			}
+        } 
+        if(!treg.get(1).vacio()){
+			for(Iterator<String> iter=treg.get(1).contiene.iterator();iter.hasNext();){ // si no se ha encontrado ningun registro ocupado con vbles sin uso en el bloque se coge el primer registro
+				vble = (String)iter.next();
+				outputStream.println(etiqueta+"st r1, "+vble);
+				if(primera_inst){
+					primera_inst = false;
+					etiqueta = new String(tabulador);
+				}											
+				variables.quitar_desc_direcc(vble,"r1"); // la vble. ya no esta en R1
+			}  		
+			treg.get(1).contiene.clear();	
+		}
+		treg.get(1).contiene.add(nombre);
+		// quitar a nombre de todos los otros registros	
+        for(int i=2;i<treg.size();i++){
+			int j = treg.get(i).contiene.indexOf(nombre);
+			if (j>=0)
+				treg.get(i).contiene.remove(j);
+		}	
+		return ("r1");
+    }
+	boolean hay_volcado_r1(){
+		return (!treg.get(1).vacio());
+	}	
+	void almacenar_reg_r1(String nombre,String etiq){
+		String vble; 
+		boolean primera_inst = true;
+		String etiqueta = new String(etiq);
+		char tabulador[]={' ',' ',' ',' ',' ',' ',' '};
+		if(!treg.get(1).vacio()){
+			for(Iterator<String> iter=treg.get(1).contiene.iterator();iter.hasNext();){ 
+				vble = (String)iter.next();
+				outputStream.println(etiqueta+"st r1, "+vble);
+				if(primera_inst){
+					primera_inst = false;
+					etiqueta = new String(tabulador);
+				}											
+				System.out.println("st r1, "+vble);
+				variables.quitar_desc_direcc(vble,"r1"); // la vble. ya no esta en R1
+			}  
+			treg.get(1).contiene.clear();	
+		}
+		treg.get(1).contiene.add(nombre);
+		// quitar a nombre de todos los otros registros	
+        for(int i=2;i<treg.size();i++){
+			if(!treg.get(i).vacio()){
+				int j = treg.get(i).contiene.indexOf(nombre);
+				if (j>=0)
+					treg.get(i).contiene.remove(j);
+			}
+		}			
+	}
+	
     void ejecutarAccionSemantica(int numRegla,String ps)  throws IOException {
-        Reg arg1,arg2,op,ini;
+        Reg arg1,arg2,op,ini,arg3,op2;
         StringBuffer sb;
         String t,cierto,falso,cod;
         Cuad q;
         String ind_cuad[],aux_cuad[],ultimo_quad;
         ArrayList<Bloque_basico> tbloques;
         int[] lideres; int n=0,i;
-        Bloque_basico bloque, bbloque;
-                        
+        Bloque_basico bloque, bbloque, bloque_pred;
+        Iterator<String> iter_bl;                
         try {
             switch (numRegla) {
                 case 1: arg1 = pila_sem.pop();
@@ -685,7 +863,7 @@ public class TGestorSemantico{
                                     variables.guardar_valor(q.res(),variables.leer_valor(q.arg1()));
                                     j++;
                                 }else if(q.op().substring(0,2).equals("IF")){
-                                    if(variables.leer_valor(q.arg1()).indexOf(".")<0){ // en principio contendra un entero o un caracter, se puede preguntar por el tipo de la variable
+                                    if(variables.leer_valor(q.arg1()).indexOf(".")<0 || variables.leer_tipo(q.arg1()).equals("karakterea")){ // en principio contendra un entero o un caracter, se puede preguntar por el tipo de la variable
 									// leer_valor devuelve siempre un String, luego hacemos las conversiones de tipo, para las comparaciones
 										if (variables.leer_tipo(q.arg1()).equals("karakterea")){
 											char a = variables.leer_valor(q.arg1()).charAt(0);
@@ -981,7 +1159,7 @@ public class TGestorSemantico{
                                     }                                                                   
                             }
                         }
-                        // mostrar la inf. de los bloques basicos
+                        // mostrar la inf. de los bloques basicos y el grafo de flujo
                         String grafo = new String("Graph[{");
                         for(j=0;j<tbloques.size();j++){
                             bloque = tbloques.get(j);
@@ -991,11 +1169,27 @@ public class TGestorSemantico{
                             for(ListIterator<String> iter=bloque.cuadruplos.listIterator();iter.hasPrevious();){
                                 ultimo_quad = (String)iter.previous();
                                 q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
-                                if(q.op().equals(":=")){
-                                    variables.desactivar(q.res());
-                                    variables.sgte_uso(q.arg1(),Integer.valueOf(ultimo_quad).intValue());
-                                    variables.sgte_uso(q.arg2(),Integer.valueOf(ultimo_quad).intValue());
-                                }
+                                if(q.op().equals(":=") || q.op().equals("+") || q.op().equals("-") || q.op().equals("*") || q.op().equals("/") || q.op().equals("=[]")){
+                                    variables.desactivar(q.res(),bloque.nbloque);
+									if(!(q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<= '9') && !Util.stringEmpty(variables.leer_tipo(q.arg1())))
+										variables.activar(q.arg1(),bloque.nbloque,Integer.valueOf(ultimo_quad).intValue());
+									if(!(q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<= '9') && !Util.stringEmpty(variables.leer_tipo(q.arg2())))
+										variables.activar(q.arg2(),bloque.nbloque,Integer.valueOf(ultimo_quad).intValue());
+                                }else if(q.op().equals("IF")){
+									if(!(q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<= '9') && !Util.stringEmpty(variables.leer_tipo(q.arg1())))
+										variables.activar(q.arg1(),bloque.nbloque,Integer.valueOf(ultimo_quad).intValue());
+									if(!(q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<= '9') && !Util.stringEmpty(variables.leer_tipo(q.arg2())))
+										variables.activar(q.arg2(),bloque.nbloque,Integer.valueOf(ultimo_quad).intValue());									
+								}else if(q.op().equals("[]=")){
+									variables.desactivar(q.arg1(),bloque.nbloque);
+									if(!(q.res().charAt(0)>='0' && q.res().charAt(0)<= '9') && !Util.stringEmpty(variables.leer_tipo(q.res())))
+										variables.activar(q.arg1(),bloque.nbloque,Integer.valueOf(ultimo_quad).intValue());
+									if(!(q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<= '9') && !Util.stringEmpty(variables.leer_tipo(q.arg2())))
+										variables.activar(q.arg2(),bloque.nbloque,Integer.valueOf(ultimo_quad).intValue());									
+								}else if(q.op().equals("WRITE")){
+									variables.activar(q.arg1(),bloque.nbloque,Integer.valueOf(ultimo_quad).intValue());
+								}else if(q.op().equals("INPUT"))
+									variables.desactivar(q.arg1(),bloque.nbloque);
                             }
                             String lpred = new String();
                             for(Iterator<String> iter=bloque.pred.iterator();iter.hasNext();)
@@ -1013,43 +1207,716 @@ public class TGestorSemantico{
                                     grafo+=bloque.nbloque+"->"+sucesor;
                             }   
                             System.out.println("B"+bloque.nbloque+" cuad="+lcuad+" pred="+lpred+" succ="+lsucc);
-                        }
+							// Construccion de un GDA
+							ultimo_quad = String.valueOf(bloque.lider);
+							iter_bl = bloque.cuadruplos.iterator();
+							int n1,n2;
+							while(!Util.stringEmpty(ultimo_quad)){
+								q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
+								if(q.op().equals("+") || q.op().equals("-") || q.op().equals("*") || q.op().equals("/")){
+									if(variables.esta_indefinido(q.arg1(),bloque.nbloque)){
+										// creese una hoja etiquetada
+										n1 = bloque.aniadir_hoja(q.arg1());
+										variables.apuntar_nodo(q.arg1(),bloque.nbloque,n1);
+									}else
+										n1 = variables.obtener_nodo(q.arg1(),bloque.nbloque);
+									if(variables.esta_indefinido(q.arg2(),bloque.nbloque)){
+										// creese una hoja etiquetada
+										n2 = bloque.aniadir_hoja(q.arg2());
+										variables.apuntar_nodo(q.arg2(),bloque.nbloque,n2);
+									}else
+										n2 = variables.obtener_nodo(q.arg2(),bloque.nbloque);
+									if(bloque.esta_indeterminado(q.op(),n1,n2)){
+										n1 = bloque.aniadir_nodo(q.op(),n1,n2);
+									}else n1 = bloque.encontrar_nodo(q.op(),n1,n2);	
+									// Borrese x de la lista de identificadores asociados a nodo(x)
+									
+									// Añadase x a la lista de identificadores asociados al nodo n e igualase nodo(x) a n
+								}	
+								if(iter_bl.hasNext())
+									ultimo_quad=(String)iter_bl.next();
+								else
+									ultimo_quad="";
+							}								
+						}
                         grafo+="},VertexLabels->All]";
                         System.out.println(grafo);
-                        // generar codigo objeto
-                        /*String ldir,yp,zp;
-                        for(j=0;j<tbloques.size();j++){
-                            bloque = tbloques.get(j);
-                            ultimo_quad = String.valueOf(bloque.lider);
-                            q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
-                            if(q.op().equals("+")){
-                                // invocar obtenreg para determinar donde se guarda el resultado
-                                if(variables.esta_en_reg(q.arg1()) && !variables.esta_activo(q.arg1())){
-                                    ldir = variables.obtener_pos_en_curso(q.arg1());
-                                    //actualizar el descriptor de direcciones de q.arg1 para indicar que ya no esta en ldir
-                                    variables.quitar_desc_direcc(q.arg1(),ldir);
-                                }else{
-                                    ldir = obtenreg();
-                                    yp = variables.obtener_pos_en_curso(q.arg1());
-                                    outputStream.println("MOV "+yp+", "+ldir);
-                                }    
-                                zp = variables.obtener_pos_en_curso(q.arg2());
-                                outputStream.println("ADD "+zp+", "+ldir);
-                                // se actualiza el descriptor de direcciones de q.res para indicar que esta en ldir
-                                variables.actualiza_descrip_direcc(q.res(),ldir);
-                                // si ldir es un registro se actualiza su descriptor para indicar que contiene el valor de q.res y se elimina q.res de todos los descriptores de registro
-                                int arrunta = 0;    
-                                if (ldir.substring(0,1).equals("r")){
-                                    try {
-                                        arrunta = Integer.parseInt(ldir.substring(1));
-                                        actualiza_desc_reg(q.res(),arrunta);
-                                    }   catch(NumberFormatException e) {
-                                        return;
-                                        }
-
-                                }
-
-                        
+                        // generar codigo objeto en el lenguaje ensamblador TXORI
+						// obtener de la pila el nombre del algoritmo
+						arg1 = pila_sem.pop();
+						int bdestino = 0;
+						if(opcion.equalsIgnoreCase("TXORI")){
+							outputStream = new PrintWriter(new FileWriter(arg1.nombre().toLowerCase()+".asm"));
+							outputStream.println(".title "+arg1.nombre().toLowerCase());
+							System.out.println(".title "+arg1.nombre().toLowerCase());
+							// declaracion de las variables
+							for(Iterator<Var> iter=variables.devuelve_vbles();iter.hasNext();){
+								vble = (Var)iter.next(); 
+								if(((vble.nombre().charAt(0)>='a' && vble.nombre().charAt(0)<='z')||(vble.nombre().charAt(0)>='A' && vble.nombre().charAt(0)<='Z'))&& 
+								    !Util.stringEmpty(vble.tipo()))
+									if(vble.tipo().substring(0,4).equals("arra"))
+										outputStream.println(vble.nombre()+": .word "+vble.tipo().substring(vble.tipo().indexOf(",")+1,vble.tipo().indexOf(")"))+";");
+									else{
+										outputStream.println(vble.nombre()+": .word 1;");
+										System.out.println(vble.nombre()+": .word 1;");										
+										}
+							}
+							outputStream.println(".proc main");
+							System.out.println(".proc main");
+							char tabulador[]={' ',' ',' ',' ',' ',' ',' '};
+							String ldir,yp,zp,etiqueta,espacios;
+							boolean poner_etiqueta,saltar,primera_inst,limpiar_etiq;
+							for(j=0;j<tbloques.size();j++){
+								bloque = tbloques.get(j);
+								// ver si a la primera instruccion hay que ponerle etiqueta
+								poner_etiqueta = false;
+								for(Iterator<String> iter=bloque.pred.iterator();iter.hasNext() && !poner_etiqueta;){
+									String nbpred=(String)iter.next();
+									bbloque = tbloques.get(Integer.valueOf(nbpred).intValue());
+									// ir al ultimo cuadruplo del bloque
+									ultimo_quad = String.valueOf(bbloque.lider);
+									q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
+									if(q.op().length()>1 && (q.op().equals("GOTO")||q.op().substring(0,2).equals("IF")))
+										if(bloque.lider==Integer.valueOf(q.res()).intValue())
+											poner_etiqueta=true;
+									for(Iterator<String> iter_cuad=bbloque.cuadruplos.iterator();iter_cuad.hasNext() && !poner_etiqueta;){
+										ultimo_quad = (String)iter_cuad.next();
+										q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
+										if(q.op().length()>1 && (q.op().equals("GOTO")||q.op().substring(0,2).equals("IF")))
+											if(bloque.lider==Integer.valueOf(q.res()).intValue())
+												poner_etiqueta=true;
+									}
+								}
+								if(poner_etiqueta){
+									etiqueta = "etiq"+bloque.nbloque+":";
+									espacios = new String(tabulador,etiqueta.length(),7 - etiqueta.length());
+									etiqueta += espacios;
+									System.out.println("etiq"+bloque.nbloque+":");
+								}else
+									etiqueta = new String(tabulador);
+								primera_inst = true;
+								ultimo_quad = String.valueOf(bloque.lider);
+								iter_bl = bloque.cuadruplos.iterator();
+								while(!Util.stringEmpty(ultimo_quad)){
+									q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
+									if(q.op().equals("+") || q.op().equals("-") || q.op().equals("*") || q.op().equals("/")){
+										saltar = false;ldir = new String();
+										// invocar obtenreg para determinar donde se guarda el resultado
+										// falta ver si alguno de los operandos es una cte.
+										if(variables.esta_en_reg(q.arg1())){
+											yp = variables.obtener_pos_en_curso(q.arg1(),"");
+										}else{
+											limpiar_etiq = false;
+											if(primera_inst)
+												if(hay_volcado_registro())
+													limpiar_etiq = true;
+											yp = obtenreg(q.arg1(),bloque.nbloque,etiqueta);
+											if(limpiar_etiq){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}											
+											if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')||Util.stringEmpty(variables.leer_tipo(q.arg1())))
+												outputStream.println(etiqueta+"movi "+yp+", #"+q.arg1());
+											else{
+												outputStream.println(etiqueta+"ld "+yp+", "+q.arg1());
+												System.out.println("ld "+yp+", "+q.arg1());
+												variables.actualiza_descrip_direcc(q.arg1(),yp);
+											}
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}											
+										}    
+										if(variables.esta_en_reg(q.arg2())){
+											zp = variables.obtener_pos_en_curso(q.arg2(),"");
+										}else{
+						                    limpiar_etiq = false; 
+											if(primera_inst)
+												if(hay_volcado_registro())
+													limpiar_etiq = true;
+											zp = obtenreg(q.arg2(),bloque.nbloque,etiqueta);
+											if(limpiar_etiq){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}											
+											if((q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9')||Util.stringEmpty(variables.leer_tipo(q.arg2()))){
+												saltar = true;
+												limpiar_etiq = false;
+												if(primera_inst)
+													if(hay_volcado_registro())
+														limpiar_etiq = true;
+												ldir = obtenreg(q.res(),bloque.nbloque,etiqueta);
+												if(limpiar_etiq){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}																						
+												if(q.op().equals("+"))
+													outputStream.println(etiqueta+"addi "+ldir+", #"+q.arg2());
+												else if(q.op().equals("-"))
+													outputStream.println(etiqueta+"subi "+ldir+", #"+q.arg2());
+												else if(q.op().equals("*"))
+													outputStream.println(etiqueta+"muli "+ldir+", #"+q.arg2());
+												else if(q.op().equals("/"))
+													outputStream.println(etiqueta+"divi "+ldir+", #"+q.arg2());
+											}else{
+												outputStream.println(etiqueta+"ld "+zp+", "+q.arg2());
+												variables.actualiza_descrip_direcc(q.arg1(),yp);
+											}
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}
+										} 
+										if(!saltar){
+											limpiar_etiq = false; 
+											if(primera_inst)
+												if(hay_volcado_registro())
+													limpiar_etiq = true;
+											ldir = obtenreg(q.res(),bloque.nbloque,etiqueta);
+											if(limpiar_etiq){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}											
+											if(q.op().equals("+"))
+												outputStream.println(etiqueta+"add "+ldir+", "+yp+", "+zp);
+											else if(q.op().equals("-"))
+												outputStream.println(etiqueta+"sub "+ldir+", "+yp+", "+zp);
+											else if(q.op().equals("*"))
+												outputStream.println(etiqueta+"mul "+ldir+", "+yp+", "+zp);
+											else if(q.op().equals("/"))
+												outputStream.println(etiqueta+"div "+ldir+", "+yp+", "+zp);
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}
+										}
+										// se actualiza el descriptor de direcciones de q.res para indicar que esta en ldir
+										variables.actualiza_descrip_direcc(q.res(),ldir);
+									}else if(q.op().equals(":=")){
+											if(variables.esta_en_reg(q.res()))
+												ldir = variables.obtener_pos_en_curso(q.res(),"");
+											else{
+												limpiar_etiq = false; 
+												if(primera_inst)
+													if(hay_volcado_registro())
+														limpiar_etiq = true;
+												ldir = obtenreg(q.res(),bloque.nbloque,etiqueta);
+												if(limpiar_etiq){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}											
+												variables.actualiza_descrip_direcc(q.res(),ldir);
+											}
+											if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')||Util.stringEmpty(variables.leer_tipo(q.arg1())))
+												outputStream.println(etiqueta+"movi "+ldir+", #"+q.arg1());
+											else
+												if(!variables.esta_en_reg(q.arg1())){
+													outputStream.println(etiqueta+"ld "+ldir+", "+q.arg1());
+													variables.actualiza_descrip_direcc(q.arg1(),ldir);
+												}else{
+													yp = variables.obtener_pos_en_curso(q.arg1(),"");
+													outputStream.println(etiqueta+"mov "+ldir+", "+yp);
+												}
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}
+									}else if(q.op().substring(0,2).equals("IF")){
+											if(variables.esta_en_reg(q.arg1())){
+												yp = variables.obtener_pos_en_curso(q.arg1(),"");
+											}else{
+												limpiar_etiq = false; 
+												if(primera_inst)
+													if(hay_volcado_registro())
+														limpiar_etiq = true;
+												yp = obtenreg(q.arg1(),bloque.nbloque,etiqueta);
+												if(limpiar_etiq){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}											
+												if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')||Util.stringEmpty(variables.leer_tipo(q.arg1())))
+													outputStream.println(etiqueta+"movi "+yp+", #"+q.arg1());
+												else{
+													outputStream.println(etiqueta+"ld "+yp+", "+q.arg1());
+													variables.actualiza_descrip_direcc(q.arg1(),yp);
+												}
+												if(primera_inst){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}
+											}    
+											if(variables.esta_en_reg(q.arg2())){
+												zp = variables.obtener_pos_en_curso(q.arg2(),"");
+											}else{
+												limpiar_etiq = false; 
+												if(primera_inst)
+													if(hay_volcado_registro())
+														limpiar_etiq = true;
+												zp = obtenreg(q.arg2(),bloque.nbloque,etiqueta);
+												if(limpiar_etiq){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}											
+												if((q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9')||Util.stringEmpty(variables.leer_tipo(q.arg2())))
+													outputStream.println(etiqueta+"movi "+zp+", #"+q.arg2());
+												else{
+													outputStream.println(etiqueta+"ld "+zp+", "+q.arg2());
+													variables.actualiza_descrip_direcc(q.arg2(),zp);
+												}
+												if(primera_inst){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}
+											}  
+											limpiar_etiq = false; 
+											if(primera_inst)
+												if(hay_volcado_registro())
+													limpiar_etiq = true;
+											ldir = obtenreg("tmpif",bloque.nbloque,etiqueta);
+											if(limpiar_etiq){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}											
+											outputStream.println(etiqueta+"sub "+ldir+", "+yp+", "+zp);
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}
+											// averiguar el bloque al que pertenece la instr. destino del salto, mirando entre los bloques sucesores
+											for(Iterator<String> iter=bloque.succ.iterator();iter.hasNext();){
+												String sucesor = (String)iter.next();
+												bbloque = tbloques.get(Integer.valueOf(sucesor).intValue());
+												if (bbloque.lider==Integer.valueOf(q.res()).intValue()){
+													bdestino = bbloque.nbloque;
+													break;
+												}
+											}			
+											if(q.op().substring(2).trim().equals(">")){
+												outputStream.println(etiqueta+"bgt "+ldir+", etiq"+Integer.toString(bdestino));
+											}else if(q.op().substring(2).trim().equals(">=")){	
+												outputStream.println(etiqueta+"bge "+ldir+", etiq"+Integer.toString(bdestino));
+											}else if(q.op().substring(2).trim().equals("<")){
+												outputStream.println(etiqueta+"bls "+ldir+", etiq"+Integer.toString(bdestino));
+											}else if(q.op().substring(2).trim().equals("<=")){
+												outputStream.println(etiqueta+"ble "+ldir+", etiq"+Integer.toString(bdestino));
+											}else if(q.op().substring(2).trim().equals("<>")){
+												outputStream.println(etiqueta+"bne "+ldir+", etiq"+Integer.toString(bdestino));
+											}else if(q.op().substring(2).trim().equals("=")){
+												outputStream.println(etiqueta+"beq "+ldir+", etiq"+Integer.toString(bdestino));	
+											}	
+									}else if(q.op().equals("GOTO")){
+											// averiguar el bloque al que pertenece la instr. destino del salto, mirando entre los bloques sucesores
+											for(Iterator<String> iter=bloque.succ.iterator();iter.hasNext();){
+												String sucesor = (String)iter.next();
+												bbloque = tbloques.get(Integer.valueOf(sucesor).intValue());
+												if (bbloque.lider==Integer.valueOf(q.res()).intValue()){
+													bdestino = bbloque.nbloque;
+													break;
+												}
+											}
+											outputStream.println(etiqueta+"jmp etiq"+Integer.toString(bdestino));
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}
+									}else if(q.op().equals("=[]")){
+											if(variables.esta_en_reg(q.res())){
+												yp = variables.obtener_pos_en_curso(q.res(),"");
+											}else{
+												limpiar_etiq = false; 
+												if(primera_inst)
+													if(hay_volcado_registro())
+														limpiar_etiq = true;
+												yp = obtenreg(q.res(),bloque.nbloque,etiqueta);
+												if(limpiar_etiq){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}											
+												outputStream.println(etiqueta+"ld "+yp+", "+q.res());
+												// se actualiza el descriptor de direcciones de q.res para indicar que esta en ldir
+										        variables.actualiza_descrip_direcc(q.res(),yp);
+												if(primera_inst){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}
+											}    
+											if(variables.esta_en_reg(q.arg2())){
+												zp = variables.obtener_pos_en_curso(q.arg2(),"");
+											}else{
+												limpiar_etiq = false; 
+												if(primera_inst)
+													if(hay_volcado_registro())
+														limpiar_etiq = true;
+												zp = obtenreg(q.arg2(),bloque.nbloque,etiqueta);
+												if(limpiar_etiq){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}											
+												if((q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9')||Util.stringEmpty(variables.leer_tipo(q.arg2())))
+													outputStream.println(etiqueta+"movi "+zp+", #"+q.arg2());
+												else{
+													outputStream.println(etiqueta+"ld "+zp+", "+q.arg2());
+													// se actualiza el descriptor de direcciones de q.res para indicar que esta en ldir
+										            variables.actualiza_descrip_direcc(q.arg2(),zp);
+												}	
+												if(primera_inst){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}
+											}  
+											outputStream.println(etiqueta+"ldx "+yp+", "+q.arg1()+"["+zp+"]");
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}
+									}else if(q.op().equals("[]=")){
+											if(variables.esta_en_reg(q.res())){
+												yp = variables.obtener_pos_en_curso(q.res(),"");
+											}else{
+												limpiar_etiq = false; 
+												if(primera_inst)
+													if(hay_volcado_registro())
+														limpiar_etiq = true;
+												yp = obtenreg(q.res(),bloque.nbloque,etiqueta);
+												if(limpiar_etiq){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}											
+												outputStream.println(etiqueta+"ld "+yp+", "+q.res());
+												// se actualiza el descriptor de direcciones de q.res para indicar que esta en yp
+										        variables.actualiza_descrip_direcc(q.res(),yp);
+												if(primera_inst){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}
+											}    
+											if(variables.esta_en_reg(q.arg2())){
+												zp = variables.obtener_pos_en_curso(q.arg2(),"");
+											}else{
+												limpiar_etiq = false; 
+												if(primera_inst)
+													if(hay_volcado_registro())
+														limpiar_etiq = true;
+												zp = obtenreg(q.arg2(),bloque.nbloque,etiqueta);
+												if(limpiar_etiq){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}											
+												if((q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9')||Util.stringEmpty(variables.leer_tipo(q.arg2())))
+													outputStream.println(etiqueta+"movi "+zp+", #"+q.arg2());
+												else{
+													outputStream.println(etiqueta+"ld "+zp+", "+q.arg2());
+													 variables.actualiza_descrip_direcc(q.arg2(),zp);
+												}	
+												if(primera_inst){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}
+											}  
+											outputStream.println(etiqueta+"stx "+yp+", "+q.arg1()+"["+zp+"]");
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}
+									}else if(q.op().equals("WRITE")){
+											if(variables.esta_en_reg(q.arg1())){
+												yp = variables.obtener_pos_en_curso(q.arg1(),"r1");
+												if(!yp.equals("r1")){
+													limpiar_etiq = false;
+													if(primera_inst)
+														if(hay_volcado_r1())
+															limpiar_etiq = true;
+													almacenar_reg_r1(q.arg1(),etiqueta);
+													if(limpiar_etiq){
+														primera_inst = false;
+														etiqueta = new String(tabulador);
+													}											
+													outputStream.println(etiqueta+"mov r1, "+yp);
+													variables.actualiza_descrip_direcc(q.arg1(),"r1");
+													if(primera_inst){
+														primera_inst = false;
+														etiqueta = new String(tabulador);
+													}
+												}
+											}else{
+												limpiar_etiq = false;
+												if(primera_inst)
+													if(hay_volcado_r1())
+														limpiar_etiq = true;
+												almacenar_reg_r1(q.arg1(),etiqueta);
+												if(limpiar_etiq){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}											
+												if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')||Util.stringEmpty(variables.leer_tipo(q.arg1())))
+													outputStream.println(etiqueta+"movi r1, #"+q.arg1());
+												else{
+													outputStream.println(etiqueta+"ld r1, "+q.arg1());
+													variables.actualiza_descrip_direcc(q.arg1(),"r1");
+												}	
+												if(primera_inst){
+													primera_inst = false;
+													etiqueta = new String(tabulador);
+												}
+											}
+											outputStream.println(etiqueta+"out");// visualiza el contenido del registro r1
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}
+                                 	}else if(q.op().equals("INPUT")){
+											limpiar_etiq = false;
+											if(primera_inst)
+												if(hay_volcado_r1())
+													limpiar_etiq = true;
+											almacenar_reg_r1(q.arg1(),etiqueta);
+											if(limpiar_etiq){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}											
+											outputStream.println(etiqueta+"in"); // guarda el entero tecleado en el registro r1
+											System.out.println("in");
+											variables.actualiza_descrip_direcc(q.arg1(),"r1");
+											if(primera_inst){
+												primera_inst = false;
+												etiqueta = new String(tabulador);
+											}
+									}	
+									if(iter_bl.hasNext())
+										ultimo_quad=(String)iter_bl.next();
+									else
+										ultimo_quad="";
+								}								
+							}  
+							outputStream.println("       retm");
+							outputStream.println(".endp main");
+							outputStream.println(".end");
+							outputStream.close();
+						}else if(opcion.equalsIgnoreCase("UDMPs99")){
+							outputStream = new PrintWriter(new FileWriter(arg1.nombre().toLowerCase()+".mpv"));
+							// declaracion de las variables
+							for(Iterator<Var> iter=variables.devuelve_vbles();iter.hasNext();){
+								vble = (Var)iter.next(); 
+								if(((vble.nombre().charAt(0)>='a' && vble.nombre().charAt(0)<='z')||(vble.nombre().charAt(0)>='A' && vble.nombre().charAt(0)<='Z'))&& 
+								    !Util.stringEmpty(vble.tipo()))
+									if(vble.tipo().equals("osoa"))
+										outputStream.println("globali "+vble.nombre());
+									else if(vble.tipo().equals("erreala"))
+											outputStream.println("globalr "+vble.nombre());
+										 else if(vble.nombre().length()>1 || vble.nombre().charAt(0)!=vble.devuelve_caracter())
+											 outputStream.println("globalb "+vble.nombre());
+							}
+							// empieza el programa principal de la maquina de pila
+							outputStream.println("inicio");
+							String ldir,yp,zp,etiqueta;
+							boolean poner_etiqueta;
+							for(j=0;j<tbloques.size();j++){
+								bloque = tbloques.get(j);
+								// ver si a la primera instruccion hay que ponerle etiqueta
+								poner_etiqueta = false;
+								for(Iterator<String> iter=bloque.pred.iterator();iter.hasNext() && !poner_etiqueta;){
+									String nbpred=(String)iter.next();
+									bbloque = tbloques.get(Integer.valueOf(nbpred).intValue());
+									ultimo_quad = String.valueOf(bbloque.lider);
+									q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
+									if(q.op().length()>1 && (q.op().equals("GOTO")||q.op().substring(0,2).equals("IF")))
+										if(bloque.lider==Integer.valueOf(q.res()).intValue())
+											poner_etiqueta=true;
+									for(Iterator<String> iter_cuad=bbloque.cuadruplos.iterator();iter_cuad.hasNext() && !poner_etiqueta;){
+										ultimo_quad = (String)iter_cuad.next();
+										q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
+										if(q.op().length()>1 && (q.op().equals("GOTO")||q.op().substring(0,2).equals("IF")))
+											if(bloque.lider==Integer.valueOf(q.res()).intValue())
+												poner_etiqueta=true;
+									}
+								}
+								if(poner_etiqueta)
+									outputStream.println("etiq #B"+Integer.toString(bloque.nbloque));
+								ultimo_quad = String.valueOf(bloque.lider);
+								iter_bl = bloque.cuadruplos.iterator();
+								while(!Util.stringEmpty(ultimo_quad)){
+									q = (Cuad)tcuad.get(Integer.valueOf(ultimo_quad).intValue());
+									if(q.op().equals("+") || q.op().equals("-") || q.op().equals("*") || q.op().equals("/")){
+										outputStream.println("valori "+q.res());
+										if(variables.leer_tipo(q.res()).equals("osoa")){
+											if(q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')
+												outputStream.println("insi "+q.arg1());
+											else 
+												outputStream.println("valord "+q.arg1());
+											if(q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9')
+												outputStream.println("insi "+q.arg2());
+											else 
+												outputStream.println("valord "+q.arg2());
+											if(q.op().equals("+"))
+												outputStream.println("sumai");
+											else if(q.op().equals("-"))
+												outputStream.println("restai");
+											else if(q.op().equals("*")) 
+												outputStream.println("multi");
+											else if(q.op().equals("/"))
+												outputStream.println("divi");
+											outputStream.println("asigna");
+										}else if(variables.leer_tipo(q.res()).equals("erreala")){
+											if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')|| q.arg1().charAt(0)=='.')
+												outputStream.println("insr "+q.arg1());
+											else 
+												outputStream.println("valord "+q.arg1());
+											if((q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9')|| q.arg2().charAt(0)=='.')
+												outputStream.println("insr "+q.arg2());
+											else 
+												outputStream.println("valord "+q.arg2());
+											if(q.op().equals("+"))
+												outputStream.println("sumar");
+											else if(q.op().equals("-"))
+												outputStream.println("restar");
+											else if(q.op().equals("*")) 
+												outputStream.println("multr");
+											else if(q.op().equals("/"))
+												outputStream.println("divr");
+											outputStream.println("asignar");
+										}else{
+											if(q.arg1().length()==1 && q.arg1().equals(variables.leer_valor(q.arg1())))
+												outputStream.println("insb "+q.arg1());
+											else 
+												outputStream.println("valord "+q.arg1());
+											if(q.arg2().length()==1 && q.arg2().equals(variables.leer_valor(q.arg2())))
+												outputStream.println("insb "+q.arg2());
+											else 
+												outputStream.println("valord "+q.arg2());
+											if(q.op().equals("+"))
+												outputStream.println("sumab");
+											else if(q.op().equals("-"))
+												outputStream.println("restab");
+											outputStream.println("asignab");
+										}	
+									}else if(q.op().equals(":=")){
+										outputStream.println("valori "+q.res());
+										if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9' && q.arg1().indexOf(".")<0) || variables.leer_tipo(q.arg1()).equals("osoa")){
+											if(q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')
+												outputStream.println("insi "+q.arg1());
+											else 
+												outputStream.println("valord "+q.arg1());
+											outputStream.println("asigna");
+										}else if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9' && q.arg1().indexOf(".")>=0)||variables.leer_tipo(q.arg1()).equals("erreala")){
+											if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')|| q.arg1().charAt(0)=='.')
+												outputStream.println("insr "+q.arg1());
+											else 
+												outputStream.println("valord "+q.arg1());
+											outputStream.println("asignar");	
+										}else{
+											if(q.arg1().length()==1 && q.arg1().equals(variables.leer_valor(q.arg1())))
+												outputStream.println("insb "+q.arg1());
+											else 
+												outputStream.println("valord "+q.arg1());
+											outputStream.println("asignab");
+										}		
+									}else if(q.op().substring(0,2).equals("IF")){
+										if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9' && q.arg1().indexOf(".")<0) || variables.leer_tipo(q.arg1()).equals("osoa"))
+											if(q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')
+												outputStream.println("insi "+q.arg1());
+											else 
+												outputStream.println("valord "+q.arg1());
+										else if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9' && q.arg1().indexOf(".")>=0) || variables.leer_tipo(q.arg1()).equals("erreala"))
+											if((q.arg1().charAt(0)>='0' && q.arg1().charAt(0)<='9')||q.arg1().charAt(0)=='.')
+												outputStream.println("insr "+q.arg1());
+											else 
+												outputStream.println("valord "+q.arg1());
+										else{
+											if(q.arg1().length()==1 && q.arg1().equals(variables.leer_valor(q.arg1())))
+												outputStream.println("insb "+q.arg1());
+											else 
+												outputStream.println("valord "+q.arg1());											
+										}
+										if((q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9' && q.arg2().indexOf(".")<0) || variables.leer_tipo(q.arg2()).equals("osoa"))
+											if(q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9')
+												outputStream.println("insi "+q.arg2());
+											else 
+												outputStream.println("valord "+q.arg2());
+										else if((q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9' && q.arg2().indexOf(".")>=0) || variables.leer_tipo(q.arg2()).equals("erreala"))
+											if((q.arg2().charAt(0)>='0' && q.arg2().charAt(0)<='9')||q.arg2().charAt(0)=='.')
+												outputStream.println("insr "+q.arg2());
+											else 
+												outputStream.println("valord "+q.arg2());
+										else{
+											if(q.arg2().length()==1 && q.arg2().equals(variables.leer_valor(q.arg2())))
+												outputStream.println("insb "+q.arg2());
+											else 
+												outputStream.println("valord "+q.arg2());											
+										}
+										// averiguar el bloque al que pertenece la instr. destino del salto, mirando entre los bloques sucesores
+										for(Iterator<String> iter=bloque.succ.iterator();iter.hasNext();){
+											String sucesor = (String)iter.next();
+											bbloque = tbloques.get(Integer.valueOf(sucesor).intValue());
+											if (bbloque.lider==Integer.valueOf(q.res()).intValue()){
+												bdestino = bbloque.nbloque;
+												break;
+											}
+										}	
+										if(variables.leer_tipo(q.arg1()).equals("osoa")||variables.leer_tipo(q.arg2()).equals("osoa"))
+											if(q.op().substring(2).trim().equals("="))
+												outputStream.println("==i");
+											else if(q.op().substring(2).trim().equals("<>"))
+												outputStream.println("!=i");
+											else
+												outputStream.println(q.op().substring(2).trim()+"i");
+										else if(variables.leer_tipo(q.arg1()).equals("erreala")||variables.leer_tipo(q.arg2()).equals("erreala"))
+											if(q.op().substring(2).trim().equalsIgnoreCase("="))
+												outputStream.println("==r");
+											else if(q.op().substring(2).trim().equals("<>"))
+												outputStream.println("!=r");
+											else
+												outputStream.println(q.op().substring(2).trim()+"r");
+										else
+											if(q.op().substring(2).trim().equals("="))
+												outputStream.println("==b");
+											else if(q.op().substring(2).trim().equals("<>"))
+												outputStream.println("!=b");
+											else
+												outputStream.println(q.op().substring(2).trim()+"b");
+										outputStream.println("si-cierto-ir-a #B"+Integer.toString(bdestino));									
+									}else if(q.op().equals("GOTO")){
+										// averiguar el bloque al que pertenece la instr. destino del salto, mirando entre los bloques sucesores
+										for(Iterator<String> iter=bloque.succ.iterator();iter.hasNext();){
+											String sucesor = (String)iter.next();
+											bbloque = tbloques.get(Integer.valueOf(sucesor).intValue());
+											if (bbloque.lider==Integer.valueOf(q.res()).intValue()){
+												bdestino = bbloque.nbloque;
+												break;
+											}
+										}	
+                                        outputStream.println("ir–a #B"+Integer.toString(bdestino));
+									}else if(q.op().equals("INPUT")){
+										outputStream.println("valori "+q.arg1());
+										if(variables.leer_tipo(q.arg1()).equals("osoa")){
+											outputStream.println("leeri");
+											outputStream.println(":=");
+										}else if(variables.leer_tipo(q.arg1()).equals("erreala")){
+											outputStream.println("leerr");
+											outputStream.println(":=r");
+										}else{
+											outputStream.println("leerb");
+											outputStream.println(":=b");
+											}
+									}else if(q.op().equals("WRITE")){
+										outputStream.println("valord "+q.arg1());
+										if(variables.leer_tipo(q.arg1()).equals("osoa"))
+											outputStream.println("escribiri");
+										else if(variables.leer_tipo(q.arg1()).equals("erreala"))
+											outputStream.println("escribirr");
+										else
+											outputStream.println("escribirb");
+										outputStream.println("escribirln");
+									}else if(q.op().equals("RET")){	
+										outputStream.println("fin");
+									}
+									if(iter_bl.hasNext())
+										ultimo_quad=(String)iter_bl.next();
+									else
+										ultimo_quad="";
+								}								
+							}  							
+							outputStream.close();
+						}	
                         // ver si hay lazos: empezando en cada bloque ver si siguiendo sus sucesores se llega al mismo bloque
                         ArrayList<String> bucles = new ArrayList<String>();
                         int[] lazo;
@@ -1065,17 +1932,23 @@ public class TGestorSemantico{
                                     bucles.add(grafo);
                             }
                         }   
-                        for(Iterator<String> iter=bucles.iterator();iter.hasNext();){
+                        for(Iterator<String> iter=bucles.iterator();iter.hasNext();){ // faltaria para cada lazo, calcular la cuenta de uso de las variables que aparecen en el lazo
                             grafo = (String)iter.next();
                             System.out.println("lazo:"+grafo);
-                        }   */
+                        } 
                         break;
                 case 6: pila_sem.push(new Reg("karakterea"));
                         break;						
                 case 7: pila_sem.push(new Reg("osoa"));
-                        break;						
+                        break;		
+				case 9: arg2 = pila_sem.pop();
+                        arg1 = pila_sem.pop();
+						pila_sem.push(new Reg("array("+arg2.nombre()+","+arg1.nombre()+")"));
+                        break;
                 case 13:arg1 = pila_sem.pop();
                         cod = arg1.codigo();
+						cierto = arg1.cierto();
+						falso = arg1.falso();
                         while(!pila_sem.empty() && Util.stringEmpty(pila_sem.peek().quad())){
                             arg1 = pila_sem.pop();
                             asocia(arg1.cierto(),primera_pos(cod));
@@ -1084,7 +1957,7 @@ public class TGestorSemantico{
                         }   
                         if(!pila_sem.empty() && !Util.stringEmpty(pila_sem.peek().quad()))
                            arg1 = pila_sem.pop();
-                        pila_sem.push(new Reg(null,null,cod,null,null,null));
+                        pila_sem.push(new Reg(null,null,cod,null,cierto,falso));
                         break;  
                 case 16:arg2 = pila_sem.pop();
                         arg1 = pila_sem.pop();
@@ -1100,14 +1973,31 @@ public class TGestorSemantico{
                 case 19:arg1 = pila_sem.pop();
                         cod = gen("WRITE", variables.leer(Integer.valueOf(arg1.lugar()).intValue()), null, null);
                         pila_sem.push(new Reg(arg1.nombre(),arg1.lugar(),arg1.codigo()+","+cod,null,null,null));
-                        break;      
-                case 24:arg2 = pila_sem.pop();
+                        break;  
+				case 21:op=pila_sem.pop();
+						arg1=pila_sem.pop();
+						asocia(arg1.cierto(),op.quad());
+						asocia(arg1.falso(),op.quad());
+						op=pila_sem.pop();
+						pila_sem.push(new Reg(null,null,arg1.codigo(),null,null,null));
+						break;
+                case 24:arg3 = pila_sem.pop();
+						op2 = pila_sem.pop();
+						arg2 = pila_sem.pop();
                         op = pila_sem.pop();
-                        arg1 = pila_sem.pop();  
-                        cod = arg1.codigo()+","+arg2.codigo();
-                        asocia(arg1.cierto(),op.quad());
-                        cierto = arg2.cierto();
-                        falso = arg1.falso()+","+arg2.falso();  
+                        arg1 = pila_sem.pop(); 
+						if(Util.stringEmpty(arg3.codigo())){		// ver si existe la parte else				
+							cod = arg1.codigo()+","+arg2.codigo();
+							asocia(arg1.cierto(),op.quad());
+							cierto = arg2.cierto();
+							falso = arg1.falso()+","+arg2.falso();
+						}else{
+							cod = arg1.codigo()+","+arg2.codigo()+","+arg3.codigo();
+							asocia(arg1.cierto(),op.quad());
+							asocia(arg1.falso(),op2.quad());
+							cierto = arg2.cierto()+","+arg3.cierto();
+							falso = arg2.falso()+","+arg3.falso();
+						}						
                         pila_sem.push(new Reg(null,null,cod,null,cierto,falso));
                         break;
                 case 25:arg2 = pila_sem.pop();
@@ -1235,8 +2125,14 @@ public class TGestorSemantico{
                         arg1 = pila_sem.pop();  
                         cod = arg1.codigo()+","+arg2.codigo();
                         asocia(arg1.cierto(),op.quad());
-                        cierto = arg2.cierto();
-                        falso = arg1.falso()+","+arg2.falso();  
+                        cierto = arg2.cierto()+","+arg2.falso();
+                        falso = arg1.falso(); 
+						if(!pila_sem.empty() && Util.stringEmpty(pila_sem.peek().quad())){
+							arg1 = pila_sem.pop();
+							asocia(arg1.falso(),primera_pos(cod));
+							cod = arg1.codigo()+","+cod;
+							cierto = arg1.cierto()+","+cierto;
+						}
                         pila_sem.push(new Reg(null,null,cod,null,cierto,falso));
                         break;
                 case 67:pila_sem.push(new Reg(ps));
@@ -1252,8 +2148,10 @@ public class TGestorSemantico{
                             cod = arg1.codigo()+","+cod;
                         }   
                         pila_sem.push(new Reg(null,null,cod,null,cierto,falso));
-                        break;  
-
+                        break;
+                case 72:pila_sem.push(new Reg(null,null,null,null,null,null));
+						pila_sem.push(new Reg(null,null,null,null,null,null));
+						break;				
 			}
         } finally{
         }

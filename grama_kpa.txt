@@ -1,6 +1,6 @@
 prog
-algoritmoa ID BI_PUNTO P_COMA NUM KAR KATEA aldagaiak hasiera amaia ASIGN irakur idatz aukera amaukera errepika harik-eta baldin orduan hemendik-hasita heldu-arte bitartean egin ambitartean sekuentzia-hasiera karakterea osoa boolearra taula osagai BOOL OP_OR OP_AND OP_REL OP_ADIT OP_MULT OP_NOT NUM IRE_PAR ITX_PAR BOOL COMA IRE_MAKO ITX_MAKO OP_DIV OP_MOD 
-prog dekl dekl_hond sentk sent_zer sent objektu_mota id_zer id_zer_hond baldintza_zer expr exprp eand eandp erel erelp arit aritp term termp fact rando m0 m1 m2 m3 mq m4 m5 m6 var lista m7 m8 m9 m10
+algoritmoa ID BI_PUNTO P_COMA NUM KAR KATEA aldagaiak hasiera amaia ASIGN irakur idatz aukera amaukera errepika harik-eta baldin orduan hemendik-hasita heldu-arte bitartean egin ambitartean sekuentzia-hasiera karakterea osoa boolearra taula osagai bestela BOOL OP_OR OP_AND OP_REL OP_ADIT OP_MULT OP_NOT NUM IRE_PAR ITX_PAR BOOL COMA IRE_MAKO ITX_MAKO OP_DIV OP_MOD 
+prog dekl dekl_hond sentk sent_zer sent objektu_mota id_zer id_zer_hond baldintza_zer expr exprp eand eandp erel erelp arit aritp term termp fact rando m0 m1 m2 m3 mq m4 m5 m6 var lista m7 m8 m9 m10 bestelakoa
 1 prog -> algoritmoa ID m0 dekl sentk
 2 dekl -> 
 3 dekl -> aldagaiak id_zer IRE_PAR objektu_mota ITX_PAR m8 dekl_hond
@@ -9,7 +9,7 @@ prog dekl dekl_hond sentk sent_zer sent objektu_mota id_zer id_zer_hond baldintz
 6 objektu_mota -> karakterea
 7 objektu_mota -> osoa
 8 objektu_mota -> boolearra
-9 objektu_mota -> NUM osagai objektu_mota taula
+9 objektu_mota -> NUM m0 osagai objektu_mota taula
 10 id_zer -> ID m0 id_zer_hond
 11 id_zer_hond -> COMA ID m0 id_zer_hond
 12 id_zer_hond ->
@@ -21,10 +21,10 @@ prog dekl dekl_hond sentk sent_zer sent objektu_mota id_zer id_zer_hond baldintz
 18 sent -> irakur IRE_PAR ID m0 ITX_PAR
 19 sent -> idatz IRE_PAR expr ITX_PAR
 20 sent -> hemendik-hasita ID m5 ASIGN expr m6 heldu-arte expr m7 egin sent
-21 sent -> aukera baldintza_zer amaukera 
+21 sent -> aukera mq baldintza_zer mq amaukera 
 22 baldintza_zer -> expr BI_PUNTO mq sent m9 baldintza_zer
 23 baldintza_zer ->
-24 sent -> baldin expr orduan mq sent
+24 sent -> baldin expr orduan mq sent bestelakoa
 25 sent -> errepika mq sent_zer m10 harik-eta mq expr
 26 sent -> bitartean mq expr egin mq sent_zer m10 ambitartean
 27 sent -> sekuentzia-hasiera 
@@ -71,3 +71,5 @@ prog dekl dekl_hond sentk sent_zer sent objektu_mota id_zer id_zer_hond baldintz
 68 rando -> KATEA
 69 sent ->  P_COMA
 70 m10 ->
+71 bestelakoa -> bestela sent
+72 bestelakoa ->
