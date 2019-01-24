@@ -1,0 +1,15 @@
+Algoritmoa HIRUMAX2
+aldagaiak A, B, C, MAX (osoa)
+hasiera
+	irakur (A)
+	irakur (B)
+	irakur (C)
+	{ A = a, B = b, C = c, a != b, a != c, b != c }
+	aukera
+		(A > B) eta (A > C) : MAX := A
+		(B > A) eta (B > C) : MAX := B
+		(C > A) eta (C > B) : MAX := C
+	amaukera
+	{ A = a, B = b, C = c, MAX = handiena }
+	idatz (MAX)
+amaia

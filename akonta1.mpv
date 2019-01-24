@@ -1,0 +1,36 @@
+globalb KAR
+globali KONTA
+globali t1
+inicio
+valori KONTA
+insi 0
+asigna
+etiq #B1
+valori KAR
+leerb
+:=b
+valord KAR
+insb a
+==b
+si-cierto-ir-a #B3
+ir–a #B4
+etiq #B3
+valori t1
+valord KONTA
+insi 1
+sumai
+asigna
+valori KONTA
+valord t1
+asigna
+etiq #B4
+valord KAR
+insb .
+==b
+si-cierto-ir-a #B6
+ir–a #B1
+etiq #B6
+valord KONTA
+escribiri
+escribirln
+fin
