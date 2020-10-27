@@ -1,0 +1,104 @@
+prog
+ALGORITMOA ID BI_PUNTO P_COMA NUM KAR KATEA ALDAGAIAK HASIERA AMAIA ASIGN IRAKUR IDATZ AUKERA AMAUKERA ERREPIKA HARIK-ETA BALDIN ORDUAN HEMENDIK-HASITA HELDU-ARTE BITARTEAN EGIN AMBITARTEAN SEKUENTZIA-HASIERA KARAKTEREA OSOA BOOLEARRA TAULA OSAGAI BESTELA BOOL OP_OR OP_AND OP_REL OP_ADIT OP_MULT OP_NOT NUM IRE_PAR ITX_PAR BOOL COMA IRE_MAKO ITX_MAKO OP_DIV OP_MOD PUNTO ERREGISTRO AMERREGISTRO MOTA ERAKUSLE EKINTZA ALDAGAIAK MAKUA =
+prog dekl dekl_hond sentk sent_zer sent objektu_mota id_zer id_zer_hond baldintza_zer expr exprp eand eandp erel erelp arit aritp term termp fact rando m0 m1 m2 m3 mq m4 m5 m6 var lista m7 m8 m9 m10 m11 bestelakoa beste_mota eremu_zer erazagutzailea eremu_zer_hond adierazpen_kte_zer adierazpen_kte_hond prozedura_erazagupena prozedura_gorputza parametro_formalak fp_atala fp_atala_hond parametro_mota dei_edo_eslei expr_zer expr_zer_hond itzulia
+1 prog -> ALGORITMOA ID m11 dekl sentk
+2 dekl -> 
+3 dekl -> ALDAGAIAK id_zer IRE_PAR objektu_mota ITX_PAR m8 dekl_hond
+4 dekl_hond -> id_zer IRE_PAR objektu_mota ITX_PAR m8 dekl_hond
+5 dekl_hond ->
+6 objektu_mota -> KARAKTEREA
+7 objektu_mota -> OSOA
+8 objektu_mota -> BOOLEARRA
+9 objektu_mota -> ID
+10 id_zer -> ID m0 id_zer_hond
+11 id_zer_hond -> COMA ID m0 id_zer_hond
+12 id_zer_hond ->
+13 sentk -> HASIERA mq sent_zer AMAIA
+14 sent_zer -> sent sent_zer 
+15 sent_zer ->  
+16 sent -> var dei_edo_eslei
+17 sent -> sentk 
+18 sent -> IRAKUR IRE_PAR ID m0 ITX_PAR
+19 sent -> IDATZ IRE_PAR expr ITX_PAR
+20 sent -> HEMENDIK-HASITA ID m5 ASIGN expr m6 HELDU-ARTE expr m7 EGIN sent
+21 sent -> AUKERA mq baldintza_zer mq AMAUKERA 
+22 baldintza_zer -> expr BI_PUNTO mq sent m9 baldintza_zer
+23 baldintza_zer ->
+24 sent -> BALDIN expr ORDUAN mq sent bestelakoa
+25 sent -> ERREPIKA mq sent_zer m10 HARIK-ETA mq expr
+26 sent -> BITARTEAN mq expr EGIN mq sent_zer m10 AMBITARTEAN
+27 sent -> SEKUENTZIA-HASIERA 
+28 expr -> eand exprp 
+29 exprp ->  
+30 exprp -> OP_OR mq eand m4 exprp 
+31 eand -> erel eandp 
+32 eandp ->  
+33 eandp -> OP_AND mq erel m3 eandp 
+34 erel -> arit erelp 
+35 erelp ->  
+36 erelp -> OP_REL m0 arit m2 erelp 
+37 arit -> term aritp 
+38 aritp ->  
+39 aritp -> OP_ADIT m0 term m1 aritp 
+40 term -> fact termp 
+41 termp ->  
+42 termp -> OP_MULT m0 fact m1 termp 
+43 expr -> OP_NOT expr 
+44 fact -> OP_ADIT fact 
+45 fact -> rando 
+46 rando -> NUM 
+47 rando -> var
+48 rando -> IRE_PAR expr ITX_PAR 
+49 m0 ->
+50 m1 ->
+51 m2 ->
+52 m3 ->
+53 mq ->
+54 m4 ->
+55 rando -> BOOL
+56 m5 -> 
+57 var -> ID erazagutzailea
+58 erazagutzailea -> PUNTO ID
+59 erazagutzailea -> IRE_MAKO expr_zer ITX_MAKO
+60 erazagutzailea -> IRE_PAR expr_zer ITX_PAR
+61 termp -> OP_DIV m0 fact m1 termp 
+62 termp -> OP_MOD m0 fact m1 termp 
+63 m6 ->
+64 m7 ->
+65 m8 -> 
+66 m9 ->
+67 rando -> KAR
+68 rando -> KATEA
+69 sent ->  P_COMA
+70 m10 ->
+71 bestelakoa -> BESTELA sent
+72 bestelakoa ->
+73 dekl -> MOTA ID = beste_mota dekl
+74 beste_mota -> ERREGISTRO eremu_zer AMERREGISTRO
+75 eremu_zer -> id_zer BI_PUNTO objektu_mota P_COMA eremu_zer_hond
+76 eremu_zer_hond -> id_zer BI_PUNTO objektu_mota P_COMA eremu_zer_hond
+77 eremu_zer_hond ->
+78 beste_mota -> adierazpen_kte_zer OSAGAI objektu_mota TAULA
+79 adierazpen_kte_zer -> NUM adierazpen_kte_hond
+80 adierazpen_kte_hond -> COMA NUM adierazpen_kte_hond
+81 adierazpen_kte_hond ->
+82 beste_mota -> ERAKUSLE objektu_mota
+83 dekl -> prozedura_erazagupena prozedura_gorputza dekl
+84 prozedura_erazagupena -> EKINTZA ID m11 parametro_formalak
+85 parametro_formalak -> IRE_PAR fp_atala ITX_PAR itzulia
+86 itzulia -> BI_PUNTO objektu_mota
+87 itzulia ->
+88 fp_atala -> parametro_mota id_zer BI_PUNTO objektu_mota fp_atala_hond
+89 fp_atala_hond -> COMA parametro_mota id_zer BI_PUNTO objektu_mota fp_atala_hond
+90 fp_atala_hond ->
+91 parametro_mota -> ALDAGAIAK
+92 parametro_mota ->
+93 prozedura_gorputza -> dekl sentk ID
+94 dei_edo_eslei -> m5 ASIGN expr
+95 dei_edo_eslei ->
+96 expr_zer -> expr expr_zer_hond
+97 expr_zer_hond -> COMA expr expr_zer_hond
+98 expr_zer_hond ->
+99 erazagutzailea -> MAKUA
+100 erazagutzailea ->
+101 m11 ->

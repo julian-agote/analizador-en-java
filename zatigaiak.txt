@@ -1,0 +1,14 @@
+Algoritmoa ZATIGAIAK
+aldagaiak N (osoa) {zenbakia irakurtzeko}
+          I (osoa) {letik N-rainoko zenbakiak gordetzeko}
+hasiera
+	irakur(N)
+	I := 1
+	bitartean I <= N egin
+		{I baino txikiagoak diren N-ren zatigaiak idatzita daude.}
+		{I zenbakia aztertu:}
+		baldin N mod I = 0 orduan idatz(I)
+		{Hurrengo zenbakia lortu:}
+		I := I + 1
+	ambitartean
+amaia

@@ -1,0 +1,35 @@
+Algoritmoa FROGALEHENA
+aldagaiak S,T,I,N (osoa)
+hasiera
+	idatz ("Sartu zenbaki sekuentzia bat?")
+	irakur (S)
+    T,I := LEHENA(S,0)
+    N := HONDARRA(S)
+    idatz("lehena:")
+    idatz(T)
+    idatz("posizioan:")
+    idatz(I)
+    idatz("hondarra:")
+    idatz(N)
+amaia    
+ekintza LEHENA(S,I (osoa)) itzuli L,P (osoa)
+hasiera
+	baldin S < 10 orduan 
+		hasiera
+			L := S
+			P := I
+		amaia
+	bestela
+		L,P := LEHENA(S div 10,I+1)
+amaia
+ekintza HONDARRA(S (osoa)) itzuli H (osoa)
+aldagaiak L,P,D (osoa)
+hasiera
+	L,P := LEHENA(S,0)
+	D:= 1
+	bitartean P > 0 egin
+		D := D * 10
+		P := P - 1
+	ambitartean
+	H := S - L * D
+amaia	

@@ -1,0 +1,54 @@
+Algoritmoa KODESEKU2
+aldagaiak KAR (karakterea) {sekuentziatik irakurtzekoa}
+	      KARKODE (karakterea) {Karaktere kodetua gordetzekoa}
+          ALFABETO (26 osagai karakteretako taula) {letrak edukitzekoa}
+          P (osoa) {taulan bilatzeko indizea}
+          Q (osoa) {bilatu nahi den kodearen taulako indizea}
+hasiera
+	{ALFABETO: = 'ABCDEFGHIJKLMNOPQRSTUVXYZ'}
+	ALFABETO(1) := 'A'
+	ALFABETO(2) := 'B'
+	ALFABETO(3) := 'C'
+	ALFABETO(4) := 'D'
+	ALFABETO(5) := 'E'
+	ALFABETO(6) := 'F'
+	ALFABETO(7) := 'G'
+	ALFABETO(8) := 'H'
+	ALFABETO(9) := 'I'
+	ALFABETO(10) := 'J'
+	ALFABETO(11) := 'K'
+	ALFABETO(12) := 'L'
+	ALFABETO(13) := 'M'
+	ALFABETO(14) := 'N'
+	ALFABETO(15) := 'O'
+	ALFABETO(16) := 'P'
+	ALFABETO(17) := 'Q'
+	ALFABETO(18) := 'R'
+	ALFABETO(19) := 'S'
+	ALFABETO(20) := 'T'
+	ALFABETO(21) := 'U'
+	ALFABETO(22) := 'V'
+	ALFABETO(23) := 'X'
+	ALFABETO(24) := 'Y'
+	ALFABETO(25) := 'Z'
+	irakur (KAR)
+	bitartean KAR <> '.' egin
+		baldin KAR = ' ' orduan KARKODE := ' '
+		bestela
+			hasiera
+				{KAR karakterearen bilaketa}
+				P := 1
+				bitartean KAR <> ALFABETO(P) egin
+					P := P + 1
+				ambitartean
+				{KAR = ALFABETO(P)}
+				{Kodearen kalkulaketa, P erabiliz }
+				baldin P > 22 orduan Q := P - 22
+				bestela Q := P + 3
+				KARKODE := ALFABETO(Q)
+			amaia
+		idatz (KARKODE)
+		irakur (KAR)
+	ambitartean
+	idatz ('.')
+amaia

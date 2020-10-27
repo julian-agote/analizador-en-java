@@ -1,0 +1,10 @@
+algoritmoa HANDIA {Telmo}
+aldagaiak A,B,C ( osoa)
+hasiera irakur(A)
+    irakur(B)
+    aukera A > B: C:= A
+       A = B:C:=A
+	   A< B:C:=B
+	amaukera
+	idatz(C)
+amaia

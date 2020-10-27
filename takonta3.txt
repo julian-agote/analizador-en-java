@@ -1,0 +1,25 @@
+Algoritmoa TAKONTA3
+aldagaiak KONTA (osoa)
+          KAR1 (karakterea)
+          KAR2 (karakterea)
+hasiera
+    KONTA := 0
+    irakur-lehenengo-bikote
+    baldin KAR2 <> '.' orduan {sekuentzia ez da hutsa}
+        errepika
+            baldin (KAR1 = 'T') eta (KAR2 = 'A') orduan
+                KONTA := KONTA + 1
+            irakur-bikote
+        harik-eta KAR2 = '.'
+    idatz (KONTA)
+amaia
+ekintza irakur-lehenengo-bikote
+hasiera
+    KAR1 := ' '
+    irakur (KAR2)
+amaia
+ekintza irakur-bikote
+hasiera
+    KAR1 := KAR2
+    irakur (KAR2)
+amaia

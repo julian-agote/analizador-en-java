@@ -1,0 +1,42 @@
+Algoritmoa FROGALEHENHITZA
+aldagaiak
+	KAR (karakterea) {sekuentziako karaktereak irakurtzeko}
+	LEHENA (20 osagai karakteretako taula) {lehenengo hitza gordetzeko}
+	LUZERA,I (osoa)
+hasiera
+	irakur (KAR)
+	{letra bat, zurigunea edo puntua dauka KAR aldagaiak}
+	KAR := ZURIGUNEAK_JAUZI(KAR)
+	{KAR aldagaiak letra bat edo puntua dauka}
+    baldin KAR = '.' orduan idatz ('ez dago hitz bat ere')
+    bestela
+    hasiera {KAR aldagaiak lehenengo hitzaren lehenengo letra dauka}
+        LEHENA,LUZERA,KAR := LEHEN_HITZA_GORDE(KAR)
+        idatz ("Irakurritako hitza:")
+        I:= 1
+        bitartean (I <= LUZERA) egin
+            idatz(LEHENA(I))
+            I:= I + 1
+        ambitartean
+    amaia {bestela}
+amaia 
+ekintza ZURIGUNEAK_JAUZI(KAR (karakterea)) itzuli  AKAR (karakterea)
+hasiera {KAR aldagaiak letra bat, zurigunea edo puntua dauka}
+    AKAR := KAR
+	bitartean AKAR = ' ' egin
+		irakur (AKAR)
+	ambitartean
+	{AKAR aldagaiak letra bat edo puntua dauka}
+amaia {ZURIGUNEAK-JAUZI}
+ekintza LEHEN_HITZA_GORDE(KAR (karakterea)) itzuli LEHENA (20 osagai karakteretako taula) LUZERA (osoa) AKAR (karakterea)
+aldagaiak I (osoa)
+hasiera {KAR: lehenengo karakterea dauka}
+    I:= 1
+    AKAR := KAR
+    bitartean (AKAR <> ' ') eta (AKAR <> '.') egin
+          LEHENA(I) := AKAR
+          I:= I + 1
+          irakur (AKAR)
+    ambitartean {I aldagaiak gordetako karaktereen kopurua gehi bat dauka}
+    LUZERA := I - 1
+amaia

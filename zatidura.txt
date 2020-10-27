@@ -1,0 +1,19 @@
+Algoritmoa ZATIDURA
+aldagaiak X,Y,H,Z (OSOA)
+hasiera
+	idatz ("Sartu izendatzailea(>=0)?")
+	irakur (X)
+	idatz ("Sartu zenbakitzailea(>0)?")
+	irakur (Y)
+	Z := 0
+	H := X
+	bitartean H >= Y egin {x=y*z+h ^ y>0 ^ x>=h>=0 ^ z>=0}
+		Z := Z + 1
+		H := H - Y
+	ambitartean
+	{x=y*z+h ^ y>h>=0 ^ z>=0}
+	idatz ("zatidura osoa:")
+	idatz (Z)
+	idatz ("hondarra:")
+	idatz (H)
+amaia

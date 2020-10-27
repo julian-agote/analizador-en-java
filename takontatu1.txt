@@ -1,0 +1,28 @@
+Algoritmoa TAKONTATU1
+aldagaiak KAR (karakterea)
+		  AURREKOAT (boolearra)
+		  ZB (osoa)
+hasiera 
+	irakur (KAR)
+	baldin KAR = '.' orduan idatz ('textu hutsa')
+	bestela {textua ez da hutsa}
+		hasiera
+			ZB := 0;
+			AURREKOAT := faltsua;
+			errepika {kar : aztertzeko karakterea 
+					  ZB : 'AT' bikotearen agerpen-kopurua.
+					  AURREKOAT : ea aurreko karakterea 't' izan den}
+				aukera {kar aldagaiaren balio esanguratsuen gaineko partiketa}
+					KAR = 't' : AURREKOAT := egiazkoa
+					KAR = 'a' : baldin AURREKOAT orduan
+										hasiera
+											ZB := ZB + 1
+											AURREKOAT := faltsua
+										amaia
+					(KAR <> 'a') eta (KAR <> 't'): AURREKOAT:=faltsua
+				amaukera
+				irakur (KAR)
+			harik-eta KAR = '.';
+			idatz (ZB)
+		amaia {textua hutsa ez deneko tratamendua}
+amaia

@@ -1,0 +1,20 @@
+Algoritmoa BATSEGIDANBATUKETA
+aldagaiak I,X,N (osoa)
+	  A (100 osagai osotako taula)
+hasiera
+	idatz ("Sartu bat segidako azken zenbakia(<100)?")
+	irakur (N)
+	I := 0
+	bitartean I < N egin
+		I := I+1
+		A(I) := I
+	ambitartean
+	I := 0
+	X := 0
+	bitartean I < N egin {x=Sum(A,1,i) ^ 0<=i<=n}
+		I := I+1
+		X := X+A(I)
+	ambitartean
+	idatz ("lehenengo n osoen batuketa da:")
+	idatz (X)
+amaia

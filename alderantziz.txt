@@ -1,0 +1,35 @@
+Algoritmoa ALDERANTZIZ
+aldagaiak GORDELEKU (100 osagai karakteretako taula)
+          KONTA (osoa) {zenbat karaktere gorde diren jakiteko}
+hasiera
+    TEXTUAGORDE
+    {GORDELEKU taulako aldagaiek textua daukate}
+    {KONTA aldagaiak gordetako karaktereen kopurua dauka}
+    IDATZALDERANTZIZ
+amaia
+ekintza TEXTUAGORDE
+aldagaiak KAR (karakterea) {karaktereak irakurtzeko}
+          I (osoa) {taularako indizea}
+hasiera
+    irakur (KAR)
+    I := 0
+    KONTA := 0
+    bitartean KAR <> '.' 
+             egin {KAR aztertzeko karakterea}
+                  {I azken erabilitako aldagaiaren indizea}
+                  {KONTA gordetako karaktereen kopurua}
+            I := I + 1
+            GORDELEKU(I) := KAR;
+            KONTA := KONTA + 1
+            irakur (KAR)
+    ambitartean
+amaia
+ekintza IDATZALDERANTZIZ
+aldagaiak I (osoa)
+hasiera I := KONTA
+        bitartean I >= 1
+           egin {I: Idaztekoa den aldagaiaren indizea}
+                idatz (GORDELEKU(I))
+                I := I - 1
+        ambitartean
+amaia

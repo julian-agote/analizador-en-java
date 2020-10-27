@@ -1,0 +1,17 @@
+Algoritmoa FROGAFAKT
+aldagaiak I,R (osoa)
+hasiera
+	irakur (I)
+	R := FAKTORIALA(I)
+	idatz (R)
+amaia	
+ekintza FAKTORIALA(N (osoa)) itzuli F (osoa)
+hasiera
+	baldin N = 0 orduan
+		F := 1
+	bestela
+		hasiera
+			F := FAKTORIALA(N - 1)
+			F := F * N
+		amaia
+amaia		

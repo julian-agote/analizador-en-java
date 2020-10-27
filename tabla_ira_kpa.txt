@@ -1,837 +1,817 @@
 algoritmoa,1,prog,2
 ID,3
 $,4
-m0,5
+m12,5
 
 aldagaiak,6,dekl,7
 ID,8,id_zer,9
 hasiera,10,sentk,11
-m0,12
+m14,12
 IRE_PAR,13
 mq,14
+m13,15
+COMA,16,id_zer_hond,17
+NUM,18,karakterea,19,osoa,20,boolearra,21,karakteretako,22,osotako,23,objektu_mota,24
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,37,sent,38,id_zer,39,var,40,lista,41
+ekintza,42,beste_ekintzak,43
+ID,44
 
-COMA,15,id_zer_hond,16
-NUM,17,karakterea,18,osoa,19,boolearra,20,objektu_mota,21
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,34,sent,35,var,36,lista,37
-ID,38
+m0,45
 
-m0,39
 
 
 
-ITX_PAR,40
-m0,41
 
-mq,42
-IRE_PAR,43
-IRE_PAR,44
-mq,45
-mq,46
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,OP_NOT,53,IRE_PAR,54,expr,55,eand,56,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,64
-mq,65
+ITX_PAR,46
+m14,47
 
+mq,48
+IRE_PAR,49
+IRE_PAR,50
+mq,51
+mq,52
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,OP_NOT,59,IRE_PAR,60,id_zer,61,expr,62,eand,63,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,71
+mq,72
+ID,73,id_zer,74,var,75,lista,76
 
-amaia,66
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,67,sent,35,var,36,lista,37
-m5,68
-COMA,69,ITX_MAKO,70
-m0,71
-osagai,72
-m8,73
-IRE_MAKO,74
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,75,sent,35,var,36,lista,37
-ID,76
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,85,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,baldintza_zer,102,expr,103,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent_zer,123,sent,124,var,125,lista,37
-m0,41
+amaia,77
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,78,sent,38,id_zer,39,var,40,lista,41
 
+m5,79
+ITX_PAR,80,COMA,81
+ID,82
 
+m0,83
+osagai,84
+m8,85
+IRE_PAR,86,COMA,87,id_zer_hond,88
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,89,sent,38,id_zer,39,var,40,lista,41
+ID,90
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,arit,99,term,100,fact,101,rando,102,var,103,lista,104
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,baldintza_zer,114,expr,115,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent_zer,135,sent,136,id_zer,39,var,137,lista,41
+m14,138
 
 
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,IRE_PAR,54,fact,126,rando,61,var,62,lista,63
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,OP_NOT,53,IRE_PAR,54,expr,127,eand,56,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,128,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-orduan,129
-OP_OR,130,exprp,131
-OP_AND,132,eandp,133
-OP_REL,134,erelp,135
-OP_ADIT,136,aritp,137
-OP_MULT,138,OP_DIV,139,OP_MOD,140,termp,141
 
 
-COMA,69,ITX_MAKO,142
-m5,143
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,152,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,IRE_PAR,60,id_zer,61,fact,139,rando,68,var,69,lista,70
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,OP_NOT,59,IRE_PAR,60,id_zer,61,expr,140,eand,63,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,150,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
+orduan,159
+m11,160
+OP_AND,161,eandp,162
+OP_REL,163,erelp,164
+OP_ADIT,165,aritp,166
+OP_MULT,167,OP_DIV,168,OP_MOD,169,termp,170
 
-ASIGN,161
-ID,162,NUM,163,KAR,164,KATEA,165,BOOL,166,OP_ADIT,167,IRE_PAR,168,arit,169,term,170,fact,171,rando,172,var,173,lista,174
 
-COMA,15,id_zer_hond,175
-NUM,176,karakterea,177,osoa,178,boolearra,179,objektu_mota,180
-ID,8,dekl_hond,181,id_zer,182
-ID,162,NUM,163,KAR,164,KATEA,165,BOOL,166,OP_ADIT,167,IRE_PAR,168,arit,183,term,170,fact,171,rando,172,var,173,lista,174
-amaia,184
-m0,185
-m0,41
+ITX_PAR,171,COMA,81
+m5,172
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,182,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+m14,191
 
 
+ITX_PAR,192,COMA,81
 
 
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,IRE_PAR,84,fact,186,rando,91,var,92,lista,93
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,187,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,188,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ITX_PAR,189
-OP_OR,190,exprp,191
-OP_AND,192,eandp,193
-OP_REL,194,erelp,195
-OP_ADIT,196,aritp,197
-OP_MULT,198,OP_DIV,199,OP_MOD,200,termp,201
+ASIGN,193
 
+ID,194,NUM,195,KAR,196,KATEA,197,BOOL,198,OP_ADIT,199,IRE_PAR,200,id_zer,201,arit,202,term,203,fact,204,rando,205,var,206,lista,207
+m12,208
+COMA,16,id_zer_hond,209
+NUM,210,karakterea,211,osoa,212,boolearra,213,karakteretako,214,osotako,215,objektu_mota,216
+ID,8,dekl_hond,217,id_zer,218
+ID,194,NUM,195,KAR,196,KATEA,197,BOOL,198,OP_ADIT,199,IRE_PAR,200,id_zer,201,arit,219,term,203,fact,204,rando,205,var,206,lista,207
+ID,220
 
-COMA,69,ITX_MAKO,202
-m0,41
+amaia,221
+m0,222
+m14,223
 
 
 
 
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,IRE_PAR,101,fact,203,rando,109,var,110,lista,111
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,expr,204,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,205,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-mq,206
-BI_PUNTO,207
-OP_OR,208,exprp,209
-OP_AND,210,eandp,211
-OP_REL,212,erelp,213
-OP_ADIT,214,aritp,215
-OP_MULT,216,OP_DIV,217,OP_MOD,218,termp,219
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,fact,224,rando,102,var,103,lista,104
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,225,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
+ITX_PAR,226
+OP_ADIT,227,aritp,228
+OP_MULT,229,OP_DIV,230,OP_MOD,231,termp,232
 
-COMA,69,ITX_MAKO,220
 
-mq,221
-IRE_PAR,222
-IRE_PAR,223
-mq,224
-mq,225
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,OP_NOT,53,IRE_PAR,54,expr,226,eand,56,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,227
-mq,228
+ITX_PAR,233,COMA,81
+m14,234
 
 
-m10,229
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent_zer,230,sent,124,var,125,lista,37
-m5,231
 
 
-ITX_PAR,232
-mq,233
-mq,234
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,IRE_PAR,112,id_zer,113,fact,235,rando,121,var,122,lista,123
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,expr,236,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,237,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
-mq,235
+mq,238
+BI_PUNTO,239
+m11,240
+OP_AND,241,eandp,242
+OP_REL,243,erelp,244
+OP_ADIT,245,aritp,246
+OP_MULT,247,OP_DIV,248,OP_MOD,249,termp,250
 
-m0,236
 
-m0,237
+ITX_PAR,251,COMA,81
 
-m0,238
-m0,239
-m0,240
+mq,252
+IRE_PAR,253
+IRE_PAR,254
+mq,255
+mq,256
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,OP_NOT,59,IRE_PAR,60,id_zer,61,expr,257,eand,63,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,258
+mq,259
+ID,260,id_zer,261,var,262,lista,263
 
+m10,264
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent_zer,265,sent,136,id_zer,39,var,137,lista,41
+m5,266
+IRE_PAR,86,COMA,267,id_zer_hond,268
 
-ASIGN,241
-m0,41
 
+m14,269
 
 
 
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,IRE_PAR,151,fact,242,rando,158,var,159,lista,160
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,243,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,244,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-egin,245
-OP_OR,246,exprp,247
-OP_AND,248,eandp,249
-OP_REL,250,erelp,251
-OP_ADIT,252,aritp,253
-OP_MULT,254,OP_DIV,255,OP_MOD,256,termp,257
 
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,IRE_PAR,148,id_zer,149,fact,270,rando,156,var,157,lista,158
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,271,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,272,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
-COMA,69,ITX_MAKO,258
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,OP_NOT,265,IRE_PAR,266,expr,267,eand,268,erel,269,arit,270,term,271,fact,272,rando,273,var,274,lista,275
-m0,41
+ITX_PAR,273
+m11,274
+OP_AND,275,eandp,276
+OP_REL,277,erelp,278
+OP_ADIT,279,aritp,280
+OP_MULT,281,OP_DIV,282,OP_MOD,283,termp,284
 
 
+ITX_PAR,285,COMA,81
+mq,286
+OP_OR,287,exprp,288
+mq,289
 
+m0,290
 
-ID,162,NUM,163,KAR,164,KATEA,165,BOOL,166,OP_ADIT,167,IRE_PAR,168,fact,276,rando,172,var,173,lista,174
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,277,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-
-OP_ADIT,278,aritp,279
-OP_MULT,280,OP_DIV,281,OP_MOD,282,termp,283
-
-
-COMA,69,ITX_MAKO,284
-
-m0,285
-
-
-
-taula,286
-
-IRE_PAR,287
-
-
-ITX_PAR,288
-
-
-ITX_PAR,289
-
-mq,290
-
-mq,291
+m0,291
 
 m0,292
-
 m0,293
-
 m0,294
-m0,295
-m0,296
+
+
+ASIGN,295
+m14,296
 
 
 
 
-ITX_PAR,297
-amaukera,298
-mq,299
-mq,300
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,IRE_PAR,180,id_zer,181,fact,297,rando,188,var,189,lista,190
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,298,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,299,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
-mq,301
-
-m0,302
-
-m0,303
-
-m0,304
-m0,305
-m0,306
+egin,300
+m11,301
+OP_AND,302,eandp,303
+OP_REL,304,erelp,305
+OP_ADIT,306,aritp,307
+OP_MULT,308,OP_DIV,309,OP_MOD,310,termp,311
 
 
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,307,sent,35,var,36,lista,37
-ID,308
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,309,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,baldintza_zer,310,expr,103,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent_zer,311,sent,124,var,125,lista,37
-orduan,312
-m5,313
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,314,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-harik-eta,315
+ITX_PAR,312,COMA,81
+IRE_PAR,86,COMA,313,id_zer_hond,314
 
-ASIGN,316
-
-ID,22,P_COMA,317,hasiera,318,irakur,319,idatz,320,aukera,321,errepika,322,baldin,323,hemendik-hasita,324,bitartean,325,sekuentzia-hasiera,326,sentk,327,sent,328,var,329,lista,37
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,IRE_PAR,54,eand,330,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,IRE_PAR,54,erel,331,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,IRE_PAR,54,arit,332,term,59,fact,60,rando,61,var,62,lista,63
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,IRE_PAR,54,term,333,fact,60,rando,61,var,62,lista,63
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,IRE_PAR,54,fact,334,rando,61,var,62,lista,63
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,IRE_PAR,54,fact,335,rando,61,var,62,lista,63
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,IRE_PAR,54,fact,336,rando,61,var,62,lista,63
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,OP_NOT,343,IRE_PAR,344,expr,345,eand,346,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
+ID,315,NUM,316,KAR,317,KATEA,318,BOOL,319,OP_ADIT,320,IRE_PAR,321,id_zer,322,arit,323,term,324,fact,325,rando,326,var,327,lista,328
+m14,329
 
 
-ITX_PAR,354
-mq,355
-mq,356
 
+
+ID,194,NUM,195,KAR,196,KATEA,197,BOOL,198,OP_ADIT,199,IRE_PAR,200,id_zer,201,fact,330,rando,205,var,206,lista,207
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,331,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+
+
+OP_ADIT,332,aritp,333
+OP_MULT,334,OP_DIV,335,OP_MOD,336,termp,337
+
+
+ITX_PAR,338,COMA,81
+IRE_PAR,339,parametroak,340
+
+m0,341
+
+
+
+
+
+taula,342
+
+IRE_PAR,343
+
+m0,344
+
+ITX_PAR,345
+IRE_PAR,86,COMA,346,id_zer_hond,347
+
+ITX_PAR,348
+
+m0,349
+
+m0,350
+m0,351
+m0,352
+
+
+IRE_PAR,86,COMA,353,id_zer_hond,354
+
+
+ITX_PAR,355
+amaukera,356
 mq,357
+OP_OR,358,exprp,359
+mq,360
 
-m0,358
-
-m0,359
-
-m0,360
 m0,361
+
 m0,362
 
-
-m0,41
-
-
-
-
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,IRE_PAR,266,fact,363,rando,273,var,274,lista,275
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,OP_NOT,265,IRE_PAR,266,expr,364,eand,268,erel,269,arit,270,term,271,fact,272,rando,273,var,274,lista,275
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,365,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-
-OP_OR,366,exprp,367
-OP_AND,368,eandp,369
-OP_REL,370,erelp,371
-OP_ADIT,372,aritp,373
-OP_MULT,374,OP_DIV,375,OP_MOD,376,termp,377
+m0,363
+m0,364
+m0,365
 
 
-COMA,69,ITX_MAKO,378
-
-ITX_PAR,379
-m0,380
-
-m0,381
-m0,382
-m0,383
-
-
-osagai,384
-
-NUM,17,karakterea,18,osoa,19,boolearra,20,objektu_mota,385
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,366,sent,38,id_zer,39,var,40,lista,41
+ID,367
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,arit,368,term,100,fact,101,rando,102,var,103,lista,104
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,baldintza_zer,369,expr,115,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent_zer,370,sent,136,id_zer,39,var,137,lista,41
+orduan,371
+m5,372
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,373,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+m14,374
 
 
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,IRE_PAR,84,eand,386,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,IRE_PAR,84,erel,387,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,IRE_PAR,84,arit,388,term,89,fact,90,rando,91,var,92,lista,93
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,IRE_PAR,84,term,389,fact,90,rando,91,var,92,lista,93
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,IRE_PAR,84,fact,390,rando,91,var,92,lista,93
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,IRE_PAR,84,fact,391,rando,91,var,92,lista,93
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,IRE_PAR,84,fact,392,rando,91,var,92,lista,93
+ITX_PAR,375,COMA,81
+harik-eta,376
+
+ASIGN,377
+ID,378
+
+IRE_PAR,86,COMA,379,id_zer_hond,380
 
 
-ID,22,P_COMA,393,hasiera,394,irakur,395,idatz,396,aukera,397,errepika,398,baldin,399,hemendik-hasita,400,bitartean,401,sekuentzia-hasiera,402,sentk,403,sent,404,var,405,lista,37
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,IRE_PAR,101,eand,406,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,IRE_PAR,101,erel,407,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,IRE_PAR,101,arit,408,term,107,fact,108,rando,109,var,110,lista,111
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,IRE_PAR,101,term,409,fact,108,rando,109,var,110,lista,111
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,IRE_PAR,101,fact,410,rando,109,var,110,lista,111
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,IRE_PAR,101,fact,411,rando,109,var,110,lista,111
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,IRE_PAR,101,fact,412,rando,109,var,110,lista,111
-amaia,413
-m0,414
-ITX_PAR,415
-mq,416
-m10,417
-mq,418
-ASIGN,419
-egin,420
-mq,421
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,OP_NOT,428,IRE_PAR,429,expr,430,eand,431,erel,432,arit,433,term,434,fact,435,rando,436,var,437,lista,438
+ITX_PAR,381
 
-mq,439
-IRE_PAR,440
-IRE_PAR,441
-mq,442
-mq,443
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,OP_NOT,53,IRE_PAR,54,expr,444,eand,56,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,445
-mq,446
+OP_OR,382,exprp,383
+mq,384
+
+m0,385
+
+m0,386
+
+m0,387
+m0,388
+m0,389
 
 
-bestela,447,bestelakoa,448
-m5,449
-m4,450
-m3,451
-m2,452
-m1,453
-m1,454
-m1,455
-m1,456
-m0,41
+ID,25,P_COMA,390,hasiera,391,irakur,392,idatz,393,aukera,394,errepika,395,baldin,396,hemendik-hasita,397,bitartean,398,deitu,399,sentk,400,sent,401,id_zer,39,var,402,lista,41
+mq,403
+
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,IRE_PAR,60,id_zer,61,erel,404,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,IRE_PAR,60,id_zer,61,arit,405,term,66,fact,67,rando,68,var,69,lista,70
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,IRE_PAR,60,id_zer,61,term,406,fact,67,rando,68,var,69,lista,70
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,IRE_PAR,60,id_zer,61,fact,407,rando,68,var,69,lista,70
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,IRE_PAR,60,id_zer,61,fact,408,rando,68,var,69,lista,70
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,IRE_PAR,60,id_zer,61,fact,409,rando,68,var,69,lista,70
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,arit,418,term,419,fact,420,rando,421,var,422,lista,423
+IRE_PAR,86,COMA,424,id_zer_hond,425
+
+
+ITX_PAR,426
+mq,427
+OP_OR,428,exprp,429
+mq,430
+
+m0,431
+
+m0,432
+
+m0,433
+m0,434
+m0,435
+
+
+ID,436
+
+m14,437
 
 
 
 
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,IRE_PAR,344,fact,457,rando,351,var,352,lista,353
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,OP_NOT,343,IRE_PAR,344,expr,458,eand,346,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,459,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-m6,460
-OP_OR,461,exprp,462
-OP_AND,463,eandp,464
-OP_REL,465,erelp,466
-OP_ADIT,467,aritp,468
-OP_MULT,469,OP_DIV,470,OP_MOD,471,termp,472
+ID,315,NUM,316,KAR,317,KATEA,318,BOOL,319,OP_ADIT,320,IRE_PAR,321,id_zer,322,fact,438,rando,326,var,327,lista,328
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,439,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
 
-COMA,69,ITX_MAKO,473
-
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent_zer,485,sent,486,var,487,lista,37
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,IRE_PAR,151,eand,488,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,IRE_PAR,151,erel,489,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,IRE_PAR,151,arit,490,term,156,fact,157,rando,158,var,159,lista,160
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,IRE_PAR,151,term,491,fact,157,rando,158,var,159,lista,160
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,IRE_PAR,151,fact,492,rando,158,var,159,lista,160
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,IRE_PAR,151,fact,493,rando,158,var,159,lista,160
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,IRE_PAR,151,fact,494,rando,158,var,159,lista,160
+OP_ADIT,440,aritp,441
+OP_MULT,442,OP_DIV,443,OP_MOD,444,termp,445
 
 
-ITX_PAR,495
-mq,496
+ITX_PAR,446,COMA,81
+IRE_PAR,86,COMA,447,id_zer_hond,448
+
+ITX_PAR,449
+m0,450
+
+m0,451
+m0,452
+m0,453
+
+
+ID,8,dekl_hond,454,id_zer,455
+itzuli,456,itzulketa,457
+osagai,458
+
+NUM,18,karakterea,19,osoa,20,boolearra,21,karakteretako,22,osotako,23,objektu_mota,459
+COMA,87,id_zer_hond,460
+
+ID,461
+
+
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,term,462,fact,101,rando,102,var,103,lista,104
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,fact,463,rando,102,var,103,lista,104
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,fact,464,rando,102,var,103,lista,104
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,fact,465,rando,102,var,103,lista,104
+ID,466
+
+
+
+ID,25,P_COMA,467,hasiera,468,irakur,469,idatz,470,aukera,471,errepika,472,baldin,473,hemendik-hasita,474,bitartean,475,deitu,476,sentk,477,sent,478,id_zer,39,var,479,lista,41
+mq,480
+
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,IRE_PAR,112,id_zer,113,erel,481,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,IRE_PAR,112,id_zer,113,arit,482,term,119,fact,120,rando,121,var,122,lista,123
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,IRE_PAR,112,id_zer,113,term,483,fact,120,rando,121,var,122,lista,123
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,IRE_PAR,112,id_zer,113,fact,484,rando,121,var,122,lista,123
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,IRE_PAR,112,id_zer,113,fact,485,rando,121,var,122,lista,123
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,IRE_PAR,112,id_zer,113,fact,486,rando,121,var,122,lista,123
+amaia,487
+m0,488
+ITX_PAR,489
+mq,490
+m10,491
+mq,492
+ASIGN,493
+egin,494
+IRE_PAR,86,COMA,495,id_zer_hond,496
 
 mq,497
-
-m0,498
-
-m0,499
-
-m0,500
-m0,501
-m0,502
+ID,498,NUM,499,KAR,500,KATEA,501,BOOL,502,OP_ADIT,503,IRE_PAR,504,id_zer,505,arit,506,term,507,fact,508,rando,509,var,510,lista,511
+m0,512
+ID,513
 
 
+mq,514
 
-ID,162,NUM,163,KAR,164,KATEA,165,BOOL,166,OP_ADIT,167,IRE_PAR,168,term,503,fact,171,rando,172,var,173,lista,174
-ID,162,NUM,163,KAR,164,KATEA,165,BOOL,166,OP_ADIT,167,IRE_PAR,168,fact,504,rando,172,var,173,lista,174
-ID,162,NUM,163,KAR,164,KATEA,165,BOOL,166,OP_ADIT,167,IRE_PAR,168,fact,505,rando,172,var,173,lista,174
-ID,162,NUM,163,KAR,164,KATEA,165,BOOL,166,OP_ADIT,167,IRE_PAR,168,fact,506,rando,172,var,173,lista,174
-NUM,176,karakterea,177,osoa,178,boolearra,179,objektu_mota,507
-ITX_PAR,508
-m4,509
-m3,510
-m2,511
-m1,512
-m1,513
-m1,514
-m1,515
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,IRE_PAR,148,id_zer,149,erel,515,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,IRE_PAR,148,id_zer,149,arit,516,term,154,fact,155,rando,156,var,157,lista,158
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,IRE_PAR,148,id_zer,149,term,517,fact,155,rando,156,var,157,lista,158
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,IRE_PAR,148,id_zer,149,fact,518,rando,156,var,157,lista,158
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,IRE_PAR,148,id_zer,149,fact,519,rando,156,var,157,lista,158
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,IRE_PAR,148,id_zer,149,fact,520,rando,156,var,157,lista,158
 
-mq,516
-IRE_PAR,517
-IRE_PAR,518
-mq,519
-mq,520
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,OP_NOT,53,IRE_PAR,54,expr,521,eand,56,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,522
-mq,523
+mq,521
+IRE_PAR,522
+IRE_PAR,523
+mq,524
+mq,525
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,OP_NOT,59,IRE_PAR,60,id_zer,61,expr,526,eand,63,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,527
+mq,528
+ID,529,id_zer,530,var,531,lista,532
 
-
-m9,524
-m5,525
-m4,526
-m3,527
-m2,528
-m1,529
-m1,530
-m1,531
-m1,532
-
-ITX_PAR,533
-
-amaukera,534
-harik-eta,535
-ID,22,P_COMA,536,hasiera,537,irakur,538,idatz,539,aukera,540,errepika,541,baldin,542,hemendik-hasita,543,bitartean,544,sekuentzia-hasiera,545,sentk,546,sent,547,var,548,lista,37
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,OP_NOT,343,IRE_PAR,344,expr,549,eand,346,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-mq,550
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,OP_NOT,265,IRE_PAR,266,expr,551,eand,268,erel,269,arit,270,term,271,fact,272,rando,273,var,274,lista,275
-m0,41
+bestela,533,bestelakoa,534
+m5,535
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,IRE_PAR,60,id_zer,61,eand,536,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+m3,537
+m2,538
+m1,539
+m1,540
+m1,541
+m1,542
+m14,543
 
 
 
 
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,IRE_PAR,429,fact,552,rando,436,var,437,lista,438
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,OP_NOT,428,IRE_PAR,429,expr,553,eand,431,erel,432,arit,433,term,434,fact,435,rando,436,var,437,lista,438
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,554,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,fact,544,rando,421,var,422,lista,423
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,545,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
-OP_OR,555,exprp,556
-OP_AND,557,eandp,558
-OP_REL,559,erelp,560
-OP_ADIT,561,aritp,562
-OP_MULT,563,OP_DIV,564,OP_MOD,565,termp,566
+m6,546
+OP_ADIT,547,aritp,548
+OP_MULT,549,OP_DIV,550,OP_MOD,551,termp,552
 
 
-COMA,69,ITX_MAKO,567
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,568,sent,35,var,36,lista,37
-ID,569
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,570,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,baldintza_zer,571,expr,103,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent_zer,572,sent,124,var,125,lista,37
-orduan,573
-m5,574
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,575,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent,576,var,36,lista,37
-
-ASIGN,577
-OP_OR,130,exprp,578
-OP_AND,132,eandp,579
-OP_REL,134,erelp,580
-OP_ADIT,136,aritp,581
-OP_MULT,138,OP_DIV,139,OP_MOD,140,termp,582
-OP_MULT,138,OP_DIV,139,OP_MOD,140,termp,583
-OP_MULT,138,OP_DIV,139,OP_MOD,140,termp,584
+ITX_PAR,553,COMA,81
+ID,554
 
 
-ITX_PAR,585
-heldu-arte,586
-mq,587
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent_zer,566,sent,567,id_zer,39,var,568,lista,41
+mq,569
 
-mq,588
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,IRE_PAR,180,id_zer,181,erel,570,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,IRE_PAR,180,id_zer,181,arit,571,term,186,fact,187,rando,188,var,189,lista,190
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,IRE_PAR,180,id_zer,181,term,572,fact,187,rando,188,var,189,lista,190
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,IRE_PAR,180,id_zer,181,fact,573,rando,188,var,189,lista,190
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,IRE_PAR,180,id_zer,181,fact,574,rando,188,var,189,lista,190
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,IRE_PAR,180,id_zer,181,fact,575,rando,188,var,189,lista,190
+m0,576
+IRE_PAR,86,COMA,577,id_zer_hond,578
 
-m0,589
+ITX_PAR,579
+m0,580
 
-m0,590
-
-m0,591
-m0,592
-m0,593
-
-
-
-mq,594
-IRE_PAR,595
-IRE_PAR,596
-mq,597
-mq,598
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,OP_NOT,53,IRE_PAR,54,expr,599,eand,56,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,600
-mq,601
+m0,581
+m0,582
+m0,583
 
 
-m10,602
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent_zer,603,sent,486,var,487,lista,37
-m5,604
-m4,605
-m3,606
-m2,607
-m1,608
-m1,609
-m1,610
-m1,611
+ID,584
 
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,IRE_PAR,266,eand,612,erel,269,arit,270,term,271,fact,272,rando,273,var,274,lista,275
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,IRE_PAR,266,erel,613,arit,270,term,271,fact,272,rando,273,var,274,lista,275
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,IRE_PAR,266,arit,614,term,271,fact,272,rando,273,var,274,lista,275
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,IRE_PAR,266,term,615,fact,272,rando,273,var,274,lista,275
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,IRE_PAR,266,fact,616,rando,273,var,274,lista,275
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,IRE_PAR,266,fact,617,rando,273,var,274,lista,275
-ID,259,NUM,260,KAR,261,KATEA,262,BOOL,263,OP_ADIT,264,IRE_PAR,266,fact,618,rando,273,var,274,lista,275
+
+ID,194,NUM,195,KAR,196,KATEA,197,BOOL,198,OP_ADIT,199,IRE_PAR,200,id_zer,201,term,585,fact,204,rando,205,var,206,lista,207
+ID,194,NUM,195,KAR,196,KATEA,197,BOOL,198,OP_ADIT,199,IRE_PAR,200,id_zer,201,fact,586,rando,205,var,206,lista,207
+ID,194,NUM,195,KAR,196,KATEA,197,BOOL,198,OP_ADIT,199,IRE_PAR,200,id_zer,201,fact,587,rando,205,var,206,lista,207
+ID,194,NUM,195,KAR,196,KATEA,197,BOOL,198,OP_ADIT,199,IRE_PAR,200,id_zer,201,fact,588,rando,205,var,206,lista,207
+ITX_PAR,589
+IRE_PAR,590
+ID,8,dekl_hond,591,id_zer,592
+aldagaiak,6,dekl,593
+NUM,210,karakterea,211,osoa,212,boolearra,213,karakteretako,214,osotako,215,objektu_mota,594
+ITX_PAR,595
+
+m0,596
+m1,597
+m1,598
+m1,599
+m1,600
+m0,601
+
+mq,602
+IRE_PAR,603
+IRE_PAR,604
+mq,605
+mq,606
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,OP_NOT,59,IRE_PAR,60,id_zer,61,expr,607,eand,63,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,608
+mq,609
+ID,610,id_zer,611,var,612,lista,613
+
+m9,614
+m5,615
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,IRE_PAR,112,id_zer,113,eand,616,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+m3,617
+m2,618
 m1,619
 m1,620
 m1,621
 m1,622
-taula,623
-m8,624
-OP_OR,190,exprp,625
-OP_AND,192,eandp,626
-OP_REL,194,erelp,627
-OP_ADIT,196,aritp,628
-OP_MULT,198,OP_DIV,199,OP_MOD,200,termp,629
-OP_MULT,198,OP_DIV,199,OP_MOD,200,termp,630
-OP_MULT,198,OP_DIV,199,OP_MOD,200,termp,631
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,632,sent,35,var,36,lista,37
-ID,633
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,634,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,baldintza_zer,635,expr,103,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent_zer,636,sent,124,var,125,lista,37
-orduan,637
-m5,638
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,639,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,baldintza_zer,640,expr,103,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ASIGN,641
-OP_OR,208,exprp,642
-OP_AND,210,eandp,643
-OP_REL,212,erelp,644
-OP_ADIT,214,aritp,645
-OP_MULT,216,OP_DIV,217,OP_MOD,218,termp,646
-OP_MULT,216,OP_DIV,217,OP_MOD,218,termp,647
-OP_MULT,216,OP_DIV,217,OP_MOD,218,termp,648
 
+ITX_PAR,623
 
-mq,649
+amaukera,624
+harik-eta,625
+ID,25,P_COMA,626,hasiera,627,irakur,628,idatz,629,aukera,630,errepika,631,baldin,632,hemendik-hasita,633,bitartean,634,deitu,635,sentk,636,sent,637,id_zer,39,var,638,lista,41
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,arit,639,term,419,fact,420,rando,421,var,422,lista,423
+mq,640
+ID,641
 
-mq,650
-IRE_PAR,651
-IRE_PAR,652
-mq,653
-mq,654
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,OP_NOT,53,IRE_PAR,54,expr,655,eand,56,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,656
-mq,657
-
-
-bestela,658,bestelakoa,659
-m5,660
-m6,661
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent_zer,662,sent,486,var,487,lista,37
-
-
-
-ITX_PAR,663
-mq,664
-
-mq,665
-
-m0,666
-
-m0,667
-
-m0,668
-m0,669
-m0,670
-
-
-amaia,671
-m0,672
-ITX_PAR,673
-mq,674
-m10,675
-mq,676
-ASIGN,677
-egin,678
-
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,OP_NOT,685,IRE_PAR,686,expr,687,eand,688,erel,689,arit,690,term,691,fact,692,rando,693,var,694,lista,695
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,OP_NOT,648,IRE_PAR,649,id_zer,650,expr,651,eand,652,erel,653,arit,654,term,655,fact,656,rando,657,var,658,lista,659
+m14,660
 
 
 
 
+ID,498,NUM,499,KAR,500,KATEA,501,BOOL,502,OP_ADIT,503,IRE_PAR,504,id_zer,505,fact,661,rando,509,var,510,lista,511
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,662,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
 
+OP_ADIT,663,aritp,664
+OP_MULT,665,OP_DIV,666,OP_MOD,667,termp,668
 
 
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,696,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,IRE_PAR,344,eand,697,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,IRE_PAR,344,erel,698,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,IRE_PAR,344,arit,699,term,349,fact,350,rando,351,var,352,lista,353
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,IRE_PAR,344,term,700,fact,350,rando,351,var,352,lista,353
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,IRE_PAR,344,fact,701,rando,351,var,352,lista,353
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,IRE_PAR,344,fact,702,rando,351,var,352,lista,353
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,IRE_PAR,344,fact,703,rando,351,var,352,lista,353
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,704,sent,35,var,36,lista,37
-ID,705
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,706,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,baldintza_zer,707,expr,103,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent_zer,708,sent,124,var,125,lista,37
-orduan,709
-m5,710
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,711,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ambitartean,712
+ITX_PAR,669,COMA,81
+COMA,267,id_zer_hond,670
+m0,671
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,IRE_PAR,148,id_zer,149,eand,672,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+m3,673
+m2,674
+m1,675
+m1,676
+m1,677
+m1,678
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,679,sent,38,id_zer,39,var,40,lista,41
+ID,680
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,arit,681,term,100,fact,101,rando,102,var,103,lista,104
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,baldintza_zer,682,expr,115,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent_zer,683,sent,136,id_zer,39,var,137,lista,41
+orduan,684
+m5,685
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,686,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+m14,687
 
-ASIGN,713
-OP_OR,246,exprp,714
-OP_AND,248,eandp,715
-OP_REL,250,erelp,716
-OP_ADIT,252,aritp,717
-OP_MULT,254,OP_DIV,255,OP_MOD,256,termp,718
-OP_MULT,254,OP_DIV,255,OP_MOD,256,termp,719
-OP_MULT,254,OP_DIV,255,OP_MOD,256,termp,720
-m4,721
-m3,722
-m2,723
-m1,724
+
+ITX_PAR,688,COMA,81
+mq,689
+
+ASIGN,690
+m4,691
+OP_AND,161,eandp,692
+OP_REL,163,erelp,693
+OP_ADIT,165,aritp,694
+OP_MULT,167,OP_DIV,168,OP_MOD,169,termp,695
+OP_MULT,167,OP_DIV,168,OP_MOD,169,termp,696
+OP_MULT,167,OP_DIV,168,OP_MOD,169,termp,697
+IRE_PAR,86,COMA,698,id_zer_hond,699
+
+ITX_PAR,700
+heldu-arte,701
+m0,702
+
+m0,703
+m0,704
+m0,705
+
+
+m0,706
+
+mq,707
+IRE_PAR,708
+IRE_PAR,709
+mq,710
+mq,711
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,OP_NOT,59,IRE_PAR,60,id_zer,61,expr,712,eand,63,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,713
+mq,714
+ID,715,id_zer,716,var,717,lista,718
+
+m10,719
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent_zer,720,sent,567,id_zer,39,var,568,lista,41
+m5,721
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,IRE_PAR,180,id_zer,181,eand,722,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+m3,723
+m2,724
 m1,725
 m1,726
 m1,727
-OP_ADIT,278,aritp,728
-OP_MULT,280,OP_DIV,281,OP_MOD,282,termp,729
-OP_MULT,280,OP_DIV,281,OP_MOD,282,termp,730
-OP_MULT,280,OP_DIV,281,OP_MOD,282,termp,731
-
-ID,8,dekl_hond,732,id_zer,182
+m1,728
+COMA,313,id_zer_hond,729
+ID,730
 
 
+ID,315,NUM,316,KAR,317,KATEA,318,BOOL,319,OP_ADIT,320,IRE_PAR,321,id_zer,322,term,731,fact,325,rando,326,var,327,lista,328
+ID,315,NUM,316,KAR,317,KATEA,318,BOOL,319,OP_ADIT,320,IRE_PAR,321,id_zer,322,fact,732,rando,326,var,327,lista,328
+ID,315,NUM,316,KAR,317,KATEA,318,BOOL,319,OP_ADIT,320,IRE_PAR,321,id_zer,322,fact,733,rando,326,var,327,lista,328
+ID,315,NUM,316,KAR,317,KATEA,318,BOOL,319,OP_ADIT,320,IRE_PAR,321,id_zer,322,fact,734,rando,326,var,327,lista,328
+m0,735
+m1,736
+m1,737
+m1,738
+m1,739
+
+NUM,18,karakterea,19,osoa,20,boolearra,21,karakteretako,22,osotako,23,objektu_mota,740
+
+IRE_PAR,741
+hasiera,10,sentk,742
+taula,743
+m8,744
+COMA,346,id_zer_hond,745
+OP_ADIT,227,aritp,746
+OP_MULT,229,OP_DIV,230,OP_MOD,231,termp,747
+OP_MULT,229,OP_DIV,230,OP_MOD,231,termp,748
+OP_MULT,229,OP_DIV,230,OP_MOD,231,termp,749
+COMA,353,id_zer_hond,750
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,751,sent,38,id_zer,39,var,40,lista,41
+ID,752
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,arit,753,term,100,fact,101,rando,102,var,103,lista,104
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,baldintza_zer,754,expr,115,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent_zer,755,sent,136,id_zer,39,var,137,lista,41
+orduan,756
+m5,757
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,758,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+m14,759
+
+
+ITX_PAR,760,COMA,81
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,baldintza_zer,761,expr,115,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ASIGN,762
+m4,763
+OP_AND,241,eandp,764
+OP_REL,243,erelp,765
+OP_ADIT,245,aritp,766
+OP_MULT,247,OP_DIV,248,OP_MOD,249,termp,767
+OP_MULT,247,OP_DIV,248,OP_MOD,249,termp,768
+OP_MULT,247,OP_DIV,248,OP_MOD,249,termp,769
+
+
+mq,770
+
+mq,771
+IRE_PAR,772
+IRE_PAR,773
+mq,774
+mq,775
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,OP_NOT,59,IRE_PAR,60,id_zer,61,expr,776,eand,63,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,777
+mq,778
+ID,779,id_zer,780,var,781,lista,782
+
+bestela,783,bestelakoa,784
+m5,785
+m6,786
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent_zer,787,sent,567,id_zer,39,var,568,lista,41
+m0,788
+m14,789
 
 
 
 
-
-amaia,733
-m0,734
-ITX_PAR,735
-mq,736
-m10,737
-mq,738
-ASIGN,739
-egin,740
-
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,OP_NOT,747,IRE_PAR,748,expr,749,eand,750,erel,751,arit,752,term,753,fact,754,rando,755,var,756,lista,757
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,IRE_PAR,649,id_zer,650,fact,790,rando,657,var,658,lista,659
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,OP_NOT,648,IRE_PAR,649,id_zer,650,expr,791,eand,652,erel,653,arit,654,term,655,fact,656,rando,657,var,658,lista,659
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,792,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
 
+m11,793
+OP_AND,794,eandp,795
+OP_REL,796,erelp,797
+OP_ADIT,798,aritp,799
+OP_MULT,800,OP_DIV,801,OP_MOD,802,termp,803
 
 
+ITX_PAR,804,COMA,81
+IRE_PAR,86,COMA,805,id_zer_hond,806
 
+ITX_PAR,807
+m0,808
 
-
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,OP_NOT,428,IRE_PAR,429,expr,758,eand,431,erel,432,arit,433,term,434,fact,435,rando,436,var,437,lista,438
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,759,sent,35,var,36,lista,37
-ID,760
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,761,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,baldintza_zer,762,expr,103,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent_zer,763,sent,124,var,125,lista,37
-orduan,764
-m5,765
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,766,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent,767,var,125,lista,37
-
-ASIGN,768
-heldu-arte,769
-m10,770
-
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,IRE_PAR,429,eand,771,erel,432,arit,433,term,434,fact,435,rando,436,var,437,lista,438
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,IRE_PAR,429,erel,772,arit,433,term,434,fact,435,rando,436,var,437,lista,438
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,IRE_PAR,429,arit,773,term,434,fact,435,rando,436,var,437,lista,438
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,IRE_PAR,429,term,774,fact,435,rando,436,var,437,lista,438
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,IRE_PAR,429,fact,775,rando,436,var,437,lista,438
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,IRE_PAR,429,fact,776,rando,436,var,437,lista,438
-ID,422,NUM,423,KAR,424,KATEA,425,BOOL,426,OP_ADIT,427,IRE_PAR,429,fact,777,rando,436,var,437,lista,438
-
-ITX_PAR,778
-
-amaukera,779
-harik-eta,780
-ID,22,P_COMA,317,hasiera,318,irakur,319,idatz,320,aukera,321,errepika,322,baldin,323,hemendik-hasita,324,bitartean,325,sekuentzia-hasiera,326,sentk,327,sent,781,var,329,lista,37
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,OP_NOT,343,IRE_PAR,344,expr,782,eand,346,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-mq,783
-m0,41
-
-
-
-
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,IRE_PAR,686,fact,784,rando,693,var,694,lista,695
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,OP_NOT,685,IRE_PAR,686,expr,785,eand,688,erel,689,arit,690,term,691,fact,692,rando,693,var,694,lista,695
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,786,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-
-OP_OR,787,exprp,788
-OP_AND,789,eandp,790
-OP_REL,791,erelp,792
-OP_ADIT,793,aritp,794
-OP_MULT,795,OP_DIV,796,OP_MOD,797,termp,798
-
-
-COMA,69,ITX_MAKO,799
-m7,800
-m4,801
-m3,802
-m2,803
-m1,804
-m1,805
-m1,806
-m1,807
-amaia,808
 m0,809
-ITX_PAR,810
-mq,811
-m10,812
-mq,813
-ASIGN,814
-egin,815
+m0,810
+m0,811
 
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,OP_NOT,822,IRE_PAR,823,expr,824,eand,825,erel,826,arit,827,term,828,fact,829,rando,830,var,831,lista,832
 
 
+COMA,379,id_zer_hond,812
+m4,813
+OP_AND,275,eandp,814
+OP_REL,277,erelp,815
+OP_ADIT,279,aritp,816
+OP_MULT,281,OP_DIV,282,OP_MOD,283,termp,817
+OP_MULT,281,OP_DIV,282,OP_MOD,283,termp,818
+OP_MULT,281,OP_DIV,282,OP_MOD,283,termp,819
+amaia,820
+m0,821
+ITX_PAR,822
+mq,823
+m10,824
+mq,825
+ASIGN,826
+egin,827
+IRE_PAR,86,COMA,828,id_zer_hond,829
 
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent,830,id_zer,39,var,40,lista,41
+ID,831,NUM,832,KAR,833,KATEA,834,BOOL,835,OP_ADIT,836,IRE_PAR,837,id_zer,838,arit,839,term,840,fact,841,rando,842,var,843,lista,844
+OP_OR,287,exprp,845
 
 
 
 
-OP_OR,366,exprp,833
-OP_AND,368,eandp,834
-OP_REL,370,erelp,835
-OP_ADIT,372,aritp,836
-OP_MULT,374,OP_DIV,375,OP_MOD,376,termp,837
-OP_MULT,374,OP_DIV,375,OP_MOD,376,termp,838
-OP_MULT,374,OP_DIV,375,OP_MOD,376,termp,839
 
 
+ID,846
 
 
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,847,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,term,848,fact,420,rando,421,var,422,lista,423
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,fact,849,rando,421,var,422,lista,423
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,fact,850,rando,421,var,422,lista,423
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,fact,851,rando,421,var,422,lista,423
+COMA,424,id_zer_hond,852
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,853,sent,38,id_zer,39,var,40,lista,41
+ID,854
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,arit,855,term,100,fact,101,rando,102,var,103,lista,104
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,baldintza_zer,856,expr,115,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent_zer,857,sent,136,id_zer,39,var,137,lista,41
+orduan,858
+m5,859
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,860,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+m14,861
 
 
-ITX_PAR,840
+ITX_PAR,862,COMA,81
+ambitartean,863
 
-amaukera,841
-harik-eta,842
-ID,22,P_COMA,843,hasiera,844,irakur,845,idatz,846,aukera,847,errepika,848,baldin,849,hemendik-hasita,850,bitartean,851,sekuentzia-hasiera,852,sentk,853,sent,854,var,855,lista,37
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,OP_NOT,343,IRE_PAR,344,expr,856,eand,346,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-mq,857
-m0,41
+ASIGN,864
+m4,865
+OP_AND,302,eandp,866
+OP_REL,304,erelp,867
+OP_ADIT,306,aritp,868
+OP_MULT,308,OP_DIV,309,OP_MOD,310,termp,869
+OP_MULT,308,OP_DIV,309,OP_MOD,310,termp,870
+OP_MULT,308,OP_DIV,309,OP_MOD,310,termp,871
 
+m0,872
+m1,873
+m1,874
+m1,875
+m1,876
+COMA,447,id_zer_hond,877
+OP_ADIT,332,aritp,878
+OP_MULT,334,OP_DIV,335,OP_MOD,336,termp,879
+OP_MULT,334,OP_DIV,335,OP_MOD,336,termp,880
+OP_MULT,334,OP_DIV,335,OP_MOD,336,termp,881
+ITX_PAR,882
+NUM,18,karakterea,19,osoa,20,boolearra,21,karakteretako,22,osotako,23,objektu_mota,883
+m13,884
 
+ID,8,dekl_hond,885,id_zer,218
 
 
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,IRE_PAR,748,fact,858,rando,755,var,756,lista,757
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,OP_NOT,747,IRE_PAR,748,expr,859,eand,750,erel,751,arit,752,term,753,fact,754,rando,755,var,756,lista,757
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,860,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
 
-OP_OR,861,exprp,862
-OP_AND,863,eandp,864
-OP_REL,865,erelp,866
-OP_ADIT,867,aritp,868
-OP_MULT,869,OP_DIV,870,OP_MOD,871,termp,872
 
 
-COMA,69,ITX_MAKO,873
 
-amaia,874
-m0,875
-ITX_PAR,876
-mq,877
-m10,878
-mq,879
-ASIGN,880
-egin,881
+amaia,886
+m0,887
+ITX_PAR,888
+mq,889
+m10,890
+mq,891
+ASIGN,892
+egin,893
+IRE_PAR,86,COMA,894,id_zer_hond,895
 
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,OP_NOT,888,IRE_PAR,889,expr,890,eand,891,erel,892,arit,893,term,894,fact,895,rando,896,var,897,lista,898
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,899,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ambitartean,900
-m4,901
-m3,902
-m2,903
-m1,904
-m1,905
-m1,906
-m1,907
 
+ID,896,NUM,897,KAR,898,KATEA,899,BOOL,900,OP_ADIT,901,IRE_PAR,902,id_zer,903,arit,904,term,905,fact,906,rando,907,var,908,lista,909
+OP_OR,358,exprp,910
 
-mq,908
-bestela,909,bestelakoa,910
-m6,911
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent_zer,912,sent,486,var,487,lista,37
 
 
-ITX_PAR,913
-mq,914
 
-mq,915
 
-m0,916
 
-m0,917
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,OP_NOT,917,IRE_PAR,918,id_zer,919,expr,920,eand,921,erel,922,arit,923,term,924,fact,925,rando,926,var,927,lista,928
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,929,sent,38,id_zer,39,var,40,lista,41
+ID,930
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,arit,931,term,100,fact,101,rando,102,var,103,lista,104
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,baldintza_zer,932,expr,115,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent_zer,933,sent,136,id_zer,39,var,137,lista,41
+orduan,934
+m5,935
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,936,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+m14,937
 
-m0,918
-m0,919
-m0,920
 
+ITX_PAR,938,COMA,81
+mq,939
 
-egin,921
-OP_OR,461,exprp,922
-OP_AND,463,eandp,923
-OP_REL,465,erelp,924
-OP_ADIT,467,aritp,925
-OP_MULT,469,OP_DIV,470,OP_MOD,471,termp,926
-OP_MULT,469,OP_DIV,470,OP_MOD,471,termp,927
-OP_MULT,469,OP_DIV,470,OP_MOD,471,termp,928
+ASIGN,940
+heldu-arte,941
+m10,942
+COMA,495,id_zer_hond,943
+IRE_PAR,86,COMA,944,id_zer_hond,945
 
-ITX_PAR,929
 
-amaukera,930
-harik-eta,931
-ID,22,P_COMA,932,hasiera,933,irakur,934,idatz,935,aukera,936,errepika,937,baldin,938,hemendik-hasita,939,bitartean,940,sekuentzia-hasiera,941,sentk,942,sent,943,var,944,lista,37
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,OP_NOT,343,IRE_PAR,344,expr,945,eand,346,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-mq,946
-m0,41
+ITX_PAR,946
+OP_OR,947,exprp,948
+mq,949
 
+m0,950
 
+m0,951
 
+m0,952
+m0,953
+m0,954
 
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,IRE_PAR,823,fact,947,rando,830,var,831,lista,832
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,OP_NOT,822,IRE_PAR,823,expr,948,eand,825,erel,826,arit,827,term,828,fact,829,rando,830,var,831,lista,832
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,949,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
 
-OP_OR,950,exprp,951
-OP_AND,952,eandp,953
-OP_REL,954,erelp,955
-OP_ADIT,956,aritp,957
-OP_MULT,958,OP_DIV,959,OP_MOD,960,termp,961
+ID,955
 
 
-COMA,69,ITX_MAKO,962
+ID,498,NUM,499,KAR,500,KATEA,501,BOOL,502,OP_ADIT,503,IRE_PAR,504,id_zer,505,term,956,fact,508,rando,509,var,510,lista,511
+ID,498,NUM,499,KAR,500,KATEA,501,BOOL,502,OP_ADIT,503,IRE_PAR,504,id_zer,505,fact,957,rando,509,var,510,lista,511
+ID,498,NUM,499,KAR,500,KATEA,501,BOOL,502,OP_ADIT,503,IRE_PAR,504,id_zer,505,fact,958,rando,509,var,510,lista,511
+ID,498,NUM,499,KAR,500,KATEA,501,BOOL,502,OP_ADIT,503,IRE_PAR,504,id_zer,505,fact,959,rando,509,var,510,lista,511
 
+OP_OR,382,exprp,960
 
 
 
@@ -839,533 +819,1179 @@ COMA,69,ITX_MAKO,962
 
 
 
+ITX_PAR,961
 
-mq,963
+amaukera,962
+harik-eta,963
+ID,25,P_COMA,390,hasiera,391,irakur,392,idatz,393,aukera,394,errepika,395,baldin,396,hemendik-hasita,397,bitartean,398,deitu,399,sentk,400,sent,964,id_zer,39,var,402,lista,41
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,arit,965,term,419,fact,420,rando,421,var,422,lista,423
+mq,966
+ID,967
 
-mq,964
-IRE_PAR,965
-IRE_PAR,966
-mq,967
-mq,968
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,OP_NOT,53,IRE_PAR,54,expr,969,eand,56,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,970
-mq,971
 
+m14,968
 
-bestela,972,bestelakoa,973
-m5,974
-m6,975
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent_zer,976,sent,486,var,487,lista,37
 
 
-ITX_PAR,977
-mq,978
 
-mq,979
+ID,831,NUM,832,KAR,833,KATEA,834,BOOL,835,OP_ADIT,836,IRE_PAR,837,id_zer,838,fact,969,rando,842,var,843,lista,844
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,970,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
-m0,980
 
-m0,981
+OP_ADIT,971,aritp,972
+OP_MULT,973,OP_DIV,974,OP_MOD,975,termp,976
 
-m0,982
-m0,983
-m0,984
 
+ITX_PAR,977,COMA,81
 
+m0,978
+m7,979
+m1,980
+m1,981
+m1,982
+m1,983
 
-ITX_PAR,985
+amaia,984
+m0,985
+ITX_PAR,986
+mq,987
+m10,988
+mq,989
+ASIGN,990
+egin,991
+IRE_PAR,86,COMA,992,id_zer_hond,993
 
-amaukera,986
-harik-eta,987
-ID,22,P_COMA,536,hasiera,537,irakur,538,idatz,539,aukera,540,errepika,541,baldin,542,hemendik-hasita,543,bitartean,544,sekuentzia-hasiera,545,sentk,546,sent,988,var,548,lista,37
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,OP_NOT,343,IRE_PAR,344,expr,989,eand,346,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-mq,990
-m0,41
 
+ID,994,NUM,995,KAR,996,KATEA,997,BOOL,998,OP_ADIT,999,IRE_PAR,1000,id_zer,1001,arit,1002,term,1003,fact,1004,rando,1005,var,1006,lista,1007
+OP_OR,428,exprp,1008
 
 
 
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,IRE_PAR,889,fact,991,rando,896,var,897,lista,898
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,OP_NOT,888,IRE_PAR,889,expr,992,eand,891,erel,892,arit,893,term,894,fact,895,rando,896,var,897,lista,898
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,993,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
 
-OP_OR,994,exprp,995
-OP_AND,996,eandp,997
-OP_REL,998,erelp,999
-OP_ADIT,1000,aritp,1001
-OP_MULT,1002,OP_DIV,1003,OP_MOD,1004,termp,1005
 
 
-COMA,69,ITX_MAKO,1006
-m7,1007
+COMA,577,id_zer_hond,1009
+OP_ADIT,440,aritp,1010
+OP_MULT,442,OP_DIV,443,OP_MOD,444,termp,1011
+OP_MULT,442,OP_DIV,443,OP_MOD,444,termp,1012
+OP_MULT,442,OP_DIV,443,OP_MOD,444,termp,1013
 
-OP_OR,555,exprp,1008
-OP_AND,557,eandp,1009
-OP_REL,559,erelp,1010
-OP_ADIT,561,aritp,1011
-OP_MULT,563,OP_DIV,564,OP_MOD,565,termp,1012
-OP_MULT,563,OP_DIV,564,OP_MOD,565,termp,1013
-OP_MULT,563,OP_DIV,564,OP_MOD,565,termp,1014
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,OP_NOT,685,IRE_PAR,686,expr,1015,eand,688,erel,689,arit,690,term,691,fact,692,rando,693,var,694,lista,695
-ID,22,P_COMA,317,hasiera,318,irakur,319,idatz,320,aukera,321,errepika,322,baldin,323,hemendik-hasita,324,bitartean,325,sekuentzia-hasiera,326,sentk,327,sent,1016,var,329,lista,37
 
-heldu-arte,1017
-m10,1018
 
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,IRE_PAR,686,eand,1019,erel,689,arit,690,term,691,fact,692,rando,693,var,694,lista,695
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,IRE_PAR,686,erel,1020,arit,690,term,691,fact,692,rando,693,var,694,lista,695
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,IRE_PAR,686,arit,1021,term,691,fact,692,rando,693,var,694,lista,695
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,IRE_PAR,686,term,1022,fact,692,rando,693,var,694,lista,695
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,IRE_PAR,686,fact,1023,rando,693,var,694,lista,695
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,IRE_PAR,686,fact,1024,rando,693,var,694,lista,695
-ID,679,NUM,680,KAR,681,KATEA,682,BOOL,683,OP_ADIT,684,IRE_PAR,686,fact,1025,rando,693,var,694,lista,695
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent,1026,var,36,lista,37
 
 
+m8,1014
+ITX_PAR,1015
+ekintza,42,beste_ekintzak,1016
 
 
+ITX_PAR,1017
 
+amaukera,1018
+harik-eta,1019
+ID,25,P_COMA,1020,hasiera,1021,irakur,1022,idatz,1023,aukera,1024,errepika,1025,baldin,1026,hemendik-hasita,1027,bitartean,1028,deitu,1029,sentk,1030,sent,1031,id_zer,39,var,1032,lista,41
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,arit,1033,term,419,fact,420,rando,421,var,422,lista,423
+mq,1034
+ID,1035
 
+m14,1036
 
 
 
-mq,1027
 
-mq,1028
-IRE_PAR,1029
-IRE_PAR,1030
-mq,1031
-mq,1032
-ID,47,NUM,48,KAR,49,KATEA,50,BOOL,51,OP_ADIT,52,OP_NOT,53,IRE_PAR,54,expr,1033,eand,56,erel,57,arit,58,term,59,fact,60,rando,61,var,62,lista,63
-ID,1034
-mq,1035
+ID,896,NUM,897,KAR,898,KATEA,899,BOOL,900,OP_ADIT,901,IRE_PAR,902,id_zer,903,fact,1037,rando,907,var,908,lista,909
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1038,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
 
-bestela,1036,bestelakoa,1037
-m5,1038
-m6,1039
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent_zer,1040,sent,486,var,487,lista,37
+OP_ADIT,1039,aritp,1040
+OP_MULT,1041,OP_DIV,1042,OP_MOD,1043,termp,1044
 
 
-ITX_PAR,1041
-mq,1042
+ITX_PAR,1045,COMA,81
 
-mq,1043
+m14,1046
 
-m0,1044
 
-m0,1045
 
-m0,1046
-m0,1047
-m0,1048
 
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,IRE_PAR,918,id_zer,919,fact,1047,rando,926,var,927,lista,928
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,OP_NOT,917,IRE_PAR,918,id_zer,919,expr,1048,eand,921,erel,922,arit,923,term,924,fact,925,rando,926,var,927,lista,928
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1049,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,OP_NOT,747,IRE_PAR,748,expr,1049,eand,750,erel,751,arit,752,term,753,fact,754,rando,755,var,756,lista,757
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,1050,sent,35,var,36,lista,37
-ID,1051
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,1052,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,baldintza_zer,1053,expr,103,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent_zer,1054,sent,124,var,125,lista,37
-orduan,1055
-m5,1056
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,1057,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ID,22,P_COMA,393,hasiera,394,irakur,395,idatz,396,aukera,397,errepika,398,baldin,399,hemendik-hasita,400,bitartean,401,sekuentzia-hasiera,402,sentk,403,sent,1058,var,405,lista,37
 
-ASIGN,1059
-heldu-arte,1060
-m10,1061
+m11,1050
+OP_AND,1051,eandp,1052
+OP_REL,1053,erelp,1054
+OP_ADIT,1055,aritp,1056
+OP_MULT,1057,OP_DIV,1058,OP_MOD,1059,termp,1060
 
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,IRE_PAR,748,eand,1062,erel,751,arit,752,term,753,fact,754,rando,755,var,756,lista,757
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,IRE_PAR,748,erel,1063,arit,752,term,753,fact,754,rando,755,var,756,lista,757
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,IRE_PAR,748,arit,1064,term,753,fact,754,rando,755,var,756,lista,757
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,IRE_PAR,748,term,1065,fact,754,rando,755,var,756,lista,757
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,IRE_PAR,748,fact,1066,rando,755,var,756,lista,757
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,IRE_PAR,748,fact,1067,rando,755,var,756,lista,757
-ID,741,NUM,742,KAR,743,KATEA,744,BOOL,745,OP_ADIT,746,IRE_PAR,748,fact,1068,rando,755,var,756,lista,757
 
+ITX_PAR,1061,COMA,81
+amaia,1062
+m0,1063
+ITX_PAR,1064
+mq,1065
+m10,1066
+mq,1067
+ASIGN,1068
+egin,1069
+IRE_PAR,86,COMA,1070,id_zer_hond,1071
 
-mq,1069
-bestela,1070,bestelakoa,1071
-m6,1072
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent_zer,1073,sent,486,var,487,lista,37
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent,1072,id_zer,39,var,137,lista,41
+ID,1073,NUM,1074,KAR,1075,KATEA,1076,BOOL,1077,OP_ADIT,1078,IRE_PAR,1079,id_zer,1080,arit,1081,term,1082,fact,1083,rando,1084,var,1085,lista,1086
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,1087,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ambitartean,1088
 
+ID,1089
 
-ITX_PAR,1074
-mq,1075
 
-mq,1076
+mq,1090
 
-m0,1077
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,IRE_PAR,649,id_zer,650,erel,1091,arit,654,term,655,fact,656,rando,657,var,658,lista,659
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,IRE_PAR,649,id_zer,650,arit,1092,term,655,fact,656,rando,657,var,658,lista,659
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,IRE_PAR,649,id_zer,650,term,1093,fact,656,rando,657,var,658,lista,659
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,IRE_PAR,649,id_zer,650,fact,1094,rando,657,var,658,lista,659
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,IRE_PAR,649,id_zer,650,fact,1095,rando,657,var,658,lista,659
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,IRE_PAR,649,id_zer,650,fact,1096,rando,657,var,658,lista,659
+m0,1097
+m1,1098
+m1,1099
+m1,1100
+m1,1101
 
-m0,1078
 
-m0,1079
-m0,1080
-m0,1081
 
+mq,1102
+bestela,1103,bestelakoa,1104
+m6,1105
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent_zer,1106,sent,567,id_zer,39,var,568,lista,41
+m0,1107
+IRE_PAR,86,COMA,1108,id_zer_hond,1109
 
-egin,1082
+ITX_PAR,1110
+m0,1111
 
-
-
-
-
-
-
-
-
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,1083,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ambitartean,1084
-m4,1085
-m3,1086
-m2,1087
-m1,1088
-m1,1089
-m1,1090
-m1,1091
-
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,OP_NOT,822,IRE_PAR,823,expr,1092,eand,825,erel,826,arit,827,term,828,fact,829,rando,830,var,831,lista,832
-ID,22,P_COMA,23,hasiera,24,irakur,25,idatz,26,aukera,27,errepika,28,baldin,29,hemendik-hasita,30,bitartean,31,sekuentzia-hasiera,32,sentk,33,sent_zer,1093,sent,35,var,36,lista,37
-ID,1094
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,1095,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
-ID,94,NUM,95,KAR,96,KATEA,97,BOOL,98,OP_ADIT,99,OP_NOT,100,IRE_PAR,101,baldintza_zer,1096,expr,103,eand,104,erel,105,arit,106,term,107,fact,108,rando,109,var,110,lista,111
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent_zer,1097,sent,124,var,125,lista,37
-orduan,1098
-m5,1099
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,1100,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent,1101,var,487,lista,37
-
-ASIGN,1102
-heldu-arte,1103
-m10,1104
-
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,IRE_PAR,823,eand,1105,erel,826,arit,827,term,828,fact,829,rando,830,var,831,lista,832
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,IRE_PAR,823,erel,1106,arit,827,term,828,fact,829,rando,830,var,831,lista,832
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,IRE_PAR,823,arit,1107,term,828,fact,829,rando,830,var,831,lista,832
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,IRE_PAR,823,term,1108,fact,829,rando,830,var,831,lista,832
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,IRE_PAR,823,fact,1109,rando,830,var,831,lista,832
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,IRE_PAR,823,fact,1110,rando,830,var,831,lista,832
-ID,816,NUM,817,KAR,818,KATEA,819,BOOL,820,OP_ADIT,821,IRE_PAR,823,fact,1111,rando,830,var,831,lista,832
-
-amaia,1112
+m0,1112
 m0,1113
-ITX_PAR,1114
-mq,1115
-m10,1116
-mq,1117
-ASIGN,1118
-egin,1119
-
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,OP_NOT,1126,IRE_PAR,1127,expr,1128,eand,1129,erel,1130,arit,1131,term,1132,fact,1133,rando,1134,var,1135,lista,1136
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,1137,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ambitartean,1138
-m4,1139
-m3,1140
-m2,1141
-m1,1142
-m1,1143
-m1,1144
-m1,1145
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,OP_NOT,888,IRE_PAR,889,expr,1146,eand,891,erel,892,arit,893,term,894,fact,895,rando,896,var,897,lista,898
-ID,22,P_COMA,536,hasiera,537,irakur,538,idatz,539,aukera,540,errepika,541,baldin,542,hemendik-hasita,543,bitartean,544,sekuentzia-hasiera,545,sentk,546,sent,1147,var,548,lista,37
-
-heldu-arte,1148
-m10,1149
-
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,IRE_PAR,889,eand,1150,erel,892,arit,893,term,894,fact,895,rando,896,var,897,lista,898
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,IRE_PAR,889,erel,1151,arit,893,term,894,fact,895,rando,896,var,897,lista,898
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,IRE_PAR,889,arit,1152,term,894,fact,895,rando,896,var,897,lista,898
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,IRE_PAR,889,term,1153,fact,895,rando,896,var,897,lista,898
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,IRE_PAR,889,fact,1154,rando,896,var,897,lista,898
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,IRE_PAR,889,fact,1155,rando,896,var,897,lista,898
-ID,882,NUM,883,KAR,884,KATEA,885,BOOL,886,OP_ADIT,887,IRE_PAR,889,fact,1156,rando,896,var,897,lista,898
-ID,22,P_COMA,112,hasiera,113,irakur,114,idatz,115,aukera,116,errepika,117,baldin,118,hemendik-hasita,119,bitartean,120,sekuentzia-hasiera,121,sentk,122,sent,1157,var,125,lista,37
-m7,1158
+m0,1114
 
-OP_OR,787,exprp,1159
-OP_AND,789,eandp,1160
-OP_REL,791,erelp,1161
-OP_ADIT,793,aritp,1162
-OP_MULT,795,OP_DIV,796,OP_MOD,797,termp,1163
-OP_MULT,795,OP_DIV,796,OP_MOD,797,termp,1164
-OP_MULT,795,OP_DIV,796,OP_MOD,797,termp,1165
 
-amaia,1166
-m0,1167
-ITX_PAR,1168
-mq,1169
-m10,1170
-mq,1171
-ASIGN,1172
-egin,1173
-
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,OP_NOT,1180,IRE_PAR,1181,expr,1182,eand,1183,erel,1184,arit,1185,term,1186,fact,1187,rando,1188,var,1189,lista,1190
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,1191,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ambitartean,1192
-m4,1193
-m3,1194
-m2,1195
-m1,1196
-m1,1197
-m1,1198
-m1,1199
+COMA,698,id_zer_hond,1115
+egin,1116
+OP_ADIT,547,aritp,1117
+OP_MULT,549,OP_DIV,550,OP_MOD,551,termp,1118
+OP_MULT,549,OP_DIV,550,OP_MOD,551,termp,1119
+OP_MULT,549,OP_DIV,550,OP_MOD,551,termp,1120
 
-ITX_PAR,1200
+ITX_PAR,1121
 
-amaukera,1201
-harik-eta,1202
-ID,22,P_COMA,843,hasiera,844,irakur,845,idatz,846,aukera,847,errepika,848,baldin,849,hemendik-hasita,850,bitartean,851,sekuentzia-hasiera,852,sentk,853,sent,1203,var,855,lista,37
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,OP_NOT,343,IRE_PAR,344,expr,1204,eand,346,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-mq,1205
-m0,41
+amaukera,1122
+harik-eta,1123
+ID,25,P_COMA,1124,hasiera,1125,irakur,1126,idatz,1127,aukera,1128,errepika,1129,baldin,1130,hemendik-hasita,1131,bitartean,1132,deitu,1133,sentk,1134,sent,1135,id_zer,39,var,1136,lista,41
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,arit,1137,term,419,fact,420,rando,421,var,422,lista,423
+mq,1138
+ID,1139
 
+m14,1140
 
 
 
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,IRE_PAR,1127,fact,1206,rando,1134,var,1135,lista,1136
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,OP_NOT,1126,IRE_PAR,1127,expr,1207,eand,1129,erel,1130,arit,1131,term,1132,fact,1133,rando,1134,var,1135,lista,1136
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,1208,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
 
-OP_OR,1209,exprp,1210
-OP_AND,1211,eandp,1212
-OP_REL,1213,erelp,1214
-OP_ADIT,1215,aritp,1216
-OP_MULT,1217,OP_DIV,1218,OP_MOD,1219,termp,1220
+ID,994,NUM,995,KAR,996,KATEA,997,BOOL,998,OP_ADIT,999,IRE_PAR,1000,id_zer,1001,fact,1141,rando,1005,var,1006,lista,1007
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1142,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
 
-COMA,69,ITX_MAKO,1221
-m7,1222
+OP_ADIT,1143,aritp,1144
+OP_MULT,1145,OP_DIV,1146,OP_MOD,1147,termp,1148
 
-OP_OR,861,exprp,1223
-OP_AND,863,eandp,1224
-OP_REL,865,erelp,1225
-OP_ADIT,867,aritp,1226
-OP_MULT,869,OP_DIV,870,OP_MOD,871,termp,1227
-OP_MULT,869,OP_DIV,870,OP_MOD,871,termp,1228
-OP_MULT,869,OP_DIV,870,OP_MOD,871,termp,1229
 
+ITX_PAR,1149,COMA,81
 
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,1230,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ambitartean,1231
-m4,1232
-m3,1233
-m2,1234
-m1,1235
-m1,1236
-m1,1237
-m1,1238
 
-egin,1239
 
 
 
 
+ID,8,dekl_hond,1150,id_zer,455
+m8,1151
 
 
 
+mq,1152
 
-ITX_PAR,1240
+mq,1153
+IRE_PAR,1154
+IRE_PAR,1155
+mq,1156
+mq,1157
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,OP_NOT,59,IRE_PAR,60,id_zer,61,expr,1158,eand,63,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,1159
+mq,1160
+ID,1161,id_zer,1162,var,1163,lista,1164
 
-amaukera,1241
-harik-eta,1242
-ID,22,P_COMA,932,hasiera,933,irakur,934,idatz,935,aukera,936,errepika,937,baldin,938,hemendik-hasita,939,bitartean,940,sekuentzia-hasiera,941,sentk,942,sent,1243,var,944,lista,37
-ID,337,NUM,338,KAR,339,KATEA,340,BOOL,341,OP_ADIT,342,OP_NOT,343,IRE_PAR,344,expr,1244,eand,346,erel,347,arit,348,term,349,fact,350,rando,351,var,352,lista,353
-mq,1245
-m0,41
+bestela,1165,bestelakoa,1166
+m5,1167
+m6,1168
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent_zer,1169,sent,567,id_zer,39,var,568,lista,41
+m0,1170
+IRE_PAR,86,COMA,1171,id_zer_hond,1172
 
+ITX_PAR,1173
+m0,1174
 
+m0,1175
+m0,1176
+m0,1177
 
 
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,IRE_PAR,1181,fact,1246,rando,1188,var,1189,lista,1190
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,OP_NOT,1180,IRE_PAR,1181,expr,1247,eand,1183,erel,1184,arit,1185,term,1186,fact,1187,rando,1188,var,1189,lista,1190
-ID,77,NUM,78,KAR,79,KATEA,80,BOOL,81,OP_ADIT,82,OP_NOT,83,IRE_PAR,84,expr,1248,eand,86,erel,87,arit,88,term,89,fact,90,rando,91,var,92,lista,93
+IRE_PAR,86,COMA,1178,id_zer_hond,1179
 
-OP_OR,1249,exprp,1250
-OP_AND,1251,eandp,1252
-OP_REL,1253,erelp,1254
-OP_ADIT,1255,aritp,1256
-OP_MULT,1257,OP_DIV,1258,OP_MOD,1259,termp,1260
 
+ITX_PAR,1180
+OP_OR,1181,exprp,1182
+mq,1183
 
-COMA,69,ITX_MAKO,1261
-m7,1262
+m0,1184
 
-OP_OR,950,exprp,1263
-OP_AND,952,eandp,1264
-OP_REL,954,erelp,1265
-OP_ADIT,956,aritp,1266
-OP_MULT,958,OP_DIV,959,OP_MOD,960,termp,1267
-OP_MULT,958,OP_DIV,959,OP_MOD,960,termp,1268
-OP_MULT,958,OP_DIV,959,OP_MOD,960,termp,1269
+m0,1185
 
+m0,1186
+m0,1187
+m0,1188
 
-mq,1270
-bestela,1271,bestelakoa,1272
-m6,1273
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent_zer,1274,sent,486,var,487,lista,37
 
 
-ITX_PAR,1275
-mq,1276
+ITX_PAR,1189
 
-mq,1277
+amaukera,1190
+harik-eta,1191
+ID,25,P_COMA,626,hasiera,627,irakur,628,idatz,629,aukera,630,errepika,631,baldin,632,hemendik-hasita,633,bitartean,634,deitu,635,sentk,636,sent,1192,id_zer,39,var,638,lista,41
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,arit,1193,term,419,fact,420,rando,421,var,422,lista,423
+mq,1194
+ID,1195
 
-m0,1278
 
-m0,1279
+m14,1196
 
-m0,1280
-m0,1281
-m0,1282
 
 
-egin,1283
 
+ID,1073,NUM,1074,KAR,1075,KATEA,1076,BOOL,1077,OP_ADIT,1078,IRE_PAR,1079,id_zer,1080,fact,1197,rando,1084,var,1085,lista,1086
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1198,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
 
+OP_ADIT,1199,aritp,1200
+OP_MULT,1201,OP_DIV,1202,OP_MOD,1203,termp,1204
 
 
+ITX_PAR,1205,COMA,81
+m7,1206
 
+m0,1207
+ID,642,NUM,643,KAR,644,KATEA,645,BOOL,646,OP_ADIT,647,IRE_PAR,649,id_zer,650,eand,1208,erel,653,arit,654,term,655,fact,656,rando,657,var,658,lista,659
+m3,1209
+m2,1210
+m1,1211
+m1,1212
+m1,1213
+m1,1214
+COMA,805,id_zer_hond,1215
+OP_ADIT,663,aritp,1216
+OP_MULT,665,OP_DIV,666,OP_MOD,667,termp,1217
+OP_MULT,665,OP_DIV,666,OP_MOD,667,termp,1218
+OP_MULT,665,OP_DIV,666,OP_MOD,667,termp,1219
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,OP_NOT,1226,IRE_PAR,1227,id_zer,1228,expr,1229,eand,1230,erel,1231,arit,1232,term,1233,fact,1234,rando,1235,var,1236,lista,1237
+mq,1238
 
-m7,1284
+heldu-arte,1239
+m10,1240
+COMA,828,id_zer_hond,1241
+ID,1242
 
-OP_OR,994,exprp,1285
-OP_AND,996,eandp,1286
-OP_REL,998,erelp,1287
-OP_ADIT,1000,aritp,1288
-OP_MULT,1002,OP_DIV,1003,OP_MOD,1004,termp,1289
-OP_MULT,1002,OP_DIV,1003,OP_MOD,1004,termp,1290
-OP_MULT,1002,OP_DIV,1003,OP_MOD,1004,termp,1291
-ID,22,P_COMA,317,hasiera,318,irakur,319,idatz,320,aukera,321,errepika,322,baldin,323,hemendik-hasita,324,bitartean,325,sekuentzia-hasiera,326,sentk,327,sent,1292,var,329,lista,37
 
+ID,831,NUM,832,KAR,833,KATEA,834,BOOL,835,OP_ADIT,836,IRE_PAR,837,id_zer,838,term,1243,fact,841,rando,842,var,843,lista,844
+ID,831,NUM,832,KAR,833,KATEA,834,BOOL,835,OP_ADIT,836,IRE_PAR,837,id_zer,838,fact,1244,rando,842,var,843,lista,844
+ID,831,NUM,832,KAR,833,KATEA,834,BOOL,835,OP_ADIT,836,IRE_PAR,837,id_zer,838,fact,1245,rando,842,var,843,lista,844
+ID,831,NUM,832,KAR,833,KATEA,834,BOOL,835,OP_ADIT,836,IRE_PAR,837,id_zer,838,fact,1246,rando,842,var,843,lista,844
 
-mq,1293
-bestela,1294,bestelakoa,1295
-m6,1296
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent_zer,1297,sent,486,var,487,lista,37
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent,1247,id_zer,39,var,40,lista,41
 
 
-ITX_PAR,1298
-mq,1299
 
-mq,1300
 
-m0,1301
 
-m0,1302
 
-m0,1303
-m0,1304
-m0,1305
+mq,1248
 
+mq,1249
+IRE_PAR,1250
+IRE_PAR,1251
+mq,1252
+mq,1253
+ID,53,NUM,54,KAR,55,KATEA,56,BOOL,57,OP_ADIT,58,OP_NOT,59,IRE_PAR,60,id_zer,61,expr,1254,eand,63,erel,64,arit,65,term,66,fact,67,rando,68,var,69,lista,70
+ID,1255
+mq,1256
+ID,1257,id_zer,1258,var,1259,lista,1260
 
-egin,1306
+bestela,1261,bestelakoa,1262
+m5,1263
+m6,1264
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent_zer,1265,sent,567,id_zer,39,var,568,lista,41
+m0,1266
+IRE_PAR,86,COMA,1267,id_zer_hond,1268
 
+ITX_PAR,1269
+m0,1270
 
+m0,1271
+m0,1272
+m0,1273
 
 
 
+ID,8,dekl_hond,1274,id_zer,592
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,OP_NOT,1281,IRE_PAR,1282,id_zer,1283,expr,1284,eand,1285,erel,1286,arit,1287,term,1288,fact,1289,rando,1290,var,1291,lista,1292
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,1293,sent,38,id_zer,39,var,40,lista,41
+ID,1294
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,arit,1295,term,100,fact,101,rando,102,var,103,lista,104
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,baldintza_zer,1296,expr,115,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent_zer,1297,sent,136,id_zer,39,var,137,lista,41
+orduan,1298
+m5,1299
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,1300,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+m14,1301
 
 
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,OP_NOT,1126,IRE_PAR,1127,expr,1307,eand,1129,erel,1130,arit,1131,term,1132,fact,1133,rando,1134,var,1135,lista,1136
-ID,22,P_COMA,843,hasiera,844,irakur,845,idatz,846,aukera,847,errepika,848,baldin,849,hemendik-hasita,850,bitartean,851,sekuentzia-hasiera,852,sentk,853,sent,1308,var,855,lista,37
+ITX_PAR,1302,COMA,81
+mq,1303
 
-heldu-arte,1309
-m10,1310
+ASIGN,1304
+heldu-arte,1305
+m10,1306
+COMA,894,id_zer_hond,1307
+ID,1308
 
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,IRE_PAR,1127,eand,1311,erel,1130,arit,1131,term,1132,fact,1133,rando,1134,var,1135,lista,1136
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,IRE_PAR,1127,erel,1312,arit,1131,term,1132,fact,1133,rando,1134,var,1135,lista,1136
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,IRE_PAR,1127,arit,1313,term,1132,fact,1133,rando,1134,var,1135,lista,1136
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,IRE_PAR,1127,term,1314,fact,1133,rando,1134,var,1135,lista,1136
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,IRE_PAR,1127,fact,1315,rando,1134,var,1135,lista,1136
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,IRE_PAR,1127,fact,1316,rando,1134,var,1135,lista,1136
-ID,1120,NUM,1121,KAR,1122,KATEA,1123,BOOL,1124,OP_ADIT,1125,IRE_PAR,1127,fact,1317,rando,1134,var,1135,lista,1136
-ID,22,P_COMA,393,hasiera,394,irakur,395,idatz,396,aukera,397,errepika,398,baldin,399,hemendik-hasita,400,bitartean,401,sekuentzia-hasiera,402,sentk,403,sent,1318,var,405,lista,37
-egin,1319
 
+ID,896,NUM,897,KAR,898,KATEA,899,BOOL,900,OP_ADIT,901,IRE_PAR,902,id_zer,903,term,1309,fact,906,rando,907,var,908,lista,909
+ID,896,NUM,897,KAR,898,KATEA,899,BOOL,900,OP_ADIT,901,IRE_PAR,902,id_zer,903,fact,1310,rando,907,var,908,lista,909
+ID,896,NUM,897,KAR,898,KATEA,899,BOOL,900,OP_ADIT,901,IRE_PAR,902,id_zer,903,fact,1311,rando,907,var,908,lista,909
+ID,896,NUM,897,KAR,898,KATEA,899,BOOL,900,OP_ADIT,901,IRE_PAR,902,id_zer,903,fact,1312,rando,907,var,908,lista,909
+ID,1313
 
 
+mq,1314
 
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,IRE_PAR,918,id_zer,919,erel,1315,arit,923,term,924,fact,925,rando,926,var,927,lista,928
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,IRE_PAR,918,id_zer,919,arit,1316,term,924,fact,925,rando,926,var,927,lista,928
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,IRE_PAR,918,id_zer,919,term,1317,fact,925,rando,926,var,927,lista,928
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,IRE_PAR,918,id_zer,919,fact,1318,rando,926,var,927,lista,928
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,IRE_PAR,918,id_zer,919,fact,1319,rando,926,var,927,lista,928
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,IRE_PAR,918,id_zer,919,fact,1320,rando,926,var,927,lista,928
 
 
+mq,1321
+bestela,1322,bestelakoa,1323
+m6,1324
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent_zer,1325,sent,567,id_zer,39,var,568,lista,41
+m0,1326
+IRE_PAR,86,COMA,1327,id_zer_hond,1328
 
+ITX_PAR,1329
+m0,1330
 
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,OP_NOT,1180,IRE_PAR,1181,expr,1320,eand,1183,erel,1184,arit,1185,term,1186,fact,1187,rando,1188,var,1189,lista,1190
-ID,22,P_COMA,932,hasiera,933,irakur,934,idatz,935,aukera,936,errepika,937,baldin,938,hemendik-hasita,939,bitartean,940,sekuentzia-hasiera,941,sentk,942,sent,1321,var,944,lista,37
+m0,1331
+m0,1332
+m0,1333
 
-heldu-arte,1322
-m10,1323
 
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,IRE_PAR,1181,eand,1324,erel,1184,arit,1185,term,1186,fact,1187,rando,1188,var,1189,lista,1190
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,IRE_PAR,1181,erel,1325,arit,1185,term,1186,fact,1187,rando,1188,var,1189,lista,1190
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,IRE_PAR,1181,arit,1326,term,1186,fact,1187,rando,1188,var,1189,lista,1190
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,IRE_PAR,1181,term,1327,fact,1187,rando,1188,var,1189,lista,1190
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,IRE_PAR,1181,fact,1328,rando,1188,var,1189,lista,1190
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,IRE_PAR,1181,fact,1329,rando,1188,var,1189,lista,1190
-ID,1174,NUM,1175,KAR,1176,KATEA,1177,BOOL,1178,OP_ADIT,1179,IRE_PAR,1181,fact,1330,rando,1188,var,1189,lista,1190
-ID,22,P_COMA,474,hasiera,475,irakur,476,idatz,477,aukera,478,errepika,479,baldin,480,hemendik-hasita,481,bitartean,482,sekuentzia-hasiera,483,sentk,484,sent,1331,var,487,lista,37
+egin,1334
+COMA,944,id_zer_hond,1335
+m4,1336
+OP_AND,794,eandp,1337
+OP_REL,796,erelp,1338
+OP_ADIT,798,aritp,1339
+OP_MULT,800,OP_DIV,801,OP_MOD,802,termp,1340
+OP_MULT,800,OP_DIV,801,OP_MOD,802,termp,1341
+OP_MULT,800,OP_DIV,801,OP_MOD,802,termp,1342
 
 
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,1332,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ambitartean,1333
-m4,1334
-m3,1335
-m2,1336
-m1,1337
-m1,1338
-m1,1339
-m1,1340
 
-ID,22,P_COMA,536,hasiera,537,irakur,538,idatz,539,aukera,540,errepika,541,baldin,542,hemendik-hasita,543,bitartean,544,sekuentzia-hasiera,545,sentk,546,sent,1341,var,548,lista,37
 
 
-ID,144,NUM,145,KAR,146,KATEA,147,BOOL,148,OP_ADIT,149,OP_NOT,150,IRE_PAR,151,expr,1342,eand,153,erel,154,arit,155,term,156,fact,157,rando,158,var,159,lista,160
-ambitartean,1343
-m4,1344
-m3,1345
-m2,1346
-m1,1347
-m1,1348
-m1,1349
-m1,1350
+m14,1343
 
-m7,1351
 
-OP_OR,1209,exprp,1352
-OP_AND,1211,eandp,1353
-OP_REL,1213,erelp,1354
-OP_ADIT,1215,aritp,1355
-OP_MULT,1217,OP_DIV,1218,OP_MOD,1219,termp,1356
-OP_MULT,1217,OP_DIV,1218,OP_MOD,1219,termp,1357
-OP_MULT,1217,OP_DIV,1218,OP_MOD,1219,termp,1358
 
-m7,1359
 
-OP_OR,1249,exprp,1360
-OP_AND,1251,eandp,1361
-OP_REL,1253,erelp,1362
-OP_ADIT,1255,aritp,1363
-OP_MULT,1257,OP_DIV,1258,OP_MOD,1259,termp,1364
-OP_MULT,1257,OP_DIV,1258,OP_MOD,1259,termp,1365
-OP_MULT,1257,OP_DIV,1258,OP_MOD,1259,termp,1366
-egin,1367
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,IRE_PAR,1227,id_zer,1228,fact,1344,rando,1235,var,1236,lista,1237
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,OP_NOT,1226,IRE_PAR,1227,id_zer,1228,expr,1345,eand,1230,erel,1231,arit,1232,term,1233,fact,1234,rando,1235,var,1236,lista,1237
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1346,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
 
 
+m11,1347
+OP_AND,1348,eandp,1349
+OP_REL,1350,erelp,1351
+OP_ADIT,1352,aritp,1353
+OP_MULT,1354,OP_DIV,1355,OP_MOD,1356,termp,1357
 
 
+ITX_PAR,1358,COMA,81
+ID,25,P_COMA,390,hasiera,391,irakur,392,idatz,393,aukera,394,errepika,395,baldin,396,hemendik-hasita,397,bitartean,398,deitu,399,sentk,400,sent,1359,id_zer,39,var,402,lista,41
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,1360,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ambitartean,1361
 
+m0,1362
+m1,1363
+m1,1364
+m1,1365
+m1,1366
 
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,OP_NOT,1373,IRE_PAR,1374,id_zer,1375,expr,1376,eand,1377,erel,1378,arit,1379,term,1380,fact,1381,rando,1382,var,1383,lista,1384
+ID,25,P_COMA,26,hasiera,27,irakur,28,idatz,29,aukera,30,errepika,31,baldin,32,hemendik-hasita,33,bitartean,34,deitu,35,sentk,36,sent_zer,1385,sent,38,id_zer,39,var,40,lista,41
+ID,1386
+ID,91,NUM,92,KAR,93,KATEA,94,BOOL,95,OP_ADIT,96,IRE_PAR,97,id_zer,98,arit,1387,term,100,fact,101,rando,102,var,103,lista,104
+ID,105,NUM,106,KAR,107,KATEA,108,BOOL,109,OP_ADIT,110,OP_NOT,111,IRE_PAR,112,id_zer,113,baldintza_zer,1388,expr,115,eand,116,erel,117,arit,118,term,119,fact,120,rando,121,var,122,lista,123
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent_zer,1389,sent,136,id_zer,39,var,137,lista,41
+orduan,1390
+m5,1391
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,1392,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+m14,1393
 
-egin,1368
 
+ITX_PAR,1394,COMA,81
+mq,1395
 
+ASIGN,1396
+heldu-arte,1397
+m10,1398
+COMA,992,id_zer_hond,1399
+ID,1400
 
 
+ID,994,NUM,995,KAR,996,KATEA,997,BOOL,998,OP_ADIT,999,IRE_PAR,1000,id_zer,1001,term,1401,fact,1004,rando,1005,var,1006,lista,1007
+ID,994,NUM,995,KAR,996,KATEA,997,BOOL,998,OP_ADIT,999,IRE_PAR,1000,id_zer,1001,fact,1402,rando,1005,var,1006,lista,1007
+ID,994,NUM,995,KAR,996,KATEA,997,BOOL,998,OP_ADIT,999,IRE_PAR,1000,id_zer,1001,fact,1403,rando,1005,var,1006,lista,1007
+ID,994,NUM,995,KAR,996,KATEA,997,BOOL,998,OP_ADIT,999,IRE_PAR,1000,id_zer,1001,fact,1404,rando,1005,var,1006,lista,1007
 
+m14,1405
 
 
-ID,22,P_COMA,843,hasiera,844,irakur,845,idatz,846,aukera,847,errepika,848,baldin,849,hemendik-hasita,850,bitartean,851,sekuentzia-hasiera,852,sentk,853,sent,1369,var,855,lista,37
-ID,22,P_COMA,932,hasiera,933,irakur,934,idatz,935,aukera,936,errepika,937,baldin,938,hemendik-hasita,939,bitartean,940,sekuentzia-hasiera,941,sentk,942,sent,1370,var,944,lista,37
+
+
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,IRE_PAR,1282,id_zer,1283,fact,1406,rando,1290,var,1291,lista,1292
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,OP_NOT,1281,IRE_PAR,1282,id_zer,1283,expr,1407,eand,1285,erel,1286,arit,1287,term,1288,fact,1289,rando,1290,var,1291,lista,1292
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1408,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+
+
+m11,1409
+OP_AND,1410,eandp,1411
+OP_REL,1412,erelp,1413
+OP_ADIT,1414,aritp,1415
+OP_MULT,1416,OP_DIV,1417,OP_MOD,1418,termp,1419
+
+
+ITX_PAR,1420,COMA,81
+amaia,1421
+m0,1422
+ITX_PAR,1423
+mq,1424
+m10,1425
+mq,1426
+ASIGN,1427
+egin,1428
+IRE_PAR,86,COMA,1429,id_zer_hond,1430
+
+ID,25,P_COMA,467,hasiera,468,irakur,469,idatz,470,aukera,471,errepika,472,baldin,473,hemendik-hasita,474,bitartean,475,deitu,476,sentk,477,sent,1431,id_zer,39,var,479,lista,41
+ID,1432,NUM,1433,KAR,1434,KATEA,1435,BOOL,1436,OP_ADIT,1437,IRE_PAR,1438,id_zer,1439,arit,1440,term,1441,fact,1442,rando,1443,var,1444,lista,1445
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,1446,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ambitartean,1447
+
+m0,1448
+m1,1449
+m1,1450
+m1,1451
+m1,1452
+m0,1453
+ID,911,NUM,912,KAR,913,KATEA,914,BOOL,915,OP_ADIT,916,IRE_PAR,918,id_zer,919,eand,1454,erel,922,arit,923,term,924,fact,925,rando,926,var,927,lista,928
+m3,1455
+m2,1456
+m1,1457
+m1,1458
+m1,1459
+m1,1460
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,OP_NOT,1467,IRE_PAR,1468,id_zer,1469,expr,1470,eand,1471,erel,1472,arit,1473,term,1474,fact,1475,rando,1476,var,1477,lista,1478
+mq,1479
+
+heldu-arte,1480
+m10,1481
+COMA,1070,id_zer_hond,1482
+ID,1483
+
+
+ID,1073,NUM,1074,KAR,1075,KATEA,1076,BOOL,1077,OP_ADIT,1078,IRE_PAR,1079,id_zer,1080,term,1484,fact,1083,rando,1084,var,1085,lista,1086
+ID,1073,NUM,1074,KAR,1075,KATEA,1076,BOOL,1077,OP_ADIT,1078,IRE_PAR,1079,id_zer,1080,fact,1485,rando,1084,var,1085,lista,1086
+ID,1073,NUM,1074,KAR,1075,KATEA,1076,BOOL,1077,OP_ADIT,1078,IRE_PAR,1079,id_zer,1080,fact,1486,rando,1084,var,1085,lista,1086
+ID,1073,NUM,1074,KAR,1075,KATEA,1076,BOOL,1077,OP_ADIT,1078,IRE_PAR,1079,id_zer,1080,fact,1487,rando,1084,var,1085,lista,1086
+ID,25,P_COMA,124,hasiera,125,irakur,126,idatz,127,aukera,128,errepika,129,baldin,130,hemendik-hasita,131,bitartean,132,deitu,133,sentk,134,sent,1488,id_zer,39,var,137,lista,41
+
+OP_OR,947,exprp,1489
+
+
+
+
+
+
+IRE_PAR,86,COMA,1490,id_zer_hond,1491
+
+
+ITX_PAR,1492
+OP_OR,1493,exprp,1494
+mq,1495
+
+m0,1496
+
+m0,1497
+
+m0,1498
+m0,1499
+m0,1500
+
+
+
+m7,1501
+
+COMA,1108,id_zer_hond,1502
+OP_ADIT,971,aritp,1503
+OP_MULT,973,OP_DIV,974,OP_MOD,975,termp,1504
+OP_MULT,973,OP_DIV,974,OP_MOD,975,termp,1505
+OP_MULT,973,OP_DIV,974,OP_MOD,975,termp,1506
+m14,1507
+
+
+
+
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,IRE_PAR,1374,id_zer,1375,fact,1508,rando,1382,var,1383,lista,1384
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,OP_NOT,1373,IRE_PAR,1374,id_zer,1375,expr,1509,eand,1377,erel,1378,arit,1379,term,1380,fact,1381,rando,1382,var,1383,lista,1384
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1510,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+
+
+m11,1511
+OP_AND,1512,eandp,1513
+OP_REL,1514,erelp,1515
+OP_ADIT,1516,aritp,1517
+OP_MULT,1518,OP_DIV,1519,OP_MOD,1520,termp,1521
+
+
+ITX_PAR,1522,COMA,81
+amaia,1523
+m0,1524
+ITX_PAR,1525
+mq,1526
+m10,1527
+mq,1528
+ASIGN,1529
+egin,1530
+IRE_PAR,86,COMA,1531,id_zer_hond,1532
+
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent,1533,id_zer,39,var,568,lista,41
+ID,1534,NUM,1535,KAR,1536,KATEA,1537,BOOL,1538,OP_ADIT,1539,IRE_PAR,1540,id_zer,1541,arit,1542,term,1543,fact,1544,rando,1545,var,1546,lista,1547
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,1548,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ambitartean,1549
+
+m0,1550
+m1,1551
+m1,1552
+m1,1553
+m1,1554
+IRE_PAR,86,COMA,1555,id_zer_hond,1556
+
+
+ITX_PAR,1557
+OP_OR,1558,exprp,1559
+mq,1560
+
+m0,1561
+
+m0,1562
+
+m0,1563
+m0,1564
+m0,1565
+
+
+
+ITX_PAR,1566
+
+amaukera,1567
+harik-eta,1568
+ID,25,P_COMA,1020,hasiera,1021,irakur,1022,idatz,1023,aukera,1024,errepika,1025,baldin,1026,hemendik-hasita,1027,bitartean,1028,deitu,1029,sentk,1030,sent,1569,id_zer,39,var,1032,lista,41
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,arit,1570,term,419,fact,420,rando,421,var,422,lista,423
+mq,1571
+ID,1572
+
+
+m14,1573
+
+
+
+
+ID,1432,NUM,1433,KAR,1434,KATEA,1435,BOOL,1436,OP_ADIT,1437,IRE_PAR,1438,id_zer,1439,fact,1574,rando,1443,var,1444,lista,1445
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1575,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+
+
+OP_ADIT,1576,aritp,1577
+OP_MULT,1578,OP_DIV,1579,OP_MOD,1580,termp,1581
+
+
+ITX_PAR,1582,COMA,81
+m7,1583
+
+COMA,1171,id_zer_hond,1584
+OP_ADIT,1039,aritp,1585
+OP_MULT,1041,OP_DIV,1042,OP_MOD,1043,termp,1586
+OP_MULT,1041,OP_DIV,1042,OP_MOD,1043,termp,1587
+OP_MULT,1041,OP_DIV,1042,OP_MOD,1043,termp,1588
+COMA,1178,id_zer_hond,1589
+m4,1590
+OP_AND,1051,eandp,1591
+OP_REL,1053,erelp,1592
+OP_ADIT,1055,aritp,1593
+OP_MULT,1057,OP_DIV,1058,OP_MOD,1059,termp,1594
+OP_MULT,1057,OP_DIV,1058,OP_MOD,1059,termp,1595
+OP_MULT,1057,OP_DIV,1058,OP_MOD,1059,termp,1596
+m14,1597
+
+
+
+
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,IRE_PAR,1468,id_zer,1469,fact,1598,rando,1476,var,1477,lista,1478
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,OP_NOT,1467,IRE_PAR,1468,id_zer,1469,expr,1599,eand,1471,erel,1472,arit,1473,term,1474,fact,1475,rando,1476,var,1477,lista,1478
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1600,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+
+
+m11,1601
+OP_AND,1602,eandp,1603
+OP_REL,1604,erelp,1605
+OP_ADIT,1606,aritp,1607
+OP_MULT,1608,OP_DIV,1609,OP_MOD,1610,termp,1611
+
+
+ITX_PAR,1612,COMA,81
+ID,25,P_COMA,626,hasiera,627,irakur,628,idatz,629,aukera,630,errepika,631,baldin,632,hemendik-hasita,633,bitartean,634,deitu,635,sentk,636,sent,1613,id_zer,39,var,638,lista,41
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,1614,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ambitartean,1615
+
+m0,1616
+m1,1617
+m1,1618
+m1,1619
+m1,1620
+
+
+ID,1621
+
+
+mq,1622
+
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,IRE_PAR,1227,id_zer,1228,erel,1623,arit,1232,term,1233,fact,1234,rando,1235,var,1236,lista,1237
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,IRE_PAR,1227,id_zer,1228,arit,1624,term,1233,fact,1234,rando,1235,var,1236,lista,1237
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,IRE_PAR,1227,id_zer,1228,term,1625,fact,1234,rando,1235,var,1236,lista,1237
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,IRE_PAR,1227,id_zer,1228,fact,1626,rando,1235,var,1236,lista,1237
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,IRE_PAR,1227,id_zer,1228,fact,1627,rando,1235,var,1236,lista,1237
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,IRE_PAR,1227,id_zer,1228,fact,1628,rando,1235,var,1236,lista,1237
+egin,1629
+
+
+
+
+
+IRE_PAR,86,COMA,1630,id_zer_hond,1631
+
+
+ITX_PAR,1632
+OP_OR,1633,exprp,1634
+mq,1635
+
+m0,1636
+
+m0,1637
+
+m0,1638
+m0,1639
+m0,1640
+
+
+
+ITX_PAR,1641
+
+amaukera,1642
+harik-eta,1643
+ID,25,P_COMA,1124,hasiera,1125,irakur,1126,idatz,1127,aukera,1128,errepika,1129,baldin,1130,hemendik-hasita,1131,bitartean,1132,deitu,1133,sentk,1134,sent,1644,id_zer,39,var,1136,lista,41
+ID,410,NUM,411,KAR,412,KATEA,413,BOOL,414,OP_ADIT,415,IRE_PAR,416,id_zer,417,arit,1645,term,419,fact,420,rando,421,var,422,lista,423
+mq,1646
+ID,1647
+
+
+m14,1648
+
+
+
+
+ID,1534,NUM,1535,KAR,1536,KATEA,1537,BOOL,1538,OP_ADIT,1539,IRE_PAR,1540,id_zer,1541,fact,1649,rando,1545,var,1546,lista,1547
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1650,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+
+
+OP_ADIT,1651,aritp,1652
+OP_MULT,1653,OP_DIV,1654,OP_MOD,1655,termp,1656
+
+
+ITX_PAR,1657,COMA,81
+m7,1658
+
+COMA,1267,id_zer_hond,1659
+OP_ADIT,1143,aritp,1660
+OP_MULT,1145,OP_DIV,1146,OP_MOD,1147,termp,1661
+OP_MULT,1145,OP_DIV,1146,OP_MOD,1147,termp,1662
+OP_MULT,1145,OP_DIV,1146,OP_MOD,1147,termp,1663
+ID,1664
+
+
+mq,1665
+
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,IRE_PAR,1282,id_zer,1283,erel,1666,arit,1287,term,1288,fact,1289,rando,1290,var,1291,lista,1292
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,IRE_PAR,1282,id_zer,1283,arit,1667,term,1288,fact,1289,rando,1290,var,1291,lista,1292
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,IRE_PAR,1282,id_zer,1283,term,1668,fact,1289,rando,1290,var,1291,lista,1292
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,IRE_PAR,1282,id_zer,1283,fact,1669,rando,1290,var,1291,lista,1292
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,IRE_PAR,1282,id_zer,1283,fact,1670,rando,1290,var,1291,lista,1292
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,IRE_PAR,1282,id_zer,1283,fact,1671,rando,1290,var,1291,lista,1292
+
+
+mq,1672
+bestela,1673,bestelakoa,1674
+m6,1675
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent_zer,1676,sent,567,id_zer,39,var,568,lista,41
+m0,1677
+IRE_PAR,86,COMA,1678,id_zer_hond,1679
+
+ITX_PAR,1680
+m0,1681
+
+m0,1682
+m0,1683
+m0,1684
+
+
+egin,1685
+
+
+
+
+
+
+OP_OR,1181,exprp,1686
+
+
+
+
+
+
+IRE_PAR,86,COMA,1687,id_zer_hond,1688
+
+
+ITX_PAR,1689
+OP_OR,1690,exprp,1691
+mq,1692
+
+m0,1693
+
+m0,1694
+
+m0,1695
+m0,1696
+m0,1697
+
+
+
+m7,1698
+
+COMA,1327,id_zer_hond,1699
+OP_ADIT,1199,aritp,1700
+OP_MULT,1201,OP_DIV,1202,OP_MOD,1203,termp,1701
+OP_MULT,1201,OP_DIV,1202,OP_MOD,1203,termp,1702
+OP_MULT,1201,OP_DIV,1202,OP_MOD,1203,termp,1703
+m0,1704
+ID,1220,NUM,1221,KAR,1222,KATEA,1223,BOOL,1224,OP_ADIT,1225,IRE_PAR,1227,id_zer,1228,eand,1705,erel,1231,arit,1232,term,1233,fact,1234,rando,1235,var,1236,lista,1237
+m3,1706
+m2,1707
+m1,1708
+m1,1709
+m1,1710
+m1,1711
+ID,25,P_COMA,390,hasiera,391,irakur,392,idatz,393,aukera,394,errepika,395,baldin,396,hemendik-hasita,397,bitartean,398,deitu,399,sentk,400,sent,1712,id_zer,39,var,402,lista,41
+ID,1713
+
+
+mq,1714
+
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,IRE_PAR,1374,id_zer,1375,erel,1715,arit,1379,term,1380,fact,1381,rando,1382,var,1383,lista,1384
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,IRE_PAR,1374,id_zer,1375,arit,1716,term,1380,fact,1381,rando,1382,var,1383,lista,1384
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,IRE_PAR,1374,id_zer,1375,term,1717,fact,1381,rando,1382,var,1383,lista,1384
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,IRE_PAR,1374,id_zer,1375,fact,1718,rando,1382,var,1383,lista,1384
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,IRE_PAR,1374,id_zer,1375,fact,1719,rando,1382,var,1383,lista,1384
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,IRE_PAR,1374,id_zer,1375,fact,1720,rando,1382,var,1383,lista,1384
+
+
+mq,1721
+bestela,1722,bestelakoa,1723
+m6,1724
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent_zer,1725,sent,567,id_zer,39,var,568,lista,41
+m0,1726
+IRE_PAR,86,COMA,1727,id_zer_hond,1728
+
+ITX_PAR,1729
+m0,1730
+
+m0,1731
+m0,1732
+m0,1733
+
+
+egin,1734
+
+
+
+
+
+m0,1735
+ID,1275,NUM,1276,KAR,1277,KATEA,1278,BOOL,1279,OP_ADIT,1280,IRE_PAR,1282,id_zer,1283,eand,1736,erel,1286,arit,1287,term,1288,fact,1289,rando,1290,var,1291,lista,1292
+m3,1737
+m2,1738
+m1,1739
+m1,1740
+m1,1741
+m1,1742
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,OP_NOT,1749,IRE_PAR,1750,id_zer,1751,expr,1752,eand,1753,erel,1754,arit,1755,term,1756,fact,1757,rando,1758,var,1759,lista,1760
+mq,1761
+
+heldu-arte,1762
+m10,1763
+COMA,1429,id_zer_hond,1764
+ID,1765
+
+
+ID,1432,NUM,1433,KAR,1434,KATEA,1435,BOOL,1436,OP_ADIT,1437,IRE_PAR,1438,id_zer,1439,term,1766,fact,1442,rando,1443,var,1444,lista,1445
+ID,1432,NUM,1433,KAR,1434,KATEA,1435,BOOL,1436,OP_ADIT,1437,IRE_PAR,1438,id_zer,1439,fact,1767,rando,1443,var,1444,lista,1445
+ID,1432,NUM,1433,KAR,1434,KATEA,1435,BOOL,1436,OP_ADIT,1437,IRE_PAR,1438,id_zer,1439,fact,1768,rando,1443,var,1444,lista,1445
+ID,1432,NUM,1433,KAR,1434,KATEA,1435,BOOL,1436,OP_ADIT,1437,IRE_PAR,1438,id_zer,1439,fact,1769,rando,1443,var,1444,lista,1445
+ID,25,P_COMA,467,hasiera,468,irakur,469,idatz,470,aukera,471,errepika,472,baldin,473,hemendik-hasita,474,bitartean,475,deitu,476,sentk,477,sent,1770,id_zer,39,var,479,lista,41
+
+ID,1771
+
+
+mq,1772
+
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,IRE_PAR,1468,id_zer,1469,erel,1773,arit,1473,term,1474,fact,1475,rando,1476,var,1477,lista,1478
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,IRE_PAR,1468,id_zer,1469,arit,1774,term,1474,fact,1475,rando,1476,var,1477,lista,1478
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,IRE_PAR,1468,id_zer,1469,term,1775,fact,1475,rando,1476,var,1477,lista,1478
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,IRE_PAR,1468,id_zer,1469,fact,1776,rando,1476,var,1477,lista,1478
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,IRE_PAR,1468,id_zer,1469,fact,1777,rando,1476,var,1477,lista,1478
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,IRE_PAR,1468,id_zer,1469,fact,1778,rando,1476,var,1477,lista,1478
+egin,1779
+
+
+
+
+
+COMA,1490,id_zer_hond,1780
+m4,1781
+OP_AND,1348,eandp,1782
+OP_REL,1350,erelp,1783
+OP_ADIT,1352,aritp,1784
+OP_MULT,1354,OP_DIV,1355,OP_MOD,1356,termp,1785
+OP_MULT,1354,OP_DIV,1355,OP_MOD,1356,termp,1786
+OP_MULT,1354,OP_DIV,1355,OP_MOD,1356,termp,1787
+
+m0,1788
+ID,1367,NUM,1368,KAR,1369,KATEA,1370,BOOL,1371,OP_ADIT,1372,IRE_PAR,1374,id_zer,1375,eand,1789,erel,1378,arit,1379,term,1380,fact,1381,rando,1382,var,1383,lista,1384
+m3,1790
+m2,1791
+m1,1792
+m1,1793
+m1,1794
+m1,1795
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,OP_NOT,1802,IRE_PAR,1803,id_zer,1804,expr,1805,eand,1806,erel,1807,arit,1808,term,1809,fact,1810,rando,1811,var,1812,lista,1813
+mq,1814
+
+heldu-arte,1815
+m10,1816
+COMA,1531,id_zer_hond,1817
+ID,1818
+
+
+ID,1534,NUM,1535,KAR,1536,KATEA,1537,BOOL,1538,OP_ADIT,1539,IRE_PAR,1540,id_zer,1541,term,1819,fact,1544,rando,1545,var,1546,lista,1547
+ID,1534,NUM,1535,KAR,1536,KATEA,1537,BOOL,1538,OP_ADIT,1539,IRE_PAR,1540,id_zer,1541,fact,1820,rando,1545,var,1546,lista,1547
+ID,1534,NUM,1535,KAR,1536,KATEA,1537,BOOL,1538,OP_ADIT,1539,IRE_PAR,1540,id_zer,1541,fact,1821,rando,1545,var,1546,lista,1547
+ID,1534,NUM,1535,KAR,1536,KATEA,1537,BOOL,1538,OP_ADIT,1539,IRE_PAR,1540,id_zer,1541,fact,1822,rando,1545,var,1546,lista,1547
+ID,25,P_COMA,555,hasiera,556,irakur,557,idatz,558,aukera,559,errepika,560,baldin,561,hemendik-hasita,562,bitartean,563,deitu,564,sentk,565,sent,1823,id_zer,39,var,568,lista,41
+COMA,1555,id_zer_hond,1824
+m4,1825
+OP_AND,1410,eandp,1826
+OP_REL,1412,erelp,1827
+OP_ADIT,1414,aritp,1828
+OP_MULT,1416,OP_DIV,1417,OP_MOD,1418,termp,1829
+OP_MULT,1416,OP_DIV,1417,OP_MOD,1418,termp,1830
+OP_MULT,1416,OP_DIV,1417,OP_MOD,1418,termp,1831
+m14,1832
+
+
+
+
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,IRE_PAR,1750,id_zer,1751,fact,1833,rando,1758,var,1759,lista,1760
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,OP_NOT,1749,IRE_PAR,1750,id_zer,1751,expr,1834,eand,1753,erel,1754,arit,1755,term,1756,fact,1757,rando,1758,var,1759,lista,1760
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1835,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+
+
+m11,1836
+OP_AND,1837,eandp,1838
+OP_REL,1839,erelp,1840
+OP_ADIT,1841,aritp,1842
+OP_MULT,1843,OP_DIV,1844,OP_MOD,1845,termp,1846
+
+
+ITX_PAR,1847,COMA,81
+ID,25,P_COMA,1020,hasiera,1021,irakur,1022,idatz,1023,aukera,1024,errepika,1025,baldin,1026,hemendik-hasita,1027,bitartean,1028,deitu,1029,sentk,1030,sent,1848,id_zer,39,var,1032,lista,41
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,1849,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ambitartean,1850
+
+m0,1851
+m1,1852
+m1,1853
+m1,1854
+m1,1855
+
+m0,1856
+ID,1461,NUM,1462,KAR,1463,KATEA,1464,BOOL,1465,OP_ADIT,1466,IRE_PAR,1468,id_zer,1469,eand,1857,erel,1472,arit,1473,term,1474,fact,1475,rando,1476,var,1477,lista,1478
+m3,1858
+m2,1859
+m1,1860
+m1,1861
+m1,1862
+m1,1863
+ID,25,P_COMA,626,hasiera,627,irakur,628,idatz,629,aukera,630,errepika,631,baldin,632,hemendik-hasita,633,bitartean,634,deitu,635,sentk,636,sent,1864,id_zer,39,var,638,lista,41
+
+OP_OR,1493,exprp,1865
+
+
+
+
+
+
+COMA,1630,id_zer_hond,1866
+m4,1867
+OP_AND,1512,eandp,1868
+OP_REL,1514,erelp,1869
+OP_ADIT,1516,aritp,1870
+OP_MULT,1518,OP_DIV,1519,OP_MOD,1520,termp,1871
+OP_MULT,1518,OP_DIV,1519,OP_MOD,1520,termp,1872
+OP_MULT,1518,OP_DIV,1519,OP_MOD,1520,termp,1873
+m14,1874
+
+
+
+
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,IRE_PAR,1803,id_zer,1804,fact,1875,rando,1811,var,1812,lista,1813
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,OP_NOT,1802,IRE_PAR,1803,id_zer,1804,expr,1876,eand,1806,erel,1807,arit,1808,term,1809,fact,1810,rando,1811,var,1812,lista,1813
+ID,141,NUM,142,KAR,143,KATEA,144,BOOL,145,OP_ADIT,146,OP_NOT,147,IRE_PAR,148,id_zer,149,expr,1877,eand,151,erel,152,arit,153,term,154,fact,155,rando,156,var,157,lista,158
+
+
+m11,1878
+OP_AND,1879,eandp,1880
+OP_REL,1881,erelp,1882
+OP_ADIT,1883,aritp,1884
+OP_MULT,1885,OP_DIV,1886,OP_MOD,1887,termp,1888
+
+
+ITX_PAR,1889,COMA,81
+ID,25,P_COMA,1124,hasiera,1125,irakur,1126,idatz,1127,aukera,1128,errepika,1129,baldin,1130,hemendik-hasita,1131,bitartean,1132,deitu,1133,sentk,1134,sent,1890,id_zer,39,var,1136,lista,41
+ID,173,NUM,174,KAR,175,KATEA,176,BOOL,177,OP_ADIT,178,OP_NOT,179,IRE_PAR,180,id_zer,181,expr,1891,eand,183,erel,184,arit,185,term,186,fact,187,rando,188,var,189,lista,190
+ambitartean,1892
+
+m0,1893
+m1,1894
+m1,1895
+m1,1896
+m1,1897
+
+
+OP_OR,1558,exprp,1898
+
+
+
+
+
+
+IRE_PAR,86,COMA,1899,id_zer_hond,1900
+
+
+ITX_PAR,1901
+OP_OR,1902,exprp,1903
+mq,1904
+
+m0,1905
+
+m0,1906
+
+m0,1907
+m0,1908
+m0,1909
+
+
+
+m7,1910
+
+COMA,1678,id_zer_hond,1911
+OP_ADIT,1576,aritp,1912
+OP_MULT,1578,OP_DIV,1579,OP_MOD,1580,termp,1913
+OP_MULT,1578,OP_DIV,1579,OP_MOD,1580,termp,1914
+OP_MULT,1578,OP_DIV,1579,OP_MOD,1580,termp,1915
+COMA,1687,id_zer_hond,1916
+m4,1917
+OP_AND,1602,eandp,1918
+OP_REL,1604,erelp,1919
+OP_ADIT,1606,aritp,1920
+OP_MULT,1608,OP_DIV,1609,OP_MOD,1610,termp,1921
+OP_MULT,1608,OP_DIV,1609,OP_MOD,1610,termp,1922
+OP_MULT,1608,OP_DIV,1609,OP_MOD,1610,termp,1923
+
+
+
+OP_OR,1633,exprp,1924
+
+
+
+
+
+
+IRE_PAR,86,COMA,1925,id_zer_hond,1926
+
+
+ITX_PAR,1927
+OP_OR,1928,exprp,1929
+mq,1930
+
+m0,1931
+
+m0,1932
+
+m0,1933
+m0,1934
+m0,1935
+
+
+
+m7,1936
+
+COMA,1727,id_zer_hond,1937
+OP_ADIT,1651,aritp,1938
+OP_MULT,1653,OP_DIV,1654,OP_MOD,1655,termp,1939
+OP_MULT,1653,OP_DIV,1654,OP_MOD,1655,termp,1940
+OP_MULT,1653,OP_DIV,1654,OP_MOD,1655,termp,1941
+
+ID,1942
+
+
+mq,1943
+
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,IRE_PAR,1750,id_zer,1751,erel,1944,arit,1755,term,1756,fact,1757,rando,1758,var,1759,lista,1760
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,IRE_PAR,1750,id_zer,1751,arit,1945,term,1756,fact,1757,rando,1758,var,1759,lista,1760
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,IRE_PAR,1750,id_zer,1751,term,1946,fact,1757,rando,1758,var,1759,lista,1760
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,IRE_PAR,1750,id_zer,1751,fact,1947,rando,1758,var,1759,lista,1760
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,IRE_PAR,1750,id_zer,1751,fact,1948,rando,1758,var,1759,lista,1760
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,IRE_PAR,1750,id_zer,1751,fact,1949,rando,1758,var,1759,lista,1760
+egin,1950
+
+
+
+
+
+
+OP_OR,1690,exprp,1951
+
+
+
+
+
+
+
+ID,1952
+
+
+mq,1953
+
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,IRE_PAR,1803,id_zer,1804,erel,1954,arit,1808,term,1809,fact,1810,rando,1811,var,1812,lista,1813
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,IRE_PAR,1803,id_zer,1804,arit,1955,term,1809,fact,1810,rando,1811,var,1812,lista,1813
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,IRE_PAR,1803,id_zer,1804,term,1956,fact,1810,rando,1811,var,1812,lista,1813
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,IRE_PAR,1803,id_zer,1804,fact,1957,rando,1811,var,1812,lista,1813
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,IRE_PAR,1803,id_zer,1804,fact,1958,rando,1811,var,1812,lista,1813
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,IRE_PAR,1803,id_zer,1804,fact,1959,rando,1811,var,1812,lista,1813
+egin,1960
+
+
+
+
+
+m0,1961
+ID,1743,NUM,1744,KAR,1745,KATEA,1746,BOOL,1747,OP_ADIT,1748,IRE_PAR,1750,id_zer,1751,eand,1962,erel,1754,arit,1755,term,1756,fact,1757,rando,1758,var,1759,lista,1760
+m3,1963
+m2,1964
+m1,1965
+m1,1966
+m1,1967
+m1,1968
+ID,25,P_COMA,1020,hasiera,1021,irakur,1022,idatz,1023,aukera,1024,errepika,1025,baldin,1026,hemendik-hasita,1027,bitartean,1028,deitu,1029,sentk,1030,sent,1969,id_zer,39,var,1032,lista,41
+
+m0,1970
+ID,1796,NUM,1797,KAR,1798,KATEA,1799,BOOL,1800,OP_ADIT,1801,IRE_PAR,1803,id_zer,1804,eand,1971,erel,1807,arit,1808,term,1809,fact,1810,rando,1811,var,1812,lista,1813
+m3,1972
+m2,1973
+m1,1974
+m1,1975
+m1,1976
+m1,1977
+ID,25,P_COMA,1124,hasiera,1125,irakur,1126,idatz,1127,aukera,1128,errepika,1129,baldin,1130,hemendik-hasita,1131,bitartean,1132,deitu,1133,sentk,1134,sent,1978,id_zer,39,var,1136,lista,41
+COMA,1899,id_zer_hond,1979
+m4,1980
+OP_AND,1837,eandp,1981
+OP_REL,1839,erelp,1982
+OP_ADIT,1841,aritp,1983
+OP_MULT,1843,OP_DIV,1844,OP_MOD,1845,termp,1984
+OP_MULT,1843,OP_DIV,1844,OP_MOD,1845,termp,1985
+OP_MULT,1843,OP_DIV,1844,OP_MOD,1845,termp,1986
+
+COMA,1925,id_zer_hond,1987
+m4,1988
+OP_AND,1879,eandp,1989
+OP_REL,1881,erelp,1990
+OP_ADIT,1883,aritp,1991
+OP_MULT,1885,OP_DIV,1886,OP_MOD,1887,termp,1992
+OP_MULT,1885,OP_DIV,1886,OP_MOD,1887,termp,1993
+OP_MULT,1885,OP_DIV,1886,OP_MOD,1887,termp,1994
+
+
+OP_OR,1902,exprp,1995
+
+
+
+
+
+
+
+OP_OR,1928,exprp,1996
+
+
+
+
+
+
 
 

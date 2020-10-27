@@ -1,0 +1,46 @@
+algoritmoa KENKETA
+aldagaiak A,B,C (3 osagai osotako taula)
+          I,N,D,BEHEKO_GAIN (osoa)
+hasiera
+	idatz ("Sartu zenbakia A (3 digitu)?")
+	irakur (N)
+	I:=1
+	D:=100
+	errepika
+		A(I) := N div D
+		N := N - (A(I)*D)
+		D := D div 10
+		I := I + 1
+	harik-eta I>3
+	idatz ("Sartu beste zenbakia B (3 digitu)?")
+	irakur (N)
+	I:=1
+	D:=100
+	errepika
+		B(I) := N div D
+		N := N - (B(I)*D)
+		D := D div 10
+		I := I + 1
+	harik-eta I>3
+	I := 3
+	BEHEKO_GAIN := 0
+	errepika
+		baldin A(I)>=(B(I)+BEHEKO_GAIN) orduan
+			hasiera
+				C(I):= A(I) - (B(I)+BEHEKO_GAIN)
+				BEHEKO_GAIN := 0
+			amaia
+		bestela
+			hasiera
+				C(I):= (10+A(I)) - (B(I)+BEHEKO_GAIN)
+				BEHEKO_GAIN := 1
+			amaia
+		I := I - 1
+	harik-eta I = 0	
+	idatz ("A - B =")	
+	I:=1
+	errepika
+		idatz(C(I))
+		I := I + 1
+	harik-eta I>3
+amaia

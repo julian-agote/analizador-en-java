@@ -1,0 +1,18 @@
+Algoritmoa FROGAOINALDER
+aldagaiak N,OIN,R (osoa)
+hasiera
+	irakur (N)
+	irakur (OIN)
+	R := OINARRIAALDER(N,OIN)
+	idatz (R)
+amaia	
+ekintza OINARRIAALDER(N,OIN (osoa)) itzuli M (osoa)
+hasiera
+	baldin N = 0 orduan
+		M := 0
+	bestela
+		hasiera
+			M := OINARRIAALDER(N div OIN,OIN)
+			M := N mod OIN + 10 * M
+		amaia
+amaia		

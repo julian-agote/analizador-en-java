@@ -1,0 +1,109 @@
+Algoritmoa LEHENHITZA1
+aldagaiak
+	KAR (karakterea) {sekuentziako karaktereak irakurtzeko}
+	LEHENKONTA (osoa) {lehenengo hitzaren agerpenak kontatzeko}
+	LEHENA (20 osagai karakteretako taula) {lehenengo hitza gordetzeko}
+	LUZERA (osoa)
+haSiera
+	irakur (KAR)
+	{letra bat, zurigunea edo puntua dauka KAR aldagaiak}
+	ZURIGUNEAK-JAUZI
+	{KAR aldagaiak letra bat edo puntua dauka}
+	baldin KAR = '.' orduan idatz ('ez dago hitz bat ere')
+	bestela
+	hasiera {KAR aldagaiak lehenengo hitzaren lehenengo letra dauka}
+		LEHEN-HITZA-GORDE
+		{KAR aldagaiak lehenengo hitzari jarraitzen dion zurigunea edo puntua dauka}
+		{LEHENA eta LUZERA: lehenengo hitza adierazten dute}
+		LEHENA-KONTATU
+		{LEHENKONTA: lehen hitzaren agerpen-kopurua dauka lehenengo hitza kontatu barik}
+		{KAR aldagaiak azkeneko puntua dauka}
+		idatz (LEHENKONTA + 1)
+	amaia {bestela}
+amaia {LEHENHITZA1}
+ekintza ZURIGUNEAK-JAUZI
+hasiera {KAR aldagaiak letra bat, zurigunea edo puntua dauka}
+bitartean KAR = ' egin
+irakur (KAR)
+ambitartean
+I KAR aldagaiak letra bat edo puntua daukal
+amaia {ZURIGUNEAK-JAUZI)
+- 100 -
+ekintza LEHEN-HITZA-GORDE
+hasiera (KAR: lehenengo karakterea daukal
+I: = 1
+bitartean (KAR ' t ) eta (KAR 0 '.1)egin
+LEHENA(I) : = KAR
+I: = I + 1
+irakur (KAR)
+ambitartean {I aldagaiak gordetako karaktereen kopu
+rua gehi bat dauka }
+LUZERA: =
+{KAR aldagaiak: lehen hitzari amaia ematen dion
+zurigunea edo puntua.}
+(LEHENA eta LUZERA: lehen hitza adierazten dute/
+amaia I LEHEN-HITZA-GORDEI
+ekintza LEHENA-KONTATU
+aldagaiak
+HITZA (20 karakteretako taula) ( hitzak gordetzeko taula/
+HITZLUZERA (osoa) (hitzen karaktere-kopurual
+BERDINAK (boolearra) (konparaketaren emaitza}
+hasiera {KAR aldagaiak lehen hitzari amaia eman dion zurigunea
+edo puntua dauka}
+ZURIGUNEAK-JAUZI
+IKAR aldagaiak letra bat edo puntua dauka}
+LEHENKONTA: = LEHENKONTA + 1
+bitartean KAR # egin (LEHENKONTA aldagaiak lehen.
+hitzetik oraingo karaktere
+rainoko lehen hitzaren ager
+penak dauzka.
+(KAR: hurrengo hitzaren lehen
+karaktereal
+- 101 -
+HITZA-GORDE
+{HITZA eta HITZLUZERA aldagaiek irakurri
+tako hitza adierazten dute}
+{KAR aldagaiak hitzari amaia eman dion
+zurigunea edo puntua dauka}
+KONPARATU
+(BERDINAK = egiazkoa, baldin bi hitzak
+berdinak badira)
+{BERDINAK = faltsua, berdinak ez badira)
+baldin BERDINAK orduan
+LEHENKONTA: = LEHENKONTA + 1
+fKAR = ' ' edo KAR =
+ZURIGUNEAK-JAUZI
+ambitartean.
+amaia
+ekintza HITZA-GORDE
+hasiera (KAR-ek lehenengo karakterea dauka)
+I: = 1
+bitartean (KAR y eta (KAR 7) egin
+HITZA(I) : = KAR
+I: = I + 1
+irakur (KAR)
+ambitartean aldagaiak gordetako karaktereen kopurua
+gehi bat dauka}
+LUZERA: = I - 1
+(KAR aldagaiak hitzari amaia ematen dion zurigunea
+edo puntua dauka)
+- 102 -
+IHITZA eta HITZLUZERA: gordetako hitza adierazten
+dute }
+amaia
+ekintza KONPARATU
+hasiera
+baldin LUZERA # HITZLUZERA orduan BERDINAK: =faltsua
+bestela
+hasiera
+I: = 1
+bitartean (I< LUZERA) eta (LEHENA(I) = (HITZA(I))
+egin
+I: = I + 1
+ambitartean
+baldin LEHENA (I) = HITZA orduan
+BERDINAK: = egiazkoak
+beotela
+BERDINAK: = faltsua
+amaia {bestela}
+amaia

@@ -1,0 +1,26 @@
+Algoritmoa FROGAZATIKETA
+aldagaiak I,N,K,E (osoa)
+hasiera
+	idatz ("Sartu izendatzailea?")
+	irakur (I)
+	idatz ("Sartu zenbakitzailea?")
+	irakur (N)
+	K,E := ZATIKETA(N,I)
+	idatz ("kozientea:")
+	idatz (K)
+	idatz ("errestoa:")
+	idatz (E)
+amaia
+ekintza ZATIKETA(A,B (osoa)) itzuli C,R (osoa)
+hasiera
+	baldin A < B orduan
+		hasiera
+			C := 0
+			R := A
+		amaia
+	bestela
+		hasiera
+			C,R := ZATIKETA(A - B,B)
+			C := C + 1
+		amaia
+amaia					

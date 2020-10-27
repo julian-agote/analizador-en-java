@@ -1,0 +1,48 @@
+Algoritmoa LEHENHITZA2
+aldagaiak KAR (karakterea){sekuentziako karaktereak irakurtzeko}
+	  LEHENKONTA (osoa){lehen hitzaren agerpenak kontatzeko}
+	  LEHENA (20 osagai karakteretako taula) {lehen hitza gordetzeko}
+	  LUZERA (osoa) {lehen hitzaren karaktere-kopurua}
+	  HITZA (20 osagai karakteretako taula) {beste hitzak gordetzeko}
+	  HITZLUZERA (osoa) {HITZA:taulan gordetako karaktere-kopurua}
+	  I (osoa) {taulak erabiltzeko aldagai indizea}
+hasiera
+	irakur (KAR)
+	{KAR aldagaiak letra bat zurigunea edo puntua dauka}
+	bitartean KAR = ' ' egin irakur (KAR) ambitartean
+	{KAR aldagaiak letra bat edo puntua dauka}
+	baldin KAR = '.' orduan idatz ('ez dago bat ere')
+	bestela
+ 	  hasiera {KAR aldagaiak lehenengo hitzaren lehenengo letra dauka}
+	    I:= 1
+	    bitartean (KAR <> ' ') eta (KAR <> '.') egin
+	  	    LEHENA(I) := KAR
+		    I := I + 1
+		    irakur (KAR)
+            ambitartean
+	    LUZERA := I - 1
+	    {LEHENA eta LUZERA aldagaiek lehen hitza adierazten dute}
+	    bitartean (KAR = ' ' ) egin irakur (KAR) ambitartean
+	    LEHENKONTA := 0
+	    bitartean KAR <> '.' egin
+	  	I := 1
+		bitartean (KAR <> ' ') eta (KAR <> '.') egin
+		    	      HITZA(I) := KAR
+			      I := I + 1
+			      irakur (KAR)
+		ambitartean
+		HITZLUZERA := I - 1
+		baldin LUZERA = HITZLUZERA orduan
+		hasiera
+			I := 1
+			bitartean (I ‹ LUZERA) eta (LEHENA(I) = HITZA(I)) egin
+				  I:= I + 1
+		        ambitartean
+			baldin (LEHENA(I) = HITZA(I)) orduan
+			       LEHENKONTA := LEHENKONTA + 1
+	        amaia
+                bitartean KAR = ' ' egin irakur (KAR) ambitartean
+	    ambitartean
+	    idatz(LEHENKONTA + 1)
+          amaia {bestela}
+amaia {LEHENHITZA}

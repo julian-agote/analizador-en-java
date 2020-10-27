@@ -1,0 +1,94 @@
+Algoritmoa LEHENHITZA1
+aldagaiak
+	KAR (karakterea) {sekuentziako karaktereak irakurtzeko}
+	LEHENKONTA (osoa) {lehenengo hitzaren agerpenak kontatzeko}
+	LEHENA (20 osagai karakteretako taula) {lehenengo hitza gordetzeko}
+	LUZERA (osoa)
+hasiera
+	irakur (KAR)
+	{letra bat, zurigunea edo puntua dauka KAR aldagaiak}
+	KAR := ZURIGUNEAK_JAUZI(KAR)
+	{KAR aldagaiak letra bat edo puntua dauka}
+	baldin KAR = '.' orduan idatz ('ez dago hitz bat ere')
+	bestela
+	hasiera {KAR aldagaiak lehenengo hitzaren lehenengo letra dauka}
+		LEHENA,LUZERA,KAR := LEHEN_HITZA_GORDE(KAR)
+		{KAR aldagaiak lehenengo hitzari jarraitzen dion zurigunea edo puntua dauka}
+		{LEHENA eta LUZERA: lehenengo hitza adierazten dute}
+		LEHENKONTA := LEHENA_KONTATU(KAR,LEHENA,LUZERA)
+		{LEHENKONTA: lehen hitzaren agerpen-kopurua dauka lehenengo hitza kontatu barik}
+		{KAR aldagaiak azkeneko puntua dauka}
+		idatz (LEHENKONTA + 1)
+	amaia {bestela}
+amaia {LEHENHITZA1}
+ekintza ZURIGUNEAK_JAUZI(KAR (karakterea)) itzuli  AKAR (karakterea)
+hasiera {KAR aldagaiak letra bat, zurigunea edo puntua dauka}
+    AKAR := KAR
+	bitartean AKAR = ' ' egin
+		irakur (AKAR)
+	ambitartean
+	{AKAR aldagaiak letra bat edo puntua dauka}
+amaia {ZURIGUNEAK-JAUZI}
+ekintza LEHEN_HITZA_GORDE(KAR (karakterea)) itzuli LEHENA (20 osagai karakteretako taula) LUZERA (osoa) AKAR (karakterea)
+aldagaiak I (osoa)
+hasiera {KAR: lehenengo karakterea dauka}
+	I:= 1
+	AKAR := KAR
+	bitartean (AKAR <> ' ') eta (AKAR <> '.') egin
+		  LEHENA(I) := AKAR
+		  I:= I + 1
+		  irakur (AKAR)
+    ambitartean {I aldagaiak gordetako karaktereen kopurua gehi bat dauka}
+	LUZERA := I - 1
+	{AKAR aldagaiak: lehen hitzari amaia ematen dion zurigunea edo puntua.}
+	{LEHENA eta LUZERA: lehen hitza adierazten dute}
+amaia {LEHEN-HITZA-GORDE}
+ekintza LEHENA_KONTATU(KAR (karakterea) LEHENA (20 osagai karakteretako taula) LUZERA (osoa)) itzuli LEHENKONTA (osoa)
+aldagaiak
+	HITZA (20 osagai karakteretako taula) {hitzak gordetzeko taula}
+	HITZLUZERA (osoa) {hitzen karaktere-kopurua}
+	BERDINAK (boolearra) {konparaketaren emaitza}
+hasiera {KAR aldagaiak lehen hitzari amaia eman dion zurigunea edo puntua dauka}
+	KAR := ZURIGUNEAK_JAUZI(KAR)
+	{KAR aldagaiak letra bat edo puntua dauka}
+	bitartean KAR <> '.' egin {LEHENKONTA aldagaiak lehen hitzetik oraingo karaktererainoko lehen hitzaren agerpenak dauzka.}
+	     {KAR: hurrengo hitzaren lehen karakterea}
+	     HITZA,HITZLUZERA,KAR := HITZA_GORDE(KAR)
+	     {HITZA eta HITZLUZERA aldagaiek irakurritako hitza adierazten dute}
+	     {KAR aldagaiak hitzari amaia eman dion zurigunea edo puntua dauka}
+	     BERDINAK := KONPARATU(LEHENA,LUZERA,HITZA,HITZLUZERA)
+	     {BERDINAK = egiazkoa, baldin bi hitzak berdinak badira}
+	     {BERDINAK = faltsua, berdinak ez badira}
+	     baldin BERDINAK orduan LEHENKONTA := LEHENKONTA + 1
+	     {KAR = ' ' edo KAR = '.'}
+	     KAR := ZURIGUNEAK_JAUZI(KAR)
+	ambitartean
+amaia
+ekintza HITZA_GORDE(KAR (karakterea)) itzuli HITZA (20 osagai karakteretako taula) HITZLUZERA (osoa) AKAR (karakterea)
+aldagaiak I (osoa)
+hasiera {KAR-ek lehenengo karakterea dauka}
+	I := 1
+	AKAR := KAR
+	bitartean (AKAR <> '.') eta (AKAR <> ' ') egin
+		  HITZA(I) := AKAR
+		  I := I + 1
+		  irakur (AKAR)
+	ambitartean {I aldagaiak gordetako karaktereen kopurua gehi bat dauka}
+	HITZLUZERA := I - 1
+	{AKAR aldagaiak hitzari amaia ematen dion zurigunea edo puntua dauka}
+	{HITZA eta HITZLUZERA: gordetako hitza adierazten dute }
+amaia
+ekintza KONPARATU(LEHENA (20 osagai karakteretako taula) LUZERA (osoa) HITZA (20 osagai karakteretako taula) HITZLUZERA (osoa)) itzuli BERDINAK (boolearra)
+aldagaiak I (osoa)
+hasiera
+	baldin LUZERA <> HITZLUZERA orduan BERDINAK := faltsua
+	bestela
+	  hasiera
+		I:= 1
+		bitartean (I < LUZERA) eta (LEHENA(I) = (HITZA(I)) egin
+			I:= I + 1
+	    ambitartean
+		baldin LEHENA(I) = HITZA(I) orduan BERDINAK := egiazkoa
+		bestela BERDINAK := faltsua
+      amaia {bestela}
+amaia

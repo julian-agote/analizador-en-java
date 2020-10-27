@@ -1,0 +1,62 @@
+Algoritmoa FROGANAHASTU
+aldagaiak S,T,N (osoa)
+hasiera
+	idatz ("Sartu zenbaki sekuentzia bat?")
+	irakur (S)
+	idatz ("Sartu beste zenbaki sekuentzia bat?")
+	irakur (T)
+	N := NAHASTU_ER(S,T)
+	idatz ("Sekuentzien nahasketa:")
+	idatz (N)
+amaia	
+ekintza NAHASTU_ER(S,T (osoa)) itzuli N (osoa) {bi sekuentzia horien hahasketa itzuliko du, sekuentziak ordenauta baldin badaude, emaitza ere ordenatua egongo da}
+aldagaiak A,B,I,J,C,K,M,D (osoa)
+hasiera
+  	A,I := LEHENA(S,0)
+  	B,J := LEHENA(T,0)
+	aukera
+	 	S = 0:  N := T {hutsa_da(S)}
+	 	T = 0:  N := S {hutsa_da(T)}
+	 	A <= B: hasiera
+		 			M := NAHASTU_ER(HONDARRA(S),T)
+		 			C,K := LEHENA(M,0)
+		 			D := 10
+					bitartean K > 0 egin
+						D := D * 10
+						K := K - 1
+					ambitartean
+		 			N := A * D + M
+	 			amaia
+	 	A > B:  hasiera
+		 	      	M := NAHASTU_ER(S,HONDARRA(T))
+		 	      	C,K := LEHENA(M,0)
+		 			D := 10
+					bitartean K > 0 egin
+						D := D * 10
+						K := K - 1
+					ambitartean
+		 	      	N := B * D + M
+	 	        amaia	 
+	amaukera
+amaia	 	
+ekintza LEHENA(S,I (osoa)) itzuli L,P (osoa)
+hasiera
+	baldin S < 10 orduan 
+		hasiera
+			L := S
+			P := I
+		amaia
+	bestela
+		L,P := LEHENA(S div 10,I+1)
+amaia
+ekintza HONDARRA(S (osoa)) itzuli H (osoa)
+aldagaiak L,P,D (osoa)
+hasiera
+	L,P := LEHENA(S,0)
+	D:= 1
+	bitartean P > 0 egin
+		D := D * 10
+		P := P - 1
+	ambitartean
+	H := S - L * D
+amaia	 					

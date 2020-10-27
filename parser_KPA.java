@@ -29,7 +29,7 @@ public class parser_KPA{
 			if(inputStream!=null)
 				inputStream.close();
 		}	
-		parser_kpa.parser g = new parser_kpa.parser(sb.toString().replace("\n"," "),opcion);// en el parametro opcion se pasa el lenguaje maquina/objeto
+		parser_kpa.parser g = new parser_kpa.parser(sb.toString(),opcion);// en el parametro opcion se pasa el lenguaje maquina/objeto
 		g.parserascendente();
 	}
 }

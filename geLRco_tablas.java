@@ -242,6 +242,258 @@ class TVectorIra  {
 	    return filaira.elements();
 	}   
 }
+class TConjEltos {
+    private Vector<TElemento> conjEltos;
+	TConjEltos () {
+		conjEltos = new Vector<TElemento>();
+	}
+	TConjEltos (Vector<TElemento> pconj) {
+		conjEltos = pconj;
+	}
+	Enumeration elements(){
+		return conjEltos.elements();
+	}	
+	void addElement(TElemento el){
+		conjEltos.addElement(el);
+	}
+	int size(){
+		return conjEltos.size();
+	}
+	boolean isEmpty(){
+		return conjEltos.isEmpty();
+	}	
+	void removeAllElements(){
+		conjEltos.removeAllElements();
+	}
+	void setElementAt(TElemento el, int index){
+		conjEltos.setElementAt(el,index);
+	}	
+    void calcularcierre(Gramatica G) {
+        // repetir: Para cada elemento [A->alfa .B beta,a] en I,  cada produccion B->gamma en G y cada terminal b en PRIMERO(beta a) tal que [B->.gamma,b] no este en I hacer añadir [B->.gamma,b]  a I
+        // hasta no se pueden añadir mas elementos a I
+        Vector<TElemento> nuevoseltoscierre = new Vector<TElemento>(this.conjEltos);
+        Vector<TElemento> anyadidos = new Vector<TElemento>();
+        String B,sim; 
+        TElemento item, nuevoitem;
+        Vector<String> termb, betaa;
+        TRegla regla;
+        do {
+            anyadidos.removeAllElements();
+            for (Enumeration e = nuevoseltoscierre.elements();
+                 e.hasMoreElements(); ) {
+                item = (TElemento)e.nextElement();
+                B = item.getsimdespuespunto();
+                if (G.V.contains(B))
+                    for (Enumeration enum2 = G.P.elements();
+                         enum2.hasMoreElements(); ) {
+                        regla = (TRegla)enum2.nextElement();
+                        if (B.equalsIgnoreCase(regla.lhs)) {
+                            betaa = item.getbetaa();
+                            termb = G.calcularprimerocad(betaa);
+							if(termb.contains("lambda")){
+								betaa = item.getsimAnt();
+								for(Enumeration esim = betaa.elements();esim.hasMoreElements();){
+									sim = (String)esim.nextElement();
+									if(!termb.contains(sim))
+										termb.add(sim);
+								}	
+								termb.remove("lambda");
+							}
+                            nuevoitem = new TElemento(B, regla.rhs, 0, termb);
+                            anyadidos.addElement(nuevoitem);
+                        }
+                    }
+            }
+            nuevoseltoscierre = quitar(anyadidos);
+            anyadir(anyadidos);
+        } while (!nuevoseltoscierre.isEmpty()); // no se pueden añadir mas elementos a I
+    }
+    /*********************************************************
+	* devuelve un vector con los elementos de anyadidos que no estan ya en el cierre
+	**********************************************************/
+    Vector<TElemento> quitar(Vector<TElemento> conjini) {
+        Vector<TElemento>  res = new Vector<TElemento>();
+        TElemento item, item2;
+        boolean yaesta;
+        for (Enumeration e = conjini.elements(); e.hasMoreElements(); ) {
+            item = (TElemento)e.nextElement();
+            yaesta = false;
+            for (Enumeration enum2 = conjEltos.elements();
+                 enum2.hasMoreElements() && !yaesta; ) {
+                item2 = (TElemento)enum2.nextElement();
+                if (item.igual(item2))
+                    yaesta = true;
+            }
+            if (!yaesta)
+                res.addElement(item);
+        }
+        return res;
+    }
+
+    void anyadir(Vector<TElemento> a) {
+        TElemento item, item2;
+        String sim, sim2;
+        boolean yaesta;
+        int index;
+        item2 = new TElemento();
+        for (Enumeration e = a.elements(); e.hasMoreElements(); ) {
+            item = (TElemento)e.nextElement();
+            yaesta = false;
+            index = 0;
+            for (Enumeration enum2 = this.conjEltos.elements();
+                 enum2.hasMoreElements() && !yaesta; ) {
+                item2 = (TElemento)enum2.nextElement();
+                if (item2.igualexceptosim(item))
+                    yaesta = true;
+                else
+                    index++;
+            }
+            if (!yaesta)
+                this.conjEltos.addElement(item);
+            else {
+                for (Enumeration enum2 = item.simant.elements();
+                     enum2.hasMoreElements(); ) {
+                    sim = (String)enum2.nextElement();
+                    yaesta = false;
+                    for (Enumeration enum3 = item2.simant.elements();
+                         enum3.hasMoreElements() && !yaesta; ) {
+                        sim2 = (String)enum3.nextElement();
+                        if (sim2.equalsIgnoreCase(sim))
+                            yaesta = true;
+                    }
+                    if (!yaesta) {
+                        item2.simant.addElement(sim);
+                        this.conjEltos.setElementAt(item2, index);
+                    }
+                }
+            }
+        }
+    }
+
+    TConjEltos calcularira(Gramatica G, String X) {
+        // Sea J el conjunto de elementos [A->alfa X . beta,a] tal que [A->alfa . X beta,a] este en I
+        // return cerradura(J)
+        TConjEltos nuevoconj = new TConjEltos();
+        TElemento item, item2;
+        String sim;
+        for (Enumeration e = conjEltos.elements(); e.hasMoreElements(); ) {
+            item = (TElemento)e.nextElement();
+            sim = item.getsimdespuespunto();
+            if (sim.equalsIgnoreCase(X)) {
+                item2 = new TElemento(item.lhs, item.rhs, item.pospunto + 1, item.simant);
+                nuevoconj.addElement(item2);
+            }
+        }
+        nuevoconj.calcularcierre(G);
+        return nuevoconj;
+    }
+	
+}
+class TEltoAccion {
+    String simbolo;
+    String tipo;
+    TRegla R;
+	int sig_estado;
+	TEltoAccion(String psimbolo,String ptipo,TRegla pr){
+		simbolo = new String(psimbolo);
+		tipo = new String(ptipo);
+		R = pr;
+	}	
+	TEltoAccion(String psimbolo,String ptipo,int psig_estado){
+		simbolo = new String(psimbolo);
+		tipo = new String(ptipo);
+		R = null;
+		sig_estado = psig_estado;
+	}	
+	TEltoAccion(){		
+		simbolo = new String();
+		tipo = new String();
+		R = null;
+	}
+}
+class TVectorAccion  {
+	private Vector<TEltoAccion> filaAccion;
+	TVectorAccion (){
+		filaAccion = new Vector<TEltoAccion>();
+	}	
+	void addElement(TEltoAccion el){
+		filaAccion.addElement(el);
+	}	
+	Enumeration elements(){
+		return filaAccion.elements();
+	}	
+	/**************************************
+	* poner la accion a realizar cuando llega desde la entrada simbol
+	***************************************/
+    void settipo(String tipo, String simbol, int psig_estado) {
+        TEltoAccion item;
+        boolean enc = false;
+        int index = 0;
+        for (Enumeration e = filaAccion.elements();
+             e.hasMoreElements() && !enc; ) {
+            item = (TEltoAccion)e.nextElement();
+            if (item.simbolo.equalsIgnoreCase(simbol)) {
+                enc = true;
+                item.tipo = tipo;
+				item.sig_estado = psig_estado;
+                filaAccion.setElementAt(item, index);
+            } else
+                index++;
+        }
+    }
+	/**************************************
+	* devuelve la accion a realizar cuando llega desde la entrada simbol
+	***************************************/
+    String gettipo(String simbol) {
+        TEltoAccion item;
+        boolean enc = false;
+        String tipo = new String();
+        for (Enumeration e = filaAccion.elements();
+             e.hasMoreElements() && !enc; ) {
+            item = (TEltoAccion)e.nextElement();
+            if (item.simbolo.equalsIgnoreCase(simbol)) {
+                enc = true;
+                tipo = new String(item.tipo);
+            }
+        }
+        return tipo;
+    }
+    /***************************************
+	* cuando la accion a realizar es una reduccion, poner con que regla se reduce
+	****************************************/
+    void setregla(String lhs, Vector<String> rhs, int num, String simbol) {
+        TEltoAccion item;
+        boolean enc = false;
+        int index = 0;
+        for (Enumeration e = filaAccion.elements();
+             e.hasMoreElements() && !enc; ) {
+            item = (TEltoAccion)e.nextElement();
+            if (item.simbolo.equalsIgnoreCase(simbol)) {
+                enc = true;
+                item.R = new TRegla(lhs, rhs, num);
+                filaAccion.setElementAt(item, index);
+            } else
+                index++;
+        }
+    }
+    /***************************************
+	* cuando la accion a realizar es una reduccion, devuelve la regla por la que reducir
+	****************************************/
+    TRegla getregla(String simbol) {
+        TEltoAccion item;
+        boolean enc = false;
+        TRegla regla = new TRegla();
+        for (Enumeration e = filaAccion.elements();
+             e.hasMoreElements() && !enc; ) {
+            item = (TEltoAccion)e.nextElement();
+            if (item.simbolo.equalsIgnoreCase(simbol)) {
+                enc = true;
+                regla = new TRegla(item.R.lhs, item.R.rhs, item.R.num);
+            }
+        }
+        return regla;
+    }
+}
 class Gramatica {
     String axioma;
     Vector<String> T, V;
@@ -355,20 +607,51 @@ class Gramatica {
     /********************************************
 	* muestra por pantalla todas las reglas de produccion de la gramatica
 	*********************************************/
-    void verreglas() {
+    void verreglas(PrintWriter outputStream,boolean pant) {
         StringBuffer cad = new StringBuffer();
         String sim;
         TRegla regla;
+        for (Enumeration e = T.elements(); e.hasMoreElements(); ) {
+			sim = (String)e.nextElement();
+			if(e.hasMoreElements()){
+				cad.append(sim);
+				cad.append(" ");
+			}	
+		}
+		if(pant)
+			System.out.println(String.valueOf(cad));
+		else{
+			outputStream.println(axioma.substring(0,axioma.length()-1));
+			outputStream.println(String.valueOf(cad));
+		}	
+		cad = new StringBuffer();
+        for (Enumeration e = V.elements(); e.hasMoreElements(); ) {
+			sim = (String)e.nextElement();
+			if(e.hasMoreElements()){
+				cad.append(sim);
+				cad.append(" ");
+			}	
+		}
+		if(pant)
+			System.out.println(String.valueOf(cad));
+		else
+			outputStream.println(String.valueOf(cad));
         for (Enumeration e = P.elements(); e.hasMoreElements(); ) {
             regla = (TRegla)e.nextElement();
-            cad = new StringBuffer(String.valueOf(regla.num));
-            cad.append(":" + regla.lhs + "->");
-            for (Enumeration enum2 = regla.rhs.elements();
-                 enum2.hasMoreElements(); ) {
-                sim = (String)enum2.nextElement();
-                cad.append(sim);
-            }
-            System.out.println(String.valueOf(cad));
+			if(regla.num>0){
+				cad = new StringBuffer(String.valueOf(regla.num));
+				cad.append(" " + regla.lhs + " -> ");
+				for (Enumeration enum2 = regla.rhs.elements();enum2.hasMoreElements(); ) {
+					sim = (String)enum2.nextElement();
+					cad.append(sim);
+					if(enum2.hasMoreElements())
+						cad.append(" ");
+				}
+				if(pant)
+					System.out.println(String.valueOf(cad));
+				else
+					outputStream.println(String.valueOf(cad));
+			}
         }
     }
     void escribereglas(PrintWriter outputStream) {
@@ -844,14 +1127,14 @@ class Gramatica {
 		System.out.println("\t\t	tablaaccion.addElement(acc);");
 		System.out.println("\t\t}");
 	}
-	void escribetablaacc2(PrintWriter outputStream,String id_grama) throws IOException{
+	void escribetablaacc2(PrintWriter outputStream) throws IOException{
         TVectorAccion acc;
         TEltoAccion item;
 		String cad;
 		StringBuffer sb2;
 		boolean sig;
 		int n=0;
-		PrintWriter outputStream3 = new PrintWriter(new FileWriter("tabla_acc"+id_grama+".txt"));
+		PrintWriter outputStream3 = new PrintWriter(new FileWriter("tabla_acc"+this.sufijo+".txt"));
 		for(Enumeration e = tablaaccion.elements(); e.hasMoreElements();){
 			n++;
 			acc = (TVectorAccion)e.nextElement();
@@ -886,7 +1169,7 @@ class Gramatica {
 		outputStream.println("\t\tString l;");
 		outputStream.println("\t\tint fila = 0,ncol;");
 		outputStream.println("\t\ttry{");
-		outputStream.println("\t\t	inputStream = new BufferedReader(new FileReader(\"tabla_acc"+id_grama+".txt\"));");
+		outputStream.println("\t\t	inputStream = new BufferedReader(new FileReader(\"tabla_acc"+this.sufijo+".txt\"));");
 		outputStream.println("\t\t	while((l=inputStream.readLine())!=null){		");
 		outputStream.println("\t\t	  String[] vars= l.split(\",\");");
 		outputStream.println("\t\t	  if(vars.length%6==0)");
@@ -985,61 +1268,57 @@ class Gramatica {
 		outputStream.println("\t\t	tablaira.addElement(ira);");
 		outputStream.println("\t\t}");
     }
-	/********************************************************
-	* escribe en un fichero tabla_ira.txt la tabla de ira
-	*********************************************************/	
-	void escribetablaira3(PrintWriter outputStream,String id_grama) throws IOException{
+    void escribetablaira3(PrintWriter outputStream) throws IOException{
         TVectorIra ira;
         TElemIra item;
-		StringBuffer sb2;
-		int n=0;
-		PrintWriter outputStream3 = new PrintWriter(new FileWriter("tabla_ira"+id_grama+".txt"));
+        StringBuffer sb2;
+        int n=0;
+        PrintWriter outputStream3 = new PrintWriter(new FileWriter("tabla_ira"+this.sufijo+".txt"));
         for (Enumeration e = tablaira.elements(); e.hasMoreElements(); ) {
-			n++;
+            n++;
             ira = (TVectorIra)e.nextElement();
-			sb2 = new StringBuffer(""); 
+            sb2 = new StringBuffer(""); 
             for (Enumeration enum2 = ira.elements(); enum2.hasMoreElements();) {
                 item = (TElemIra)enum2.nextElement();
                 if (item.nestado >= 0) {
-					if(sb2.length()>1) sb2.append(",");
-					sb2.append(item.simbolo+","+item.nestado);
+                    if(sb2.length()>1) sb2.append(",");
+                    sb2.append(item.simbolo+","+item.nestado);
                 }
             }
-			outputStream3.println(sb2.toString());
-		}
-		outputStream3.close();
-		outputStream.println("\t\tTElemIra[][] bindVars = new TElemIra["+n+"][];");
-		outputStream.println("\t\tBufferedReader inputStream = null;");
-		outputStream.println("\t\tString l;");
-		outputStream.println("\t\tint fila = 0,ncol;");
-		outputStream.println("\t\ttry{");
-		outputStream.println("\t\t	inputStream = new BufferedReader(new FileReader(\"tabla_ira"+id_grama+".txt\"));");
-		outputStream.println("\t\t	while((l=inputStream.readLine())!=null){		");
-		outputStream.println("\t\t	  if((l == null) || l.equals(\"\"))");
-		outputStream.println("\t\t	    bindVars[fila] = new TElemIra[0];");
-		outputStream.println("\t\t	  else{	");
-		outputStream.println("\t\t	    String[] vars= l.split(\",\");");
-		outputStream.println("\t\t	    if(vars.length%2==0)");
-		outputStream.println("\t\t	  	  ncol =vars.length/2;");
-		outputStream.println("\t\t	    else");
-		outputStream.println("\t\t		  ncol =(vars.length+1)/2;  ");
-		outputStream.println("\t\t	    bindVars[fila] = new TElemIra[ncol];");
-		outputStream.println("\t\t	    for(int i=0;i<ncol;i++)");
-		outputStream.println("\t\t	       bindVars[fila][i]=getElemIra(vars[i*2],Integer.parseInt(vars[i*2+1]));");
-		outputStream.println("\t\t	  }	");
-		outputStream.println("\t\t	  fila++;");
-		outputStream.println("\t\t	}	");
-		outputStream.println("\t\t}finally{");
-		outputStream.println("\t\t	if(inputStream!=null)");
-		outputStream.println("\t\t		inputStream.close();");
-		outputStream.println("\t\t}");
-		outputStream.println("\t\ttablaira = new Vector<Hashtable>();");
-		outputStream.println("\t\tfor(int z = 0;z<bindVars.length;z++){");
-		outputStream.println("\t\t	Hashtable ira = new Hashtable();");
-		outputStream.println("\t\t	for(int k=0;k<bindVars[z].length;k++)");
-		outputStream.println("\t\t		ira.put(bindVars[z][k].simbolo,new Integer(bindVars[z][k].nestado));");
-		outputStream.println("\t\t	tablaira.addElement(ira);");
-		outputStream.println("\t\t}");
+            outputStream3.println(sb2.toString());
+        }
+        outputStream3.close();
+        outputStream.println("\t\tTElemIra[][] bindVars = new TElemIra["+n+"][];");
+        outputStream.println("\t\tBufferedReader inputStream = null;");
+        outputStream.println("\t\tString l;");
+        outputStream.println("\t\tint fila = 0,ncol;");
+        outputStream.println("\t\ttry{");
+        outputStream.println("\t\t  inputStream = new BufferedReader(new FileReader(\"tabla_ira"+this.sufijo+".txt\"));");
+        outputStream.println("\t\t  while((l=inputStream.readLine())!=null){        ");
+        outputStream.println("\t\t    if(!l.equals(\"\")){ ");
+        outputStream.println("\t\t      String[] vars= l.split(\",\");");
+        outputStream.println("\t\t      ncol =vars.length/2;");
+        outputStream.println("\t\t      bindVars[fila] = new TElemIra[ncol];");
+        outputStream.println("\t\t      for(int i=0;i<ncol;i++)");
+        outputStream.println("\t\t          bindVars[fila][i] = getElemIra(vars[i*2],Integer.parseInt(vars[i*2+1]));");
+        outputStream.println("\t\t    }else{");
+        outputStream.println("\t\t          bindVars[fila] = new TElemIra[1];");
+        outputStream.println("\t\t          bindVars[fila][0] = getElemIra(\"\",0);");
+        outputStream.println("\t\t    }");
+        outputStream.println("\t\t    fila++;");
+        outputStream.println("\t\t  }   ");
+        outputStream.println("\t\t}finally{");
+        outputStream.println("\t\t  if(inputStream!=null)");
+        outputStream.println("\t\t      inputStream.close();");
+        outputStream.println("\t\t}");
+        outputStream.println("\t\ttablaira = new Vector<Hashtable>();");
+        outputStream.println("\t\tfor(int z = 0;z<bindVars.length;z++){");
+        outputStream.println("\t\t  Hashtable ira = new Hashtable();");
+        outputStream.println("\t\t  for(int k=0;k<bindVars[z].length;k++)");
+        outputStream.println("\t\t      if(!bindVars[z][k].simbolo.equals(\"\"))");
+        outputStream.println("\t\t          ira.put(bindVars[z][k].simbolo,new Integer(bindVars[z][k].nestado));");
+        outputStream.println("\t\t  tablaira.addElement(ira);");
+        outputStream.println("\t\t}");
     }
     /********************************************
 	* Busca en la coleccion de elementos, devuelve -1 si no se encuentra, la posicion en el vector de conjuntos de elementos, en caso contrario
@@ -1241,258 +1520,6 @@ class Gramatica {
 	}
 
 }
-class TConjEltos {
-    private Vector<TElemento> conjEltos;
-	TConjEltos () {
-		conjEltos = new Vector<TElemento>();
-	}
-	TConjEltos (Vector<TElemento> pconj) {
-		conjEltos = pconj;
-	}
-	Enumeration elements(){
-		return conjEltos.elements();
-	}	
-	void addElement(TElemento el){
-		conjEltos.addElement(el);
-	}
-	int size(){
-		return conjEltos.size();
-	}
-	boolean isEmpty(){
-		return conjEltos.isEmpty();
-	}	
-	void removeAllElements(){
-		conjEltos.removeAllElements();
-	}
-	void setElementAt(TElemento el, int index){
-		conjEltos.setElementAt(el,index);
-	}	
-    void calcularcierre(Gramatica G) {
-        // repetir: Para cada elemento [A->alfa .B beta,a] en I,  cada produccion B->gamma en G y cada terminal b en PRIMERO(beta a) tal que [B->.gamma,b] no este en I hacer añadir [B->.gamma,b]  a I
-        // hasta no se pueden añadir mas elementos a I
-        Vector<TElemento> nuevoseltoscierre = new Vector<TElemento>(this.conjEltos);
-        Vector<TElemento> anyadidos = new Vector<TElemento>();
-        String B,sim; 
-        TElemento item, nuevoitem;
-        Vector<String> termb, betaa;
-        TRegla regla;
-        do {
-            anyadidos.removeAllElements();
-            for (Enumeration e = nuevoseltoscierre.elements();
-                 e.hasMoreElements(); ) {
-                item = (TElemento)e.nextElement();
-                B = item.getsimdespuespunto();
-                if (G.V.contains(B))
-                    for (Enumeration enum2 = G.P.elements();
-                         enum2.hasMoreElements(); ) {
-                        regla = (TRegla)enum2.nextElement();
-                        if (B.equalsIgnoreCase(regla.lhs)) {
-                            betaa = item.getbetaa();
-                            termb = G.calcularprimerocad(betaa);
-							if(termb.contains("lambda")){
-								betaa = item.getsimAnt();
-								for(Enumeration esim = betaa.elements();esim.hasMoreElements();){
-									sim = (String)esim.nextElement();
-									if(!termb.contains(sim))
-										termb.add(sim);
-								}	
-								termb.remove("lambda");
-							}
-                            nuevoitem = new TElemento(B, regla.rhs, 0, termb);
-                            anyadidos.addElement(nuevoitem);
-                        }
-                    }
-            }
-            nuevoseltoscierre = quitar(anyadidos);
-            anyadir(anyadidos);
-        } while (!nuevoseltoscierre.isEmpty()); // no se pueden añadir mas elementos a I
-    }
-    /*********************************************************
-	* devuelve un vector con los elementos de anyadidos que no estan ya en el cierre
-	**********************************************************/
-    Vector<TElemento> quitar(Vector<TElemento> conjini) {
-        Vector<TElemento>  res = new Vector<TElemento>();
-        TElemento item, item2;
-        boolean yaesta;
-        for (Enumeration e = conjini.elements(); e.hasMoreElements(); ) {
-            item = (TElemento)e.nextElement();
-            yaesta = false;
-            for (Enumeration enum2 = conjEltos.elements();
-                 enum2.hasMoreElements() && !yaesta; ) {
-                item2 = (TElemento)enum2.nextElement();
-                if (item.igual(item2))
-                    yaesta = true;
-            }
-            if (!yaesta)
-                res.addElement(item);
-        }
-        return res;
-    }
-
-    void anyadir(Vector<TElemento> a) {
-        TElemento item, item2;
-        String sim, sim2;
-        boolean yaesta;
-        int index;
-        item2 = new TElemento();
-        for (Enumeration e = a.elements(); e.hasMoreElements(); ) {
-            item = (TElemento)e.nextElement();
-            yaesta = false;
-            index = 0;
-            for (Enumeration enum2 = this.conjEltos.elements();
-                 enum2.hasMoreElements() && !yaesta; ) {
-                item2 = (TElemento)enum2.nextElement();
-                if (item2.igualexceptosim(item))
-                    yaesta = true;
-                else
-                    index++;
-            }
-            if (!yaesta)
-                this.conjEltos.addElement(item);
-            else {
-                for (Enumeration enum2 = item.simant.elements();
-                     enum2.hasMoreElements(); ) {
-                    sim = (String)enum2.nextElement();
-                    yaesta = false;
-                    for (Enumeration enum3 = item2.simant.elements();
-                         enum3.hasMoreElements() && !yaesta; ) {
-                        sim2 = (String)enum3.nextElement();
-                        if (sim2.equalsIgnoreCase(sim))
-                            yaesta = true;
-                    }
-                    if (!yaesta) {
-                        item2.simant.addElement(sim);
-                        this.conjEltos.setElementAt(item2, index);
-                    }
-                }
-            }
-        }
-    }
-
-    TConjEltos calcularira(Gramatica G, String X) {
-        // Sea J el conjunto de elementos [A->alfa X . beta,a] tal que [A->alfa . X beta,a] este en I
-        // return cerradura(J)
-        TConjEltos nuevoconj = new TConjEltos();
-        TElemento item, item2;
-        String sim;
-        for (Enumeration e = conjEltos.elements(); e.hasMoreElements(); ) {
-            item = (TElemento)e.nextElement();
-            sim = item.getsimdespuespunto();
-            if (sim.equalsIgnoreCase(X)) {
-                item2 = new TElemento(item.lhs, item.rhs, item.pospunto + 1, item.simant);
-                nuevoconj.addElement(item2);
-            }
-        }
-        nuevoconj.calcularcierre(G);
-        return nuevoconj;
-    }
-	
-}
-class TEltoAccion {
-    String simbolo;
-    String tipo;
-    TRegla R;
-	int sig_estado;
-	TEltoAccion(String psimbolo,String ptipo,TRegla pr){
-		simbolo = new String(psimbolo);
-		tipo = new String(ptipo);
-		R = pr;
-	}	
-	TEltoAccion(String psimbolo,String ptipo,int psig_estado){
-		simbolo = new String(psimbolo);
-		tipo = new String(ptipo);
-		R = null;
-		sig_estado = psig_estado;
-	}	
-	TEltoAccion(){		
-		simbolo = new String();
-		tipo = new String();
-		R = null;
-	}
-}
-class TVectorAccion  {
-	private Vector<TEltoAccion> filaAccion;
-	TVectorAccion (){
-		filaAccion = new Vector<TEltoAccion>();
-	}	
-	void addElement(TEltoAccion el){
-		filaAccion.addElement(el);
-	}	
-	Enumeration elements(){
-		return filaAccion.elements();
-	}	
-	/**************************************
-	* poner la accion a realizar cuando llega desde la entrada simbol
-	***************************************/
-    void settipo(String tipo, String simbol, int psig_estado) {
-        TEltoAccion item;
-        boolean enc = false;
-        int index = 0;
-        for (Enumeration e = filaAccion.elements();
-             e.hasMoreElements() && !enc; ) {
-            item = (TEltoAccion)e.nextElement();
-            if (item.simbolo.equalsIgnoreCase(simbol)) {
-                enc = true;
-                item.tipo = tipo;
-				item.sig_estado = psig_estado;
-                filaAccion.setElementAt(item, index);
-            } else
-                index++;
-        }
-    }
-	/**************************************
-	* devuevle la accion a realizar cuando llega desde la entrada simbol
-	***************************************/
-    String gettipo(String simbol) {
-        TEltoAccion item;
-        boolean enc = false;
-        String tipo = new String();
-        for (Enumeration e = filaAccion.elements();
-             e.hasMoreElements() && !enc; ) {
-            item = (TEltoAccion)e.nextElement();
-            if (item.simbolo.equalsIgnoreCase(simbol)) {
-                enc = true;
-                tipo = new String(item.tipo);
-            }
-        }
-        return tipo;
-    }
-    /***************************************
-	* cuando la accion a realizar es una reduccion, poner con que regla se reduce
-	****************************************/
-    void setregla(String lhs, Vector<String> rhs, int num, String simbol) {
-        TEltoAccion item;
-        boolean enc = false;
-        int index = 0;
-        for (Enumeration e = filaAccion.elements();
-             e.hasMoreElements() && !enc; ) {
-            item = (TEltoAccion)e.nextElement();
-            if (item.simbolo.equalsIgnoreCase(simbol)) {
-                enc = true;
-                item.R = new TRegla(lhs, rhs, num);
-                filaAccion.setElementAt(item, index);
-            } else
-                index++;
-        }
-    }
-    /***************************************
-	* cuando la accion a realizar es una reduccion, devuelve la regla por la que reducir
-	****************************************/
-    TRegla getregla(String simbol) {
-        TEltoAccion item;
-        boolean enc = false;
-        TRegla regla = new TRegla();
-        for (Enumeration e = filaAccion.elements();
-             e.hasMoreElements() && !enc; ) {
-            item = (TEltoAccion)e.nextElement();
-            if (item.simbolo.equalsIgnoreCase(simbol)) {
-                enc = true;
-                regla = new TRegla(item.R.lhs, item.R.rhs, item.R.num);
-            }
-        }
-        return regla;
-    }
-}
 public class geLRco_tablas {
 	static void escribeparser(Gramatica g)  throws IOException {
 		PrintWriter outputStream = null;
@@ -1503,6 +1530,9 @@ public class geLRco_tablas {
 			outputStream.println("import java.io.IOException;");
 			outputStream.println("import java.io.FileReader;");
 			outputStream.println("import java.io.BufferedReader;");
+			outputStream.println("/* ---------------- Gramatica: grama"+g.sufijo+".txt ------------------");
+			g.verreglas(outputStream,false);
+			outputStream.println("---------------------------------------------------------------- */");
 			outputStream.println("class TRegla {");
 			outputStream.println("    int num;");
 			outputStream.println("    String lhs;");
@@ -1590,7 +1620,7 @@ public class geLRco_tablas {
 			outputStream.println("\tTTablaSimbolos ts;");
 			outputStream.println("\tTEntrada ent;");
 			outputStream.println("\tTGestorSemantico gs;");
-			outputStream.println("\tpublic parser(String s,String _opc) throws IOException{");
+			outputStream.println("\tpublic parser(String s,String _opcion) throws IOException{");
 			outputStream.println("\t\tTRegla regla;");
 			outputStream.println("\t\tP = new Vector<TRegla>();");
 			g.escribereglas(outputStream);
@@ -1599,7 +1629,7 @@ public class geLRco_tablas {
 			outputStream.println("\t\tent = new TEntrada();");
 			outputStream.println("\t\tent.gordeCad(s);");
 			outputStream.println("\t\ttry{");
-			outputStream.println("\t\t	gs = new TGestorSemantico(_opc);");
+			outputStream.println("\t\t	gs = new TGestorSemantico(_opcion,ent);");
 			outputStream.println("\t\t} catch (Exception e) {");
             outputStream.println("\t\t	System.out.println(\"Error al inicializar el Gestor Semantico:\"+e.getMessage());");
 			outputStream.println("\t\t}	");
@@ -1607,8 +1637,8 @@ public class geLRco_tablas {
 			outputStream.println("\tTElemIra getElemIra(String simb, int est) {");
 			outputStream.println("\t	return new TElemIra(simb,est);");
 			outputStream.println("\t}");
-			outputStream.println("\tvoid initablaira() throws IOException {");
-			g.escribetablaira3(outputStream,g.sufijo);
+			outputStream.println("\tvoid initablaira()  throws IOException {");
+			g.escribetablaira3(outputStream);
 			outputStream.println("\t}");
 			outputStream.println("\tTEltoAccion getEltoAccion(String ptipo,String psimbolo,TRegla pr){");
 			outputStream.println("\t	return new TEltoAccion(ptipo,psimbolo,pr);");
@@ -1617,7 +1647,7 @@ public class geLRco_tablas {
 			outputStream.println("\t	return new TEltoAccion(ptipo,psimbolo,psig_estado);");
 			outputStream.println("\t}");
 			outputStream.println("\tvoid initablaaccion() throws IOException {");
-			g.escribetablaacc2(outputStream,g.sufijo);
+			g.escribetablaacc2(outputStream);
 			outputStream.println("\t}");
 			outputStream.println("\tpublic boolean parserascendente() throws IOException  {");
 	        outputStream.println("\t\tStack<String> pila = new Stack<String>();");
@@ -1664,7 +1694,7 @@ public class geLRco_tablas {
 			outputStream.println("\t\t\t\t\t}");
 			outputStream.println("\t\t\t\t}");
 			outputStream.println("\t\t\t} else {");
-			outputStream.println("\t\t\t\tSystem.out.println(\"Falta entrada en accion estado=\"+String.valueOf(est)+\" con=\"+sim.token);");
+			outputStream.println("\t\t\t\tSystem.out.println(\"Falta entrada en accion estado=\"+String.valueOf(est)+\" con=\"+sim.token+\" \"+ent.faltaLeer());");
 			outputStream.println("\t\t\t\terror = true;");
 			outputStream.println("\t\t\t}	");
 			outputStream.println("\t\t} while (!error && !eltoacc.tipo.equalsIgnoreCase(\"Aceptar\"));");

@@ -1,0 +1,36 @@
+Algoritmoa BEKBATU
+aldagaiak I (osoa)
+          V1,V2,BATURA (100 osagai osotako taula)
+hasiera
+	V1(1):=5 
+	V1(2):=7 
+	V1(3):=7
+	V1(4):=100
+	V1(5):=-20
+	V1(6):=5 
+	V1(7):=5 
+	V1(8):=5 
+	V1(9):=5 
+	V1(10):=5             
+	V2(1):=1 
+	V2(2):=1 
+	V2(3):=1
+	V2(4):=1
+	V2(5):=1
+	V2(6):=1 
+	V2(7):=1 
+	V2(8):=1 
+	V2(9):=1 
+	V2(10):=1
+	I := 0
+    bitartean I < 10 egin 
+        I := I+1
+        BATURA(I) := V1(I) + V2(I)
+    ambitartean
+    idatz ("V1 eta V2 batu eta erakutsi emaitza:")   
+    I := 0
+    bitartean I < 10 egin 
+        I := I+1
+        idatz (BATURA(I))
+    ambitartean     
+amaia         	
